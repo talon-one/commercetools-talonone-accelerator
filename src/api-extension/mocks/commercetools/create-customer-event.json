@@ -1,0 +1,46 @@
+{
+  "action": "Create",
+  "resource": {
+    "typeId": "customer",
+    "id": "fdb3773b-fee1-4533-ae0f-5472374d2537",
+    "obj": {
+      "id": "fdb3773b-fee1-4533-ae0f-5472374d2537",
+      "version": 1,
+      "lastMessageSequenceNumber": 1,
+      "createdAt": "1970-01-01T00:00:00.000Z",
+      "lastModifiedAt": "1970-01-01T00:00:00.000Z",
+      "lastModifiedBy": {
+        "clientId": "nqWd1j1uz_DRuezHiSXZVvZW",
+        "isPlatformClient": false,
+        "customer": {
+          "typeId": "customer",
+          "id": "8bc88338-5797-4a8e-8ce5-23a904dcf552"
+        }
+      },
+      "createdBy": {
+        "clientId": "nqWd1j1uz_DRuezHiSXZVvZW",
+        "isPlatformClient": false,
+        "customer": {
+          "typeId": "customer",
+          "id": "8bc88338-5797-4a8e-8ce5-23a904dcf552"
+        }
+      },
+      "email": "mbukowski+100@divante.pl",
+      "password": "OM2UZ8MeFpwKTmoGff/L+Wn7hWeCQTDzRRIghcJlJJo=$MHbpwWJAd1bOVPUoDtWTggn0AmRxo+Jqu2zZT/3NBD0=",
+      "addresses": [],
+      "shippingAddressIds": [],
+      "billingAddressIds": [],
+      "isEmailVerified": true,
+      "stores": [],
+      "custom": {
+        "type": {
+          "typeId": "type",
+          "id": "8d19ace4-0967-408b-b3cf-046ef00c4d24"
+        },
+        "fields": {
+          "talon_one_customer_referral_codes": ["123", "234"]
+        }
+      }
+    }
+  }
+}

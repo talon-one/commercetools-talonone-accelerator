@@ -1,0 +1,27 @@
+{
+  "effects": [
+    {
+      "campaignId": 50,
+      "rulesetId": 102,
+      "ruleIndex": 0,
+      "ruleName": "referral",
+      "effectType": "referralCreated",
+      "props": {
+        "value": "123-253"
+      }
+    },
+    {
+      "campaignId": 50,
+      "rulesetId": 102,
+      "ruleIndex": 1,
+      "ruleName": "referral 2",
+      "effectType": "referralCreated",
+      "props": {
+        "value": "562-253"
+      }
+    }
+  ],
+  "createdCoupons": [],
+  "createdReferrals": [],
+  "customerProfile": {}
+}

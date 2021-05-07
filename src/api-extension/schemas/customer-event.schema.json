@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Customer Event",
+  "description": "A customer event from Commercetools.",
+  "type": "object",
+  "properties": {
+    "action": {
+      "type": "string",
+      "enum": ["Update", "Create"]
+    },
+    "resource": {
+      "type": "object",
+      "properties": {
+        "typeId": {
+          "type": "string",
+          "pattern": "^customer$"
+        },
+        "id": {
+          "type": "string"
+        },
+        "obj": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            },
+            "custom": {
+              "type": "object",
+              "properties": {
+                "fields": {
+                  "type": "object",
+                  "properties": {
+                    "talon_one_customer_referral_codes": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "required": ["email", "id"]
+        }
+      },
+      "required": ["typeId", "id", "obj"]
+    }
+  },
+  "required": ["action", "resource"]
+}

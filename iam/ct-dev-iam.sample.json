@@ -1,0 +1,11 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "Invoke",
+      "Effect": "Allow",
+      "Action": ["lambda:InvokeFunction"],
+      "Resource": "arn:aws:lambda:eu-central-1:__REPLACE_WITH_YOUR_AWS_ACCOUNT_ID__:function:t1-ct-dev-*"
+    }
+  ]
+}

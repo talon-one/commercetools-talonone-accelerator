@@ -1,0 +1,80 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Order Event",
+  "description": "An order event from Commercetools.",
+  "definitions": {
+    "money": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["centPrecision"]
+        },
+        "currencyCode": {
+          "type": "string"
+        },
+        "centAmount": {
+          "type": "integer"
+        },
+        "fractionDigits": {
+          "type": "integer"
+        }
+      },
+      "required": ["type", "currencyCode", "centAmount", "fractionDigits"]
+    }
+  },
+  "type": "object",
+  "properties": {
+    "action": {
+      "type": "string",
+      "enum": ["Update", "Create"]
+    },
+    "resource": {
+      "type": "object",
+      "properties": {
+        "typeId": {
+          "type": "string",
+          "pattern": "^order$"
+        },
+        "id": {
+          "type": "string"
+        },
+        "obj": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "pattern": "^Order$"
+            },
+            "orderState": {
+              "type": "string",
+              "enum": ["Open", "Confirmed", "Complete", "Cancelled"]
+            },
+            "id": {
+              "type": "string"
+            },
+            "totalPrice": {
+              "$ref": "#/definitions/money"
+            },
+            "cart": {
+              "type": "object",
+              "properties": {
+                "typeId": {
+                  "type": "string",
+                  "pattern": "^cart$"
+                },
+                "id": {
+                  "type": "string"
+                }
+              },
+              "required": ["typeId", "id"]
+            }
+          },
+          "required": ["type", "orderState", "id", "cart", "totalPrice"]
+        }
+      },
+      "required": ["typeId", "id", "obj"]
+    }
+  },
+  "required": ["action", "resource"]
+}

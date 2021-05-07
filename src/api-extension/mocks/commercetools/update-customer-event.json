@@ -1,0 +1,88 @@
+{
+  "action": "Update",
+  "resource": {
+    "typeId": "customer",
+    "id": "32aae963-37f9-4f22-843a-4f992a25e7b2",
+    "obj": {
+      "id": "f449c925-4c9e-47ab-a7dd-b6839ae3857a",
+      "version": 23,
+      "lastMessageSequenceNumber": 7,
+      "createdAt": "2021-03-08T11:34:08.966Z",
+      "lastModifiedAt": "2021-03-10T12:36:43.569Z",
+      "lastModifiedBy": {
+        "isPlatformClient": true,
+        "user": {
+          "typeId": "user",
+          "id": "3536780b-174c-4062-ad88-a3f5cc17e1fe"
+        }
+      },
+      "createdBy": {
+        "clientId": "nqWd1j1uz_DRuezHiSXZVvZW",
+        "isPlatformClient": false
+      },
+      "customerNumber": "mb-number-123",
+      "email": "example@example.com",
+      "firstName": "John",
+      "lastName": "Doe",
+      "middleName": "Peter",
+      "title": "Doctor",
+      "salutation": "Sir",
+      "dateOfBirth": "1990-12-09",
+      "companyName": "Company S.A",
+      "vatId": "123-456-78-90",
+      "password": "TEtS8qOK7HkAWsHPkiMIMnRqy3iTlE/ETpx1WHYftTo=$eyKlxHbnEUemqMGOCcLFW/fB8I46QlBMdda55A2qNVQ=",
+      "addresses": [
+        {
+          "id": "kX3xt3rH",
+          "title": "Doctor",
+          "salutation": "Sir",
+          "firstName": "John",
+          "lastName": "Doe",
+          "streetName": "Street",
+          "streetNumber": "17",
+          "additionalStreetInfo": "Additional Street Info",
+          "postalCode": "59-203",
+          "city": "Wrocław",
+          "region": "Dolnoslaskie",
+          "state": "Dolnoslaskie",
+          "country": "PL",
+          "company": "Company S.A",
+          "department": "Company S.A Department",
+          "building": "Company S.A Building",
+          "apartment": "17",
+          "pOBox": "PO Box",
+          "phone": "23456784",
+          "mobile": "45678432",
+          "email": "emailcontant@email.com",
+          "fax": "3452423",
+          "additionalAddressInfo": "Additional Address Info"
+        }
+      ],
+      "defaultShippingAddressId": "kX3xt3rH",
+      "defaultBillingAddressId": "kX3xt3rH",
+      "shippingAddressIds": ["kX3xt3rH"],
+      "billingAddressIds": ["kX3xt3rH"],
+      "isEmailVerified": true,
+      "customerGroup": {
+        "typeId": "customer-group",
+        "id": "2cd0924d-6483-4692-bb7f-7a2db351b974"
+      },
+      "externalId": "EXternal ID Example",
+      "custom": {
+        "type": {
+          "typeId": "type",
+          "id": "8d19ace4-0967-408b-b3cf-046ef00c4d24"
+        },
+        "fields": {
+          "talon_one_customer_referral_codes": ["123", "234"]
+        }
+      },
+      "stores": [
+        {
+          "typeId": "store",
+          "key": "primary-store"
+        }
+      ]
+    }
+  }
+}

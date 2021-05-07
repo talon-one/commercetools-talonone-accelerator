@@ -1,0 +1,22 @@
+'use strict';
+module.exports = {
+  emptyEvent: require('./commercetools/empty-event.json'),
+  createCartEvent: require('./commercetools/create-cart-event.json'),
+  updateCartEvent: require('./commercetools/update-cart-event.json'),
+  createCustomerEvent: require('./commercetools/create-customer-event.json'),
+  updateCustomerEvent: require('./commercetools/update-customer-event.json'),
+  createOrderEvent: require('./commercetools/create-order-event.json'),
+  updateOrderEvent: require('./commercetools/update-order-event.json'),
+  updateCartActions: require('./actions/update-cart-actions.json'),
+  updateCustomerSessionResponse: require('./talonone/update-customer-session-response.json'),
+  updateCustomerProfileResponse: require('./talonone/update-customer-profile-response.json'),
+  productsResponse: require('./commercetools/products.json'),
+  updateCartEventCustomerSession: require('./customer-sessions/update-cart-event.json'),
+  usdReferralsResponse: require('./talonone/usd-referrals-response.json'),
+  eurReferralsResponse: require('./talonone/eur-referrals-response.json'),
+  createCartReferralActions: require('./actions/create-cart-referral-actions.json'),
+  createCartUpdateCustomerReferralActions: require('./actions/create-cart-update-customer-referral-actions.json'),
+  createCustomerReferralActions: require('./actions/create-customer-referral-actions.json'),
+  customerResponse: require('./commercetools/customer.json'),
+  updateCustomerResponse: require('./commercetools/update-customer.json'),
+};

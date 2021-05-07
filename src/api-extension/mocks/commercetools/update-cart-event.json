@@ -1,0 +1,2347 @@
+{
+  "action": "Update",
+  "resource": {
+    "typeId": "cart",
+    "id": "8e44a7c8-93dd-4461-b0c6-7a0b329aaf85",
+    "obj": {
+      "type": "Cart",
+      "id": "8e44a7c8-93dd-4461-b0c6-7a0b329aaf85",
+      "version": 62,
+      "lastMessageSequenceNumber": 1,
+      "createdAt": "2021-03-18T13:04:33.735Z",
+      "lastModifiedAt": "2021-03-18T13:06:18.126Z",
+      "lastModifiedBy": {
+        "clientId": "GLAAwez_cJDkRs9QKIbJSPdO",
+        "isPlatformClient": false,
+        "customer": {
+          "typeId": "customer",
+          "id": "0e221bb9-b138-437c-be58-aff777ac6070"
+        }
+      },
+      "createdBy": {
+        "clientId": "GLAAwez_cJDkRs9QKIbJSPdO",
+        "isPlatformClient": false,
+        "customer": {
+          "typeId": "customer",
+          "id": "0e221bb9-b138-437c-be58-aff777ac6070"
+        }
+      },
+      "customerId": "0e221bb9-b138-437c-be58-aff777ac6070",
+      "lineItems": [
+        {
+          "id": "a0c07745-cc5b-48e0-a3fb-d96e81a1d12a",
+          "productId": "f70e09f8-1aa2-4869-aef2-9c0fc4d4e564",
+          "name": {
+            "en": "jeans Michael Kors dark blue",
+            "de": "jeans Michael Kors dunkelblau"
+          },
+          "productType": {
+            "typeId": "product-type",
+            "id": "2abec750-f326-4774-b49f-37816e589727",
+            "version": 1
+          },
+          "productSlug": {
+            "en": "michael-kors-jeans-CS53C5N0UD-darkblue",
+            "de": "michael-kors-jeans-CS53C5N0UD-dunkelblau"
+          },
+          "variant": {
+            "id": 1,
+            "sku": "M0E20000000ELE4",
+            "prices": [
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "EUR",
+                  "centAmount": 22375,
+                  "fractionDigits": 2
+                },
+                "id": "beb5c53d-0b7f-423e-8b51-70e3a0ec4bfb"
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "EUR",
+                  "centAmount": 14672,
+                  "fractionDigits": 2
+                },
+                "id": "93b8d83c-06d2-4bac-8d61-4e0f4400058d",
+                "customerGroup": {
+                  "typeId": "customer-group",
+                  "id": "097543d6-58e1-43ba-b684-ad7484197400"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "USD",
+                  "centAmount": 22375,
+                  "fractionDigits": 2
+                },
+                "id": "3732e632-0715-4190-8986-89f085d843df",
+                "country": "US"
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "USD",
+                  "centAmount": 14672,
+                  "fractionDigits": 2
+                },
+                "id": "bb82d9d1-f749-49fc-8a54-d860f0cc0635",
+                "customerGroup": {
+                  "typeId": "customer-group",
+                  "id": "097543d6-58e1-43ba-b684-ad7484197400"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "EUR",
+                  "centAmount": 17900,
+                  "fractionDigits": 2
+                },
+                "id": "9de309a2-09b2-4d16-a9cd-c301e1b81545",
+                "country": "DE"
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "EUR",
+                  "centAmount": 17900,
+                  "fractionDigits": 2
+                },
+                "id": "d5c0924a-8164-426a-aa9f-b55f653f09c7",
+                "country": "IT"
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "EUR",
+                  "centAmount": 17900,
+                  "fractionDigits": 2
+                },
+                "id": "b112dca5-0b7a-4882-b852-45e1c07ca170",
+                "country": "GB"
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "EUR",
+                  "centAmount": 17363,
+                  "fractionDigits": 2
+                },
+                "id": "3336587d-9cf3-4657-bdf4-30dbc6e24a25",
+                "country": "DE",
+                "channel": {
+                  "typeId": "channel",
+                  "id": "4b4e6cef-9148-4f39-a890-a7ebad4cbf27"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "EUR",
+                  "centAmount": 20585,
+                  "fractionDigits": 2
+                },
+                "id": "30e3bde6-1655-46c5-b18a-130d02cd4249",
+                "channel": {
+                  "typeId": "channel",
+                  "id": "94fc07a3-47ac-48cd-a8f4-c4e349bd8e5a"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "EUR",
+                  "centAmount": 16468,
+                  "fractionDigits": 2
+                },
+                "id": "30a85cb9-6039-4c89-91cd-e7d1dcb25f4f",
+                "country": "DE",
+                "channel": {
+                  "typeId": "channel",
+                  "id": "c7a0c154-7e2d-4652-a3e1-44b72956e42c"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "EUR",
+                  "centAmount": 19153,
+                  "fractionDigits": 2
+                },
+                "id": "f3bcfdda-d3f1-4711-b095-1611c0717e40",
+                "country": "DE",
+                "channel": {
+                  "typeId": "channel",
+                  "id": "5e6783a3-ef60-4585-ba8f-b3e442f995e4"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "EUR",
+                  "centAmount": 16468,
+                  "fractionDigits": 2
+                },
+                "id": "997462f8-afda-4329-a695-ee8b4a541f60",
+                "country": "DE",
+                "channel": {
+                  "typeId": "channel",
+                  "id": "8660ba31-7918-4f1e-b3f5-0270cfba4dbc"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "USD",
+                  "centAmount": 17363,
+                  "fractionDigits": 2
+                },
+                "id": "cc5ce956-5ab5-454e-a123-432aedd7c503",
+                "country": "US",
+                "channel": {
+                  "typeId": "channel",
+                  "id": "69a339e9-d338-4d7d-91e2-6fb2320e92ff"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "USD",
+                  "centAmount": 20585,
+                  "fractionDigits": 2
+                },
+                "id": "3258c040-41f1-4bb5-9187-0dd7d2e40d0a",
+                "channel": {
+                  "typeId": "channel",
+                  "id": "18efbaa2-ec2d-404c-80b4-a4b35fdc29c3"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "USD",
+                  "centAmount": 16468,
+                  "fractionDigits": 2
+                },
+                "id": "7369eb2e-9e02-4f60-9dd0-e9be8a87190f",
+                "country": "US",
+                "channel": {
+                  "typeId": "channel",
+                  "id": "0b436ca6-8d17-4b03-bd35-94a66a34d3f9"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "USD",
+                  "centAmount": 19153,
+                  "fractionDigits": 2
+                },
+                "id": "dd8a7a03-e3fc-4ccd-887d-178ef249afba",
+                "country": "US",
+                "channel": {
+                  "typeId": "channel",
+                  "id": "4c60c8a6-17c0-44a9-8081-22929dbad835"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "USD",
+                  "centAmount": 16468,
+                  "fractionDigits": 2
+                },
+                "id": "54c96a19-f9e6-43a3-b4fc-df0a4232b3bd",
+                "country": "US",
+                "channel": {
+                  "typeId": "channel",
+                  "id": "06f251f6-37ca-4164-9338-db3213f2d5e0"
+                }
+              }
+            ],
+            "images": [
+              {
+                "url": "https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/082380_1_medium.jpg",
+                "dimensions": {
+                  "w": 0,
+                  "h": 0
+                }
+              }
+            ],
+            "attributes": [
+              {
+                "name": "articleNumberManufacturer",
+                "value": "CS53C5N0UD 405"
+              },
+              {
+                "name": "articleNumberMax",
+                "value": "82380"
+              },
+              {
+                "name": "matrixId",
+                "value": "M0E20000000ELE4"
+              },
+              {
+                "name": "baseId",
+                "value": "82380"
+              },
+              {
+                "name": "designer",
+                "value": {
+                  "key": "michaelkors",
+                  "label": "Michael Kors"
+                }
+              },
+              {
+                "name": "madeInItaly",
+                "value": {
+                  "key": "no",
+                  "label": "no"
+                }
+              },
+              {
+                "name": "commonSize",
+                "value": {
+                  "key": "xs",
+                  "label": "XS"
+                }
+              },
+              {
+                "name": "size",
+                "value": "24"
+              },
+              {
+                "name": "color",
+                "value": {
+                  "key": "blue",
+                  "label": {
+                    "de": "blau",
+                    "it": "blu",
+                    "en": "blue",
+                    "x0": "1.2x",
+                    "x1": "1.2",
+                    "x2": "2",
+                    "x3": {
+                      "x": 5,
+                      "y": 7.2
+                    },
+                    "x4": {
+                      "x": 6.8,
+                      "y": 7.2
+                    },
+                    "x5": "2021-03-18T13:04:33.735Z",
+                    "x6": "2021-04-15T15:27:55+02:00",
+                    "x7": true
+                  }
+                }
+              },
+              {
+                "name": "colorFreeDefinition",
+                "value": {
+                  "en": "dark blue",
+                  "de": "dunkelblau"
+                }
+              },
+              {
+                "name": "style",
+                "value": {
+                  "key": "sporty",
+                  "label": "sporty"
+                }
+              },
+              {
+                "name": "gender",
+                "value": {
+                  "key": "men",
+                  "label": "Herren"
+                }
+              },
+              {
+                "name": "season",
+                "value": "s15"
+              }
+            ],
+            "assets": []
+          },
+          "price": {
+            "value": {
+              "type": "centPrecision",
+              "currencyCode": "EUR",
+              "centAmount": 17900,
+              "fractionDigits": 2
+            },
+            "id": "9de309a2-09b2-4d16-a9cd-c301e1b81545",
+            "country": "DE"
+          },
+          "quantity": 1,
+          "discountedPricePerQuantity": [],
+          "taxRate": {
+            "name": "19% incl.",
+            "amount": 0.19,
+            "includedInPrice": true,
+            "country": "DE",
+            "id": "FEtLykJe",
+            "subRates": []
+          },
+          "addedAt": "2021-03-18T13:04:33.885Z",
+          "lastModifiedAt": "2021-03-18T13:04:33.885Z",
+          "state": [
+            {
+              "quantity": 1,
+              "state": {
+                "typeId": "state",
+                "id": "8e759a36-c9b5-4a8d-8472-742d5f33ff25"
+              }
+            }
+          ],
+          "priceMode": "Platform",
+          "totalPrice": {
+            "type": "centPrecision",
+            "currencyCode": "EUR",
+            "centAmount": 17900,
+            "fractionDigits": 2
+          },
+          "taxedPrice": {
+            "totalNet": {
+              "type": "centPrecision",
+              "currencyCode": "EUR",
+              "centAmount": 15042,
+              "fractionDigits": 2
+            },
+            "totalGross": {
+              "type": "centPrecision",
+              "currencyCode": "EUR",
+              "centAmount": 17900,
+              "fractionDigits": 2
+            }
+          },
+          "lineItemMode": "Standard"
+        },
+        {
+          "id": "df994fca-6f59-457d-99ac-1caaaa79b8d0",
+          "productId": "15a84852-8ec2-4625-859e-e0cc7bdb3135",
+          "name": {
+            "en": "blazer Tagliatore dark blue",
+            "de": "blazer Tagliatore dunkelblau"
+          },
+          "productType": {
+            "typeId": "product-type",
+            "id": "2abec750-f326-4774-b49f-37816e589727",
+            "version": 1
+          },
+          "productSlug": {
+            "en": "tagliatore-blazer-15ueg079-blue",
+            "de": "tagliatore-blazer-15ueg079-blau"
+          },
+          "variant": {
+            "id": 1,
+            "sku": "M0E20000000DVCD",
+            "prices": [
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "EUR",
+                  "centAmount": 62250,
+                  "fractionDigits": 2
+                },
+                "id": "0fb41b52-8c2c-4f5d-b8b6-247135510f2b"
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "EUR",
+                  "centAmount": 40820,
+                  "fractionDigits": 2
+                },
+                "id": "952cd94f-0e2c-4c06-afd3-6fa7bf3bd203",
+                "customerGroup": {
+                  "typeId": "customer-group",
+                  "id": "097543d6-58e1-43ba-b684-ad7484197400"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "USD",
+                  "centAmount": 62250,
+                  "fractionDigits": 2
+                },
+                "id": "1fdd04c8-dfb3-46e4-b524-b91feae041ff",
+                "country": "US"
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "USD",
+                  "centAmount": 40820,
+                  "fractionDigits": 2
+                },
+                "id": "d55be385-c9db-438d-bffc-5476dbca6d2a",
+                "customerGroup": {
+                  "typeId": "customer-group",
+                  "id": "097543d6-58e1-43ba-b684-ad7484197400"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "EUR",
+                  "centAmount": 49800,
+                  "fractionDigits": 2
+                },
+                "id": "3b646e50-23b5-429f-9325-d8c6106a55c9",
+                "country": "DE"
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "EUR",
+                  "centAmount": 49800,
+                  "fractionDigits": 2
+                },
+                "id": "917bf550-4e1a-4ba4-bb15-3d1bed552ddf",
+                "country": "IT"
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "EUR",
+                  "centAmount": 49800,
+                  "fractionDigits": 2
+                },
+                "id": "b304af08-9f77-4144-a9a0-368a3c1f3395",
+                "country": "GB"
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "EUR",
+                  "centAmount": 49800,
+                  "fractionDigits": 2
+                },
+                "id": "5e6b3af4-6062-4adc-8f88-df939b5ae14f",
+                "country": "DE",
+                "channel": {
+                  "typeId": "channel",
+                  "id": "4b4e6cef-9148-4f39-a890-a7ebad4cbf27"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "EUR",
+                  "centAmount": 59760,
+                  "fractionDigits": 2
+                },
+                "id": "bff4d5ce-5ac7-4667-ad40-b9b9e1683c76",
+                "channel": {
+                  "typeId": "channel",
+                  "id": "94fc07a3-47ac-48cd-a8f4-c4e349bd8e5a"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "EUR",
+                  "centAmount": 47310,
+                  "fractionDigits": 2
+                },
+                "id": "50652869-2ab6-4cc9-a5a8-213d70d6da43",
+                "country": "DE",
+                "channel": {
+                  "typeId": "channel",
+                  "id": "c7a0c154-7e2d-4652-a3e1-44b72956e42c"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "EUR",
+                  "centAmount": 49800,
+                  "fractionDigits": 2
+                },
+                "id": "5853693b-48b3-4507-9117-e891d898b419",
+                "country": "DE",
+                "channel": {
+                  "typeId": "channel",
+                  "id": "5e6783a3-ef60-4585-ba8f-b3e442f995e4"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "EUR",
+                  "centAmount": 54780,
+                  "fractionDigits": 2
+                },
+                "id": "59aa49e5-f277-45c8-9816-50fd2f6ca6e7",
+                "country": "DE",
+                "channel": {
+                  "typeId": "channel",
+                  "id": "8660ba31-7918-4f1e-b3f5-0270cfba4dbc"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "USD",
+                  "centAmount": 49800,
+                  "fractionDigits": 2
+                },
+                "id": "a9e2b2b3-80c8-4d8a-be6f-3f7147c7e9f3",
+                "country": "US",
+                "channel": {
+                  "typeId": "channel",
+                  "id": "69a339e9-d338-4d7d-91e2-6fb2320e92ff"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "USD",
+                  "centAmount": 59760,
+                  "fractionDigits": 2
+                },
+                "id": "537058c1-91f4-49d6-86a5-2627d6a593bf",
+                "channel": {
+                  "typeId": "channel",
+                  "id": "18efbaa2-ec2d-404c-80b4-a4b35fdc29c3"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "USD",
+                  "centAmount": 47310,
+                  "fractionDigits": 2
+                },
+                "id": "c6d84ce7-5848-4ae2-9a2c-cdcf521dc8e7",
+                "country": "US",
+                "channel": {
+                  "typeId": "channel",
+                  "id": "0b436ca6-8d17-4b03-bd35-94a66a34d3f9"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "USD",
+                  "centAmount": 49800,
+                  "fractionDigits": 2
+                },
+                "id": "727327ad-8102-4256-b305-0295b84e791a",
+                "country": "US",
+                "channel": {
+                  "typeId": "channel",
+                  "id": "4c60c8a6-17c0-44a9-8081-22929dbad835"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "USD",
+                  "centAmount": 54780,
+                  "fractionDigits": 2
+                },
+                "id": "db64ab3a-400c-42bd-b271-92e4a2a7e6ed",
+                "country": "US",
+                "channel": {
+                  "typeId": "channel",
+                  "id": "06f251f6-37ca-4164-9338-db3213f2d5e0"
+                }
+              }
+            ],
+            "images": [
+              {
+                "url": "https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/078971_1_medium.jpg",
+                "dimensions": {
+                  "w": 0,
+                  "h": 0
+                }
+              }
+            ],
+            "attributes": [
+              {
+                "name": "articleNumberManufacturer",
+                "value": "15UEG079 B3097"
+              },
+              {
+                "name": "articleNumberMax",
+                "value": "78971"
+              },
+              {
+                "name": "matrixId",
+                "value": "M0E20000000DVCD"
+              },
+              {
+                "name": "baseId",
+                "value": "78971"
+              },
+              {
+                "name": "designer",
+                "value": {
+                  "key": "tagliatore",
+                  "label": "Tagliatore"
+                }
+              },
+              {
+                "name": "madeInItaly",
+                "value": {
+                  "key": "yes",
+                  "label": "yes"
+                }
+              },
+              {
+                "name": "commonSize",
+                "value": {
+                  "key": "xs",
+                  "label": "XS"
+                }
+              },
+              {
+                "name": "size",
+                "value": "34"
+              },
+              {
+                "name": "color",
+                "value": {
+                  "key": "blue",
+                  "label": {
+                    "de": "blau",
+                    "it": "blu",
+                    "en": "blue"
+                  }
+                }
+              },
+              {
+                "name": "colorFreeDefinition",
+                "value": {
+                  "en": "dark blue",
+                  "de": "dunkelblau"
+                }
+              },
+              {
+                "name": "style",
+                "value": {
+                  "key": "business",
+                  "label": "business"
+                }
+              },
+              {
+                "name": "gender",
+                "value": {
+                  "key": "men",
+                  "label": "Herren"
+                }
+              },
+              {
+                "name": "season",
+                "value": "s15"
+              }
+            ],
+            "assets": []
+          },
+          "price": {
+            "value": {
+              "type": "centPrecision",
+              "currencyCode": "EUR",
+              "centAmount": 49800,
+              "fractionDigits": 2
+            },
+            "id": "3b646e50-23b5-429f-9325-d8c6106a55c9",
+            "country": "DE"
+          },
+          "quantity": 2,
+          "discountedPricePerQuantity": [],
+          "taxRate": {
+            "name": "19% incl.",
+            "amount": 0.19,
+            "includedInPrice": true,
+            "country": "DE",
+            "id": "FEtLykJe",
+            "subRates": []
+          },
+          "addedAt": "2021-03-18T13:04:38.764Z",
+          "lastModifiedAt": "2021-03-18T13:05:41.851Z",
+          "state": [
+            {
+              "quantity": 2,
+              "state": {
+                "typeId": "state",
+                "id": "8e759a36-c9b5-4a8d-8472-742d5f33ff25"
+              }
+            }
+          ],
+          "priceMode": "Platform",
+          "totalPrice": {
+            "type": "centPrecision",
+            "currencyCode": "EUR",
+            "centAmount": 99600,
+            "fractionDigits": 2
+          },
+          "taxedPrice": {
+            "totalNet": {
+              "type": "centPrecision",
+              "currencyCode": "EUR",
+              "centAmount": 83697,
+              "fractionDigits": 2
+            },
+            "totalGross": {
+              "type": "centPrecision",
+              "currencyCode": "EUR",
+              "centAmount": 99600,
+              "fractionDigits": 2
+            }
+          },
+          "lineItemMode": "Standard"
+        },
+        {
+          "id": "c5c69f33-634b-4023-ac12-1229f60c9001",
+          "productId": "58358996-3acf-4ded-9be9-7e95666528b4",
+          "name": {
+            "en": "Lace up shoes Bernardo grey",
+            "de": "Schnührschuhe Bernardo grau"
+          },
+          "productType": {
+            "typeId": "product-type",
+            "id": "2abec750-f326-4774-b49f-37816e589727",
+            "version": 1
+          },
+          "productSlug": {
+            "en": "bernardo-laceupshoes-RALBILLY2M-grey",
+            "de": "bernardo-schnuerschuhe-RALBILLY2M-grau"
+          },
+          "variant": {
+            "id": 1,
+            "sku": "M0E20000000EMOT",
+            "prices": [
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "EUR",
+                  "centAmount": 27500,
+                  "fractionDigits": 2
+                },
+                "id": "5c9b2792-f3f7-477d-8ef6-45410ac50db7"
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "EUR",
+                  "centAmount": 18033,
+                  "fractionDigits": 2
+                },
+                "id": "18cf4bb3-126c-43e8-9e92-251a30771949",
+                "customerGroup": {
+                  "typeId": "customer-group",
+                  "id": "097543d6-58e1-43ba-b684-ad7484197400"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "USD",
+                  "centAmount": 27500,
+                  "fractionDigits": 2
+                },
+                "id": "1972e13c-8237-4426-b951-80b73519a002",
+                "country": "US"
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "USD",
+                  "centAmount": 18033,
+                  "fractionDigits": 2
+                },
+                "id": "c69a0829-d567-48f1-9727-c831d1c599bd",
+                "customerGroup": {
+                  "typeId": "customer-group",
+                  "id": "097543d6-58e1-43ba-b684-ad7484197400"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "EUR",
+                  "centAmount": 22000,
+                  "fractionDigits": 2
+                },
+                "id": "5fe5fbe6-dc8f-4603-a4a4-46eb65415fb2",
+                "country": "DE"
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "EUR",
+                  "centAmount": 22000,
+                  "fractionDigits": 2
+                },
+                "id": "e12a83e9-7606-46c6-9968-8a50a5efcdde",
+                "country": "IT"
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "EUR",
+                  "centAmount": 22000,
+                  "fractionDigits": 2
+                },
+                "id": "ca9af743-b713-46fd-89f0-1b9997209d77",
+                "country": "GB"
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "EUR",
+                  "centAmount": 23540,
+                  "fractionDigits": 2
+                },
+                "id": "147b88a5-2e17-4423-8a95-be3c459359eb",
+                "country": "DE",
+                "channel": {
+                  "typeId": "channel",
+                  "id": "4b4e6cef-9148-4f39-a890-a7ebad4cbf27"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "EUR",
+                  "centAmount": 25850,
+                  "fractionDigits": 2
+                },
+                "id": "c2872030-2c1b-44b1-a1fc-3902b0fa91f9",
+                "channel": {
+                  "typeId": "channel",
+                  "id": "94fc07a3-47ac-48cd-a8f4-c4e349bd8e5a"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "EUR",
+                  "centAmount": 22000,
+                  "fractionDigits": 2
+                },
+                "id": "ebdc506a-3aeb-4b82-91ca-3ac00eaa8765",
+                "country": "DE",
+                "channel": {
+                  "typeId": "channel",
+                  "id": "c7a0c154-7e2d-4652-a3e1-44b72956e42c"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "EUR",
+                  "centAmount": 21560,
+                  "fractionDigits": 2
+                },
+                "id": "e9874cc1-6413-4c63-8b61-cbd290270b9e",
+                "country": "DE",
+                "channel": {
+                  "typeId": "channel",
+                  "id": "5e6783a3-ef60-4585-ba8f-b3e442f995e4"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "EUR",
+                  "centAmount": 21120,
+                  "fractionDigits": 2
+                },
+                "id": "d82d376b-b302-4859-95d2-48f24c823881",
+                "country": "DE",
+                "channel": {
+                  "typeId": "channel",
+                  "id": "8660ba31-7918-4f1e-b3f5-0270cfba4dbc"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "USD",
+                  "centAmount": 23540,
+                  "fractionDigits": 2
+                },
+                "id": "e24a36e8-d57d-411b-85d3-7073af7f289e",
+                "country": "US",
+                "channel": {
+                  "typeId": "channel",
+                  "id": "69a339e9-d338-4d7d-91e2-6fb2320e92ff"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "USD",
+                  "centAmount": 25850,
+                  "fractionDigits": 2
+                },
+                "id": "ae90e284-8a85-4b5c-85b1-d89f2d2f14f0",
+                "channel": {
+                  "typeId": "channel",
+                  "id": "18efbaa2-ec2d-404c-80b4-a4b35fdc29c3"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "USD",
+                  "centAmount": 22000,
+                  "fractionDigits": 2
+                },
+                "id": "c9b8ea03-ff31-4a7f-8ece-d99fec5924d6",
+                "country": "US",
+                "channel": {
+                  "typeId": "channel",
+                  "id": "0b436ca6-8d17-4b03-bd35-94a66a34d3f9"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "USD",
+                  "centAmount": 21560,
+                  "fractionDigits": 2
+                },
+                "id": "177550df-3503-4054-bfaa-e65edf60dd1b",
+                "country": "US",
+                "channel": {
+                  "typeId": "channel",
+                  "id": "4c60c8a6-17c0-44a9-8081-22929dbad835"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "USD",
+                  "centAmount": 21120,
+                  "fractionDigits": 2
+                },
+                "id": "8ff891cd-0d9c-49a7-b9c6-7ad8369a0bad",
+                "country": "US",
+                "channel": {
+                  "typeId": "channel",
+                  "id": "06f251f6-37ca-4164-9338-db3213f2d5e0"
+                }
+              }
+            ],
+            "images": [
+              {
+                "url": "https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/082628_1_large.jpg",
+                "dimensions": {
+                  "w": 0,
+                  "h": 0
+                }
+              }
+            ],
+            "attributes": [
+              {
+                "name": "articleNumberManufacturer",
+                "value": "RALBILLY2M B57V TAUPE"
+              },
+              {
+                "name": "articleNumberMax",
+                "value": "82628"
+              },
+              {
+                "name": "matrixId",
+                "value": "M0E20000000EMOT"
+              },
+              {
+                "name": "baseId",
+                "value": "82628"
+              },
+              {
+                "name": "designer",
+                "value": {
+                  "key": "bernardo",
+                  "label": "Bernardo"
+                }
+              },
+              {
+                "name": "madeInItaly",
+                "value": {
+                  "key": "no",
+                  "label": "no"
+                }
+              },
+              {
+                "name": "commonSize",
+                "value": {
+                  "key": "34",
+                  "label": "34"
+                }
+              },
+              {
+                "name": "size",
+                "value": "34"
+              },
+              {
+                "name": "color",
+                "value": {
+                  "key": "grey",
+                  "label": {
+                    "de": "grau",
+                    "en": "grey",
+                    "it": "grigio"
+                  }
+                }
+              },
+              {
+                "name": "colorFreeDefinition",
+                "value": {
+                  "en": "grey",
+                  "de": "grau"
+                }
+              },
+              {
+                "name": "style",
+                "value": {
+                  "key": "sporty",
+                  "label": "sporty"
+                }
+              },
+              {
+                "name": "gender",
+                "value": {
+                  "key": "men",
+                  "label": "Herren"
+                }
+              },
+              {
+                "name": "season",
+                "value": "s15"
+              }
+            ],
+            "assets": []
+          },
+          "price": {
+            "value": {
+              "type": "centPrecision",
+              "currencyCode": "EUR",
+              "centAmount": 22000,
+              "fractionDigits": 2
+            },
+            "id": "5fe5fbe6-dc8f-4603-a4a4-46eb65415fb2",
+            "country": "DE"
+          },
+          "quantity": 1,
+          "discountedPricePerQuantity": [],
+          "taxRate": {
+            "name": "19% incl.",
+            "amount": 0.19,
+            "includedInPrice": true,
+            "country": "DE",
+            "id": "FEtLykJe",
+            "subRates": []
+          },
+          "addedAt": "2021-03-18T13:06:17.483Z",
+          "lastModifiedAt": "2021-03-18T13:06:17.483Z",
+          "state": [
+            {
+              "quantity": 1,
+              "state": {
+                "typeId": "state",
+                "id": "8e759a36-c9b5-4a8d-8472-742d5f33ff25"
+              }
+            }
+          ],
+          "priceMode": "Platform",
+          "totalPrice": {
+            "type": "centPrecision",
+            "currencyCode": "EUR",
+            "centAmount": 22000,
+            "fractionDigits": 2
+          },
+          "taxedPrice": {
+            "totalNet": {
+              "type": "centPrecision",
+              "currencyCode": "EUR",
+              "centAmount": 18487,
+              "fractionDigits": 2
+            },
+            "totalGross": {
+              "type": "centPrecision",
+              "currencyCode": "EUR",
+              "centAmount": 22000,
+              "fractionDigits": 2
+            }
+          },
+          "lineItemMode": "Standard"
+        },
+        {
+          "id": "11e51854-526b-41a2-a1ee-af924f600ccd",
+          "productId": "33dccbf9-aef7-4638-8168-42523e8619ce",
+          "name": {
+            "en": "Pants Maison Scotch black-brown",
+            "de": "Hose Maison Scotch schwarz-braun"
+          },
+          "productType": {
+            "typeId": "product-type",
+            "id": "2abec750-f326-4774-b49f-37816e589727",
+            "version": 1
+          },
+          "productSlug": {
+            "en": "maison-scotch-hosen-15210183750-brown",
+            "de": "maison-scotch-hose-15210183750-braun"
+          },
+          "variant": {
+            "id": 2,
+            "sku": "126",
+            "prices": [
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "EUR",
+                  "centAmount": 13125,
+                  "fractionDigits": 2
+                },
+                "id": "36160ffe-76a1-4fe9-94c8-f9e0340f9c6e"
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "EUR",
+                  "centAmount": 8607,
+                  "fractionDigits": 2
+                },
+                "id": "b5b36020-3c56-424c-8998-6e729abe28ca",
+                "customerGroup": {
+                  "typeId": "customer-group",
+                  "id": "097543d6-58e1-43ba-b684-ad7484197400"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "USD",
+                  "centAmount": 13125,
+                  "fractionDigits": 2
+                },
+                "id": "0500a9d9-89b4-4c3b-b07e-ba7e6844de08",
+                "country": "US"
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "USD",
+                  "centAmount": 8607,
+                  "fractionDigits": 2
+                },
+                "id": "18c320b9-9970-4b97-9f32-f5ebce5b7639",
+                "customerGroup": {
+                  "typeId": "customer-group",
+                  "id": "097543d6-58e1-43ba-b684-ad7484197400"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "EUR",
+                  "centAmount": 10500,
+                  "fractionDigits": 2
+                },
+                "id": "eeeae58c-1f86-4ab2-bb8d-0154056dcdee",
+                "country": "DE"
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "EUR",
+                  "centAmount": 10500,
+                  "fractionDigits": 2
+                },
+                "id": "80d5834e-d803-48ca-91b4-68fa1b6349a1",
+                "country": "IT"
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "EUR",
+                  "centAmount": 10500,
+                  "fractionDigits": 2
+                },
+                "id": "98ce1dc2-9b55-4b59-8d91-12aa85debc26",
+                "country": "GB"
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "EUR",
+                  "centAmount": 9660,
+                  "fractionDigits": 2
+                },
+                "id": "73c33548-9df8-49ae-adc4-58b02adcbcf5",
+                "country": "DE",
+                "channel": {
+                  "typeId": "channel",
+                  "id": "4b4e6cef-9148-4f39-a890-a7ebad4cbf27"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "EUR",
+                  "centAmount": 14175,
+                  "fractionDigits": 2
+                },
+                "id": "36bc9eec-d616-46cf-94bb-6ec56e9d13a9",
+                "channel": {
+                  "typeId": "channel",
+                  "id": "94fc07a3-47ac-48cd-a8f4-c4e349bd8e5a"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "EUR",
+                  "centAmount": 9450,
+                  "fractionDigits": 2
+                },
+                "id": "2834bb7a-c68a-4364-849a-8da3ec4e0493",
+                "country": "DE",
+                "channel": {
+                  "typeId": "channel",
+                  "id": "c7a0c154-7e2d-4652-a3e1-44b72956e42c"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "EUR",
+                  "centAmount": 10710,
+                  "fractionDigits": 2
+                },
+                "id": "b51d40ea-3dee-4faa-badb-455a67a19f65",
+                "country": "DE",
+                "channel": {
+                  "typeId": "channel",
+                  "id": "5e6783a3-ef60-4585-ba8f-b3e442f995e4"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "EUR",
+                  "centAmount": 10605,
+                  "fractionDigits": 2
+                },
+                "id": "c2a1b05f-8dd0-41a0-a968-efef03a63657",
+                "country": "DE",
+                "channel": {
+                  "typeId": "channel",
+                  "id": "8660ba31-7918-4f1e-b3f5-0270cfba4dbc"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "USD",
+                  "centAmount": 9660,
+                  "fractionDigits": 2
+                },
+                "id": "758d0109-61c7-43a8-aa68-0f560d2a9d19",
+                "country": "US",
+                "channel": {
+                  "typeId": "channel",
+                  "id": "69a339e9-d338-4d7d-91e2-6fb2320e92ff"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "USD",
+                  "centAmount": 14175,
+                  "fractionDigits": 2
+                },
+                "id": "cf34d91a-60b9-497e-b738-4a7d2bd7fe35",
+                "channel": {
+                  "typeId": "channel",
+                  "id": "18efbaa2-ec2d-404c-80b4-a4b35fdc29c3"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "USD",
+                  "centAmount": 9450,
+                  "fractionDigits": 2
+                },
+                "id": "66f6e4cb-8e6b-4b33-8908-03701d331d52",
+                "country": "US",
+                "channel": {
+                  "typeId": "channel",
+                  "id": "0b436ca6-8d17-4b03-bd35-94a66a34d3f9"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "USD",
+                  "centAmount": 10710,
+                  "fractionDigits": 2
+                },
+                "id": "f027ebb6-a6de-46b7-a9c1-cd846119937e",
+                "country": "US",
+                "channel": {
+                  "typeId": "channel",
+                  "id": "4c60c8a6-17c0-44a9-8081-22929dbad835"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "USD",
+                  "centAmount": 10605,
+                  "fractionDigits": 2
+                },
+                "id": "75756c96-293b-48cb-80a1-21e6a814de38",
+                "country": "US",
+                "channel": {
+                  "typeId": "channel",
+                  "id": "06f251f6-37ca-4164-9338-db3213f2d5e0"
+                }
+              }
+            ],
+            "images": [
+              {
+                "url": "https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/081691_1_medium.jpg",
+                "dimensions": {
+                  "w": 0,
+                  "h": 0
+                }
+              }
+            ],
+            "attributes": [
+              {
+                "name": "articleNumberManufacturer",
+                "value": "15210183750 B"
+              },
+              {
+                "name": "articleNumberMax",
+                "value": "81691"
+              },
+              {
+                "name": "matrixId",
+                "value": "M0E20000000EH5G"
+              },
+              {
+                "name": "baseId",
+                "value": "81691"
+              },
+              {
+                "name": "designer",
+                "value": {
+                  "key": "maison",
+                  "label": "Maison Scotch"
+                }
+              },
+              {
+                "name": "madeInItaly",
+                "value": {
+                  "key": "no",
+                  "label": "no"
+                }
+              },
+              {
+                "name": "commonSize",
+                "value": {
+                  "key": "s",
+                  "label": "S"
+                }
+              },
+              {
+                "name": "size",
+                "value": "1"
+              },
+              {
+                "name": "color",
+                "value": {
+                  "key": "brown",
+                  "label": {
+                    "it": "marrone",
+                    "de": "braun",
+                    "en": "brown"
+                  }
+                }
+              },
+              {
+                "name": "colorFreeDefinition",
+                "value": {
+                  "en": "black-brown",
+                  "de": "schwarz-braun"
+                }
+              },
+              {
+                "name": "style",
+                "value": {
+                  "key": "sporty",
+                  "label": "sporty"
+                }
+              },
+              {
+                "name": "gender",
+                "value": {
+                  "key": "women",
+                  "label": "Damen"
+                }
+              },
+              {
+                "name": "season",
+                "value": "s15"
+              }
+            ],
+            "assets": []
+          },
+          "price": {
+            "value": {
+              "type": "centPrecision",
+              "currencyCode": "EUR",
+              "centAmount": 0,
+              "fractionDigits": 2
+            },
+            "id": "1dfe2e8d-1cdc-445a-b72d-fb17d6db4114"
+          },
+          "quantity": 1,
+          "discountedPricePerQuantity": [],
+          "taxRate": {
+            "name": "19% incl.",
+            "amount": 0.19,
+            "includedInPrice": true,
+            "country": "DE",
+            "id": "FEtLykJe",
+            "subRates": []
+          },
+          "addedAt": "2021-03-18T13:06:17.845Z",
+          "lastModifiedAt": "2021-03-18T13:06:17.845Z",
+          "state": [
+            {
+              "quantity": 1,
+              "state": {
+                "typeId": "state",
+                "id": "8e759a36-c9b5-4a8d-8472-742d5f33ff25"
+              }
+            }
+          ],
+          "priceMode": "ExternalPrice",
+          "totalPrice": {
+            "type": "centPrecision",
+            "currencyCode": "EUR",
+            "centAmount": 0,
+            "fractionDigits": 2
+          },
+          "taxedPrice": {
+            "totalNet": {
+              "type": "centPrecision",
+              "currencyCode": "EUR",
+              "centAmount": 0,
+              "fractionDigits": 2
+            },
+            "totalGross": {
+              "type": "centPrecision",
+              "currencyCode": "EUR",
+              "centAmount": 0,
+              "fractionDigits": 2
+            }
+          },
+          "custom": {
+            "type": {
+              "typeId": "type",
+              "id": "96f89ab5-931d-43d2-b7ad-04ccf272935e"
+            },
+            "fields": {
+              "talon_one_line_item_effect": "addFreeItem"
+            }
+          },
+          "lineItemMode": "Standard"
+        },
+        {
+          "id": "3927faa2-99f5-48fe-8d1c-698054033355",
+          "productId": "33dccbf9-aef7-4638-8168-42523e8619ce",
+          "name": {
+            "en": "Pants Maison Scotch black-brown",
+            "de": "Hose Maison Scotch schwarz-braun"
+          },
+          "productType": {
+            "typeId": "product-type",
+            "id": "2abec750-f326-4774-b49f-37816e589727",
+            "version": 1
+          },
+          "productSlug": {
+            "en": "maison-scotch-hosen-15210183750-brown",
+            "de": "maison-scotch-hose-15210183750-braun"
+          },
+          "variant": {
+            "id": 1,
+            "sku": "125",
+            "prices": [
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "EUR",
+                  "centAmount": 10,
+                  "fractionDigits": 2
+                },
+                "id": "b3741d8a-cb1d-4379-a216-1b1954be2fea"
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "USD",
+                  "centAmount": 10,
+                  "fractionDigits": 2
+                },
+                "id": "45feb6fc-e867-45ad-8200-f742c4c46b1e"
+              }
+            ],
+            "images": [
+              {
+                "url": "https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/081691_1_medium.jpg",
+                "dimensions": {
+                  "w": 0,
+                  "h": 0
+                }
+              }
+            ],
+            "attributes": [
+              {
+                "name": "articleNumberManufacturer",
+                "value": "15210183750 B"
+              },
+              {
+                "name": "articleNumberMax",
+                "value": "81691"
+              },
+              {
+                "name": "matrixId",
+                "value": "M0E20000000EH5F"
+              },
+              {
+                "name": "baseId",
+                "value": "81691"
+              },
+              {
+                "name": "designer",
+                "value": {
+                  "key": "maison",
+                  "label": "Maison Scotch"
+                }
+              },
+              {
+                "name": "madeInItaly",
+                "value": {
+                  "key": "no",
+                  "label": "no"
+                }
+              },
+              {
+                "name": "commonSize",
+                "value": {
+                  "key": "xs",
+                  "label": "XS"
+                }
+              },
+              {
+                "name": "size",
+                "value": "0"
+              },
+              {
+                "name": "color",
+                "value": {
+                  "key": "brown",
+                  "label": {
+                    "it": "marrone",
+                    "de": "braun",
+                    "en": "brown"
+                  }
+                }
+              },
+              {
+                "name": "colorFreeDefinition",
+                "value": {
+                  "en": "black-brown",
+                  "de": "schwarz-braun"
+                }
+              },
+              {
+                "name": "style",
+                "value": {
+                  "key": "sporty",
+                  "label": "sporty"
+                }
+              },
+              {
+                "name": "gender",
+                "value": {
+                  "key": "women",
+                  "label": "Damen"
+                }
+              },
+              {
+                "name": "season",
+                "value": "s15"
+              }
+            ],
+            "assets": []
+          },
+          "price": {
+            "value": {
+              "type": "centPrecision",
+              "currencyCode": "EUR",
+              "centAmount": 0,
+              "fractionDigits": 2
+            },
+            "id": "0c3ecdda-8809-4dce-a247-503b8c5de08a"
+          },
+          "quantity": 2,
+          "discountedPricePerQuantity": [],
+          "taxRate": {
+            "name": "19% incl.",
+            "amount": 0.19,
+            "includedInPrice": true,
+            "country": "DE",
+            "id": "FEtLykJe",
+            "subRates": []
+          },
+          "addedAt": "2021-03-18T13:06:17.856Z",
+          "lastModifiedAt": "2021-03-18T13:06:17.856Z",
+          "state": [
+            {
+              "quantity": 2,
+              "state": {
+                "typeId": "state",
+                "id": "8e759a36-c9b5-4a8d-8472-742d5f33ff25"
+              }
+            }
+          ],
+          "priceMode": "ExternalPrice",
+          "totalPrice": {
+            "type": "centPrecision",
+            "currencyCode": "EUR",
+            "centAmount": 0,
+            "fractionDigits": 2
+          },
+          "taxedPrice": {
+            "totalNet": {
+              "type": "centPrecision",
+              "currencyCode": "EUR",
+              "centAmount": 0,
+              "fractionDigits": 2
+            },
+            "totalGross": {
+              "type": "centPrecision",
+              "currencyCode": "EUR",
+              "centAmount": 0,
+              "fractionDigits": 2
+            }
+          },
+          "custom": {
+            "type": {
+              "typeId": "type",
+              "id": "96f89ab5-931d-43d2-b7ad-04ccf272935e"
+            },
+            "fields": {
+              "talon_one_line_item_effect": "addFreeItem"
+            }
+          },
+          "lineItemMode": "Standard"
+        },
+        {
+          "id": "b9701ebc-c0bc-4da5-ae84-9d21ae8cde31",
+          "productId": "03dd2c1e-3b7f-439f-b26f-0907e2b69150",
+          "name": {
+            "en": "Sweater Kaos blue",
+            "de": "Pullover Kaos blau"
+          },
+          "productType": {
+            "typeId": "product-type",
+            "id": "2abec750-f326-4774-b49f-37816e589727",
+            "version": 1
+          },
+          "productSlug": {
+            "en": "kaos-sweater-KR0123003-blue",
+            "de": "kaos-pullover-KR0123003-blau"
+          },
+          "variant": {
+            "id": 1,
+            "sku": "M0E20000000EFHV",
+            "prices": [
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "EUR",
+                  "centAmount": 12250,
+                  "fractionDigits": 2
+                },
+                "id": "25ebbeda-50bb-482e-89af-83e267c19436"
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "EUR",
+                  "centAmount": 8033,
+                  "fractionDigits": 2
+                },
+                "id": "388cc474-0008-4cbd-8be4-139ea0efae44",
+                "customerGroup": {
+                  "typeId": "customer-group",
+                  "id": "097543d6-58e1-43ba-b684-ad7484197400"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "USD",
+                  "centAmount": 12250,
+                  "fractionDigits": 2
+                },
+                "id": "7756bc06-5f33-42e5-a1c0-c03184f1096b",
+                "country": "US"
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "USD",
+                  "centAmount": 8033,
+                  "fractionDigits": 2
+                },
+                "id": "e4b4520e-8211-49a0-b1f7-f4b05a0c010a",
+                "customerGroup": {
+                  "typeId": "customer-group",
+                  "id": "097543d6-58e1-43ba-b684-ad7484197400"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "EUR",
+                  "centAmount": 9800,
+                  "fractionDigits": 2
+                },
+                "id": "522f95b3-49f2-4b96-aa9b-96f10737d881",
+                "country": "DE"
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "EUR",
+                  "centAmount": 9800,
+                  "fractionDigits": 2
+                },
+                "id": "28a25b41-c58d-4aab-a201-06193de28ed4",
+                "country": "IT"
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "EUR",
+                  "centAmount": 9800,
+                  "fractionDigits": 2
+                },
+                "id": "d3d3b1b0-4d78-4eab-83d2-31fab42883fb",
+                "country": "GB"
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "EUR",
+                  "centAmount": 10584,
+                  "fractionDigits": 2
+                },
+                "id": "d7dd44be-5972-42b8-9e30-3de6d0208e0c",
+                "country": "DE",
+                "channel": {
+                  "typeId": "channel",
+                  "id": "4b4e6cef-9148-4f39-a890-a7ebad4cbf27"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "EUR",
+                  "centAmount": 12005,
+                  "fractionDigits": 2
+                },
+                "id": "22e4f6a9-6f0a-46ef-a728-7e8cae1f5ca7",
+                "channel": {
+                  "typeId": "channel",
+                  "id": "94fc07a3-47ac-48cd-a8f4-c4e349bd8e5a"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "EUR",
+                  "centAmount": 9800,
+                  "fractionDigits": 2
+                },
+                "id": "8ca28a15-30d6-4895-9c04-8c54fa6de83e",
+                "country": "DE",
+                "channel": {
+                  "typeId": "channel",
+                  "id": "c7a0c154-7e2d-4652-a3e1-44b72956e42c"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "EUR",
+                  "centAmount": 9996,
+                  "fractionDigits": 2
+                },
+                "id": "12c08f7f-5a29-4513-9646-889970b39722",
+                "country": "DE",
+                "channel": {
+                  "typeId": "channel",
+                  "id": "5e6783a3-ef60-4585-ba8f-b3e442f995e4"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "EUR",
+                  "centAmount": 8918,
+                  "fractionDigits": 2
+                },
+                "id": "cddf9e84-1ec4-4d22-a9c4-cf2fc8301152",
+                "country": "DE",
+                "channel": {
+                  "typeId": "channel",
+                  "id": "8660ba31-7918-4f1e-b3f5-0270cfba4dbc"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "USD",
+                  "centAmount": 10584,
+                  "fractionDigits": 2
+                },
+                "id": "d6023b12-ff32-46f9-9781-dc4009161abe",
+                "country": "US",
+                "channel": {
+                  "typeId": "channel",
+                  "id": "69a339e9-d338-4d7d-91e2-6fb2320e92ff"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "USD",
+                  "centAmount": 12005,
+                  "fractionDigits": 2
+                },
+                "id": "09d2660c-8823-4193-9d06-d9c90dfa509c",
+                "channel": {
+                  "typeId": "channel",
+                  "id": "18efbaa2-ec2d-404c-80b4-a4b35fdc29c3"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "USD",
+                  "centAmount": 9800,
+                  "fractionDigits": 2
+                },
+                "id": "8449a4d0-5562-461c-9470-cdb655f064a9",
+                "country": "US",
+                "channel": {
+                  "typeId": "channel",
+                  "id": "0b436ca6-8d17-4b03-bd35-94a66a34d3f9"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "USD",
+                  "centAmount": 9996,
+                  "fractionDigits": 2
+                },
+                "id": "4ca5813f-0929-4478-b3d5-6e8f46fde31c",
+                "country": "US",
+                "channel": {
+                  "typeId": "channel",
+                  "id": "4c60c8a6-17c0-44a9-8081-22929dbad835"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "USD",
+                  "centAmount": 8918,
+                  "fractionDigits": 2
+                },
+                "id": "18f6ae03-c92c-4f63-bd09-85093c60942d",
+                "country": "US",
+                "channel": {
+                  "typeId": "channel",
+                  "id": "06f251f6-37ca-4164-9338-db3213f2d5e0"
+                }
+              }
+            ],
+            "images": [
+              {
+                "url": "https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/081500_1_medium.jpg",
+                "dimensions": {
+                  "w": 0,
+                  "h": 0
+                }
+              }
+            ],
+            "attributes": [
+              {
+                "name": "articleNumberManufacturer",
+                "value": "KR012 3003 BLU"
+              },
+              {
+                "name": "articleNumberMax",
+                "value": "81500"
+              },
+              {
+                "name": "matrixId",
+                "value": "M0E20000000EFHV"
+              },
+              {
+                "name": "baseId",
+                "value": "81500"
+              },
+              {
+                "name": "designer",
+                "value": {
+                  "key": "kaos",
+                  "label": "Kaos"
+                }
+              },
+              {
+                "name": "madeInItaly",
+                "value": {
+                  "key": "yes",
+                  "label": "yes"
+                }
+              },
+              {
+                "name": "commonSize",
+                "value": {
+                  "key": "xxs",
+                  "label": "XXS"
+                }
+              },
+              {
+                "name": "size",
+                "value": "XXS"
+              },
+              {
+                "name": "color",
+                "value": {
+                  "key": "blue",
+                  "label": {
+                    "de": "blau",
+                    "it": "blu",
+                    "en": "blue"
+                  }
+                }
+              },
+              {
+                "name": "colorFreeDefinition",
+                "value": {
+                  "en": "blue",
+                  "de": "blau"
+                }
+              },
+              {
+                "name": "style",
+                "value": {
+                  "key": "sporty",
+                  "label": "sporty"
+                }
+              },
+              {
+                "name": "gender",
+                "value": {
+                  "key": "men",
+                  "label": "Herren"
+                }
+              },
+              {
+                "name": "season",
+                "value": "s15"
+              }
+            ],
+            "assets": []
+          },
+          "price": {
+            "value": {
+              "type": "centPrecision",
+              "currencyCode": "EUR",
+              "centAmount": 9800,
+              "fractionDigits": 2
+            },
+            "id": "522f95b3-49f2-4b96-aa9b-96f10737d881",
+            "country": "DE"
+          },
+          "quantity": 1,
+          "discountedPricePerQuantity": [],
+          "taxRate": {
+            "name": "19% incl.",
+            "amount": 0.19,
+            "includedInPrice": true,
+            "country": "DE",
+            "id": "FEtLykJe",
+            "subRates": []
+          },
+          "addedAt": "2021-03-18T13:11:31.196Z",
+          "lastModifiedAt": "2021-03-18T13:11:31.196Z",
+          "state": [
+            {
+              "quantity": 1,
+              "state": {
+                "typeId": "state",
+                "id": "8e759a36-c9b5-4a8d-8472-742d5f33ff25"
+              }
+            }
+          ],
+          "priceMode": "Platform",
+          "totalPrice": {
+            "type": "centPrecision",
+            "currencyCode": "EUR",
+            "centAmount": 9800,
+            "fractionDigits": 2
+          },
+          "taxedPrice": {
+            "totalNet": {
+              "type": "centPrecision",
+              "currencyCode": "EUR",
+              "centAmount": 8235,
+              "fractionDigits": 2
+            },
+            "totalGross": {
+              "type": "centPrecision",
+              "currencyCode": "EUR",
+              "centAmount": 9800,
+              "fractionDigits": 2
+            }
+          },
+          "lineItemMode": "Standard"
+        }
+      ],
+      "cartState": "Active",
+      "totalPrice": {
+        "type": "centPrecision",
+        "currencyCode": "EUR",
+        "centAmount": 128375,
+        "fractionDigits": 2
+      },
+      "taxedPrice": {
+        "totalNet": {
+          "type": "centPrecision",
+          "currencyCode": "EUR",
+          "centAmount": 105532,
+          "fractionDigits": 2
+        },
+        "totalGross": {
+          "type": "centPrecision",
+          "currencyCode": "EUR",
+          "centAmount": 128375,
+          "fractionDigits": 2
+        },
+        "taxPortions": [
+          {
+            "rate": 0.05,
+            "amount": {
+              "type": "centPrecision",
+              "currencyCode": "EUR",
+              "centAmount": -996,
+              "fractionDigits": 2
+            },
+            "name": "19% incl."
+          },
+          {
+            "rate": 0.19,
+            "amount": {
+              "type": "centPrecision",
+              "currencyCode": "EUR",
+              "centAmount": 23839,
+              "fractionDigits": 2
+            },
+            "name": "19% incl."
+          }
+        ]
+      },
+      "country": "DE",
+      "customLineItems": [
+        {
+          "totalPrice": {
+            "type": "centPrecision",
+            "currencyCode": "EUR",
+            "centAmount": -13950,
+            "fractionDigits": 2
+          },
+          "id": "791a3df6-2cf0-4623-86f8-a3c585a6d3a4",
+          "name": {
+            "en": "10% off"
+          },
+          "money": {
+            "type": "centPrecision",
+            "currencyCode": "EUR",
+            "centAmount": -13950,
+            "fractionDigits": 2
+          },
+          "slug": "10percent-off",
+          "quantity": 1,
+          "discountedPricePerQuantity": [],
+          "taxCategory": {
+            "typeId": "tax-category",
+            "id": "3b52cdd8-c767-4c98-923f-a269e01a6ff2"
+          },
+          "taxRate": {
+            "name": "19% incl.",
+            "amount": 0.05,
+            "includedInPrice": true,
+            "country": "DE",
+            "id": "tVaR2Xbm",
+            "subRates": []
+          },
+          "state": [
+            {
+              "quantity": 1,
+              "state": {
+                "typeId": "state",
+                "id": "8e759a36-c9b5-4a8d-8472-742d5f33ff25"
+              }
+            }
+          ],
+          "taxedPrice": {
+            "totalNet": {
+              "type": "centPrecision",
+              "currencyCode": "EUR",
+              "centAmount": -13286,
+              "fractionDigits": 2
+            },
+            "totalGross": {
+              "type": "centPrecision",
+              "currencyCode": "EUR",
+              "centAmount": -13950,
+              "fractionDigits": 2
+            }
+          },
+          "custom": {
+            "type": {
+              "typeId": "type",
+              "id": "96f89ab5-931d-43d2-b7ad-04ccf272935e"
+            },
+            "fields": {
+              "talon_one_line_item_effect": "setDiscount"
+            }
+          }
+        },
+        {
+          "totalPrice": {
+            "type": "centPrecision",
+            "currencyCode": "EUR",
+            "centAmount": -6975,
+            "fractionDigits": 2
+          },
+          "id": "8005cb33-fe0a-4485-bbe6-7d07caa73e09",
+          "name": {
+            "en": "5% off"
+          },
+          "money": {
+            "type": "centPrecision",
+            "currencyCode": "EUR",
+            "centAmount": -6975,
+            "fractionDigits": 2
+          },
+          "slug": "5percent-off",
+          "quantity": 1,
+          "discountedPricePerQuantity": [],
+          "taxCategory": {
+            "typeId": "tax-category",
+            "id": "3b52cdd8-c767-4c98-923f-a269e01a6ff2"
+          },
+          "taxRate": {
+            "name": "19% incl.",
+            "amount": 0.05,
+            "includedInPrice": true,
+            "country": "DE",
+            "id": "tVaR2Xbm",
+            "subRates": []
+          },
+          "state": [
+            {
+              "quantity": 1,
+              "state": {
+                "typeId": "state",
+                "id": "8e759a36-c9b5-4a8d-8472-742d5f33ff25"
+              }
+            }
+          ],
+          "taxedPrice": {
+            "totalNet": {
+              "type": "centPrecision",
+              "currencyCode": "EUR",
+              "centAmount": -6643,
+              "fractionDigits": 2
+            },
+            "totalGross": {
+              "type": "centPrecision",
+              "currencyCode": "EUR",
+              "centAmount": -6975,
+              "fractionDigits": 2
+            }
+          },
+          "custom": {
+            "type": {
+              "typeId": "type",
+              "id": "96f89ab5-931d-43d2-b7ad-04ccf272935e"
+            },
+            "fields": {
+              "talon_one_line_item_effect": "setDiscount"
+            }
+          }
+        }
+      ],
+      "discountCodes": [],
+      "inventoryMode": "None",
+      "taxMode": "Platform",
+      "taxRoundingMode": "HalfEven",
+      "taxCalculationMode": "LineItemLevel",
+      "deleteDaysAfterLastModification": 90,
+      "refusedGifts": [],
+      "origin": "Customer",
+      "shippingAddress": {
+        "country": "DE"
+      },
+      "itemShippingAddresses": [],
+      "color": {
+        "key": "blue",
+        "label": {
+          "de": "blau",
+          "it": "blu",
+          "en": "blue",
+          "x0": "1.2x",
+          "x1": "1.2",
+          "x2": "2",
+          "x3": {
+            "x": 5,
+            "y": 7.2
+          },
+          "x4": {
+            "x": 6.8,
+            "y": 7.2
+          },
+          "x5": "2021-03-18T13:04:33.735Z",
+          "x6": "2021-04-15T15:27:55+02:00",
+          "x7": true
+        }
+      }
+    }
+  }
+}

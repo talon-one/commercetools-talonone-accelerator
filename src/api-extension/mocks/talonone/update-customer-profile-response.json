@@ -1,0 +1,15 @@
+{
+  "effects": [],
+  "createdCoupons": [],
+  "createdReferrals": [],
+  "customerProfile": {
+    "integrationId": "66277d9c-f359-45cb-9b4e-e1c6194666d0",
+    "created": "2021-02-23T10:07:04.343Z",
+    "attributes": {},
+    "accountId": 1,
+    "closedSessions": 0,
+    "totalSales": 0,
+    "lastActivity": "2021-03-06T19: 26:04.790Z",
+    "loyaltyMemberships": null
+  }
+}

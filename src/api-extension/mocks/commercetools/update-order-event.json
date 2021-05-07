@@ -1,0 +1,643 @@
+{
+  "action": "Update",
+  "resource": {
+    "typeId": "order",
+    "id": "c40b69fb-cfd6-4d93-92e4-ad15872836c1",
+    "obj": {
+      "type": "Order",
+      "id": "c40b69fb-cfd6-4d93-92e4-ad15872836c1",
+      "version": 2,
+      "lastMessageSequenceNumber": 2,
+      "createdAt": "2021-03-12T13:57:08.402Z",
+      "lastModifiedAt": "2021-03-12T13:57:08.402Z",
+      "lastModifiedBy": {
+        "isPlatformClient": true
+      },
+      "createdBy": {
+        "isPlatformClient": true
+      },
+      "anonymousId": "f00f35c6-ec70-4f69-9cea-9b4abc8a49c0",
+      "totalPrice": {
+        "type": "centPrecision",
+        "currencyCode": "EUR",
+        "centAmount": 36465,
+        "fractionDigits": 2
+      },
+      "taxedPrice": {
+        "t  otalNet": {
+          "type": "centPrecision",
+          "currencyCode": "EUR",
+          "centAmount": 29921,
+          "fractionDigits": 2
+        },
+        "totalGross": {
+          "type": "centPrecision",
+          "currencyCode": "EUR",
+          "centAmount": 36465,
+          "fractionDigits": 2
+        },
+        "taxPortions": [
+          {
+            "rate": 0.05,
+            "amount": {
+              "type": "centPrecision",
+              "currencyCode": "EUR",
+              "centAmount": -306,
+              "fractionDigits": 2
+            },
+            "name": "19% incl."
+          },
+          {
+            "rate": 0.19,
+            "amount": {
+              "type": "centPrecision",
+              "currencyCode": "EUR",
+              "centAmount": 6850,
+              "fractionDigits": 2
+            },
+            "name": "19% incl."
+          }
+        ]
+      },
+      "country": "DE",
+      "orderState": "Complete",
+      "syncInfo": [],
+      "returnInfo": [],
+      "taxMode": "Platform",
+      "inventoryMode": "None",
+      "taxRoundingMode": "HalfEven",
+      "taxCalculationMode": "LineItemLevel",
+      "origin": "Customer",
+      "lineItems": [
+        {
+          "id": "719204b1-7673-4aa7-a540-9a3b9ef020b7",
+          "productId": "6d153741-b82c-4862-b0d4-2c724b87899d",
+          "name": {
+            "en": "Coat Aspesi blue",
+            "de": "Mantel Aspesi blau"
+          },
+          "productType": {
+            "typeId": "product-type",
+            "id": "2abec750-f326-4774-b49f-37816e589727",
+            "version": 1
+          },
+          "productSlug": {
+            "en": "aspesi-coat-I502997385098-blue",
+            "de": "aspesi-mantel-I502997385098-blau"
+          },
+          "variant": {
+            "id": 1,
+            "sku": "M0E20000000ECTT",
+            "prices": [
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "EUR",
+                  "centAmount": 53625,
+                  "fractionDigits": 2
+                },
+                "id": "99029c54-a81c-4725-9fba-891a55880da9"
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "EUR",
+                  "centAmount": 35164,
+                  "fractionDigits": 2
+                },
+                "id": "671c84bb-a865-4f4f-8519-d9c8fae9291d",
+                "customerGroup": {
+                  "typeId": "customer-group",
+                  "id": "097543d6-58e1-43ba-b684-ad7484197400"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "USD",
+                  "centAmount": 53625,
+                  "fractionDigits": 2
+                },
+                "id": "f69b0a7f-9814-4056-add2-60d70c6dae4a",
+                "country": "US"
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "USD",
+                  "centAmount": 35164,
+                  "fractionDigits": 2
+                },
+                "id": "8b92b4ef-0f37-400d-82ef-047d0a182530",
+                "customerGroup": {
+                  "typeId": "customer-group",
+                  "id": "097543d6-58e1-43ba-b684-ad7484197400"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "EUR",
+                  "centAmount": 42900,
+                  "fractionDigits": 2
+                },
+                "id": "57f3c0c9-0752-4dc0-bb41-a9d6858c7131",
+                "country": "DE"
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "EUR",
+                  "centAmount": 42900,
+                  "fractionDigits": 2
+                },
+                "id": "5bcffa6f-83f6-4514-a807-a8555303e0e2",
+                "country": "IT"
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "EUR",
+                  "centAmount": 42900,
+                  "fractionDigits": 2
+                },
+                "id": "9a10ed7a-f691-457b-9610-6f0dec31afdb",
+                "country": "GB"
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "EUR",
+                  "centAmount": 44616,
+                  "fractionDigits": 2
+                },
+                "id": "46864078-14ac-479c-9e4d-f349121e6867",
+                "country": "DE",
+                "channel": {
+                  "typeId": "channel",
+                  "id": "4b4e6cef-9148-4f39-a890-a7ebad4cbf27"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "EUR",
+                  "centAmount": 52552,
+                  "fractionDigits": 2
+                },
+                "id": "265a8838-0c6a-457f-8a1d-ce30b08172aa",
+                "channel": {
+                  "typeId": "channel",
+                  "id": "94fc07a3-47ac-48cd-a8f4-c4e349bd8e5a"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "EUR",
+                  "centAmount": 42042,
+                  "fractionDigits": 2
+                },
+                "id": "20fd3fc4-3012-46a4-b960-9a39e4b096b7",
+                "country": "DE",
+                "channel": {
+                  "typeId": "channel",
+                  "id": "c7a0c154-7e2d-4652-a3e1-44b72956e42c"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "EUR",
+                  "centAmount": 39468,
+                  "fractionDigits": 2
+                },
+                "id": "1bfedded-3388-426c-87df-4b49bb227ed2",
+                "country": "DE",
+                "channel": {
+                  "typeId": "channel",
+                  "id": "5e6783a3-ef60-4585-ba8f-b3e442f995e4"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "EUR",
+                  "centAmount": 43329,
+                  "fractionDigits": 2
+                },
+                "id": "39613d48-49c7-45dd-8710-54f5562cb57b",
+                "country": "DE",
+                "channel": {
+                  "typeId": "channel",
+                  "id": "8660ba31-7918-4f1e-b3f5-0270cfba4dbc"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "USD",
+                  "centAmount": 44616,
+                  "fractionDigits": 2
+                },
+                "id": "685f4dd7-9634-4721-ba16-18ea633bfbd3",
+                "country": "US",
+                "channel": {
+                  "typeId": "channel",
+                  "id": "69a339e9-d338-4d7d-91e2-6fb2320e92ff"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "USD",
+                  "centAmount": 52552,
+                  "fractionDigits": 2
+                },
+                "id": "3273a5e8-7ab6-4221-9289-22de026b05be",
+                "channel": {
+                  "typeId": "channel",
+                  "id": "18efbaa2-ec2d-404c-80b4-a4b35fdc29c3"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "USD",
+                  "centAmount": 42042,
+                  "fractionDigits": 2
+                },
+                "id": "b36c163e-2a9c-4b6e-8870-4264846d5173",
+                "country": "US",
+                "channel": {
+                  "typeId": "channel",
+                  "id": "0b436ca6-8d17-4b03-bd35-94a66a34d3f9"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "USD",
+                  "centAmount": 39468,
+                  "fractionDigits": 2
+                },
+                "id": "86824951-dd75-4a4e-90b0-de95c707f1bc",
+                "country": "US",
+                "channel": {
+                  "typeId": "channel",
+                  "id": "4c60c8a6-17c0-44a9-8081-22929dbad835"
+                }
+              },
+              {
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "USD",
+                  "centAmount": 43329,
+                  "fractionDigits": 2
+                },
+                "id": "c9d50912-cfbd-4620-9483-fa3b3d6ec3d0",
+                "country": "US",
+                "channel": {
+                  "typeId": "channel",
+                  "id": "06f251f6-37ca-4164-9338-db3213f2d5e0"
+                }
+              }
+            ],
+            "images": [
+              {
+                "url": "https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/081200_1_large.jpg",
+                "dimensions": {
+                  "w": 0,
+                  "h": 0
+                }
+              }
+            ],
+            "attributes": [
+              {
+                "name": "articleNumberManufacturer",
+                "value": "I502 9973 85098"
+              },
+              {
+                "name": "articleNumberMax",
+                "value": "81200"
+              },
+              {
+                "name": "matrixId",
+                "value": "M0E20000000ECTT"
+              },
+              {
+                "name": "baseId",
+                "value": "81200"
+              },
+              {
+                "name": "designer",
+                "value": {
+                  "key": "aspesi",
+                  "label": "Aspesi"
+                }
+              },
+              {
+                "name": "madeInItaly",
+                "value": {
+                  "key": "no",
+                  "label": "no"
+                }
+              },
+              {
+                "name": "commonSize",
+                "value": {
+                  "key": "xxs",
+                  "label": "XXS"
+                }
+              },
+              {
+                "name": "size",
+                "value": "XXS"
+              },
+              {
+                "name": "color",
+                "value": {
+                  "key": "blue",
+                  "label": {
+                    "de": "blau",
+                    "it": "blu",
+                    "en": "blue"
+                  }
+                }
+              },
+              {
+                "name": "colorFreeDefinition",
+                "value": {
+                  "en": "blue",
+                  "de": "blau"
+                }
+              },
+              {
+                "name": "style",
+                "value": {
+                  "key": "business",
+                  "label": "business"
+                }
+              },
+              {
+                "name": "gender",
+                "value": {
+                  "key": "men",
+                  "label": "Herren"
+                }
+              },
+              {
+                "name": "season",
+                "value": "s15"
+              }
+            ],
+            "assets": []
+          },
+          "price": {
+            "value": {
+              "type": "centPrecision",
+              "currencyCode": "EUR",
+              "centAmount": 42900,
+              "fractionDigits": 2
+            },
+            "id": "57f3c0c9-0752-4dc0-bb41-a9d6858c7131",
+            "country": "DE"
+          },
+          "quantity": 1,
+          "discountedPricePerQuantity": [],
+          "taxRate": {
+            "name": "19% incl.",
+            "amount": 0.19,
+            "includedInPrice": true,
+            "country": "DE",
+            "id": "FEtLykJe",
+            "subRates": []
+          },
+          "addedAt": "2021-03-12T13:03:17.394Z",
+          "lastModifiedAt": "2021-03-12T13:03:17.394Z",
+          "state": [
+            {
+              "quantity": 1,
+              "state": {
+                "typeId": "state",
+                "id": "8e759a36-c9b5-4a8d-8472-742d5f33ff25"
+              }
+            }
+          ],
+          "priceMode": "Platform",
+          "totalPrice": {
+            "type": "centPrecision",
+            "currencyCode": "EUR",
+            "centAmount": 42900,
+            "fractionDigits": 2
+          },
+          "taxedPrice": {
+            "totalNet": {
+              "type": "centPrecision",
+              "currencyCode": "EUR",
+              "centAmount": 36050,
+              "fractionDigits": 2
+            },
+            "totalGross": {
+              "type": "centPrecision",
+              "currencyCode": "EUR",
+              "centAmount": 42900,
+              "fractionDigits": 2
+            }
+          },
+          "lineItemMode": "Standard"
+        }
+      ],
+      "customLineItems": [
+        {
+          "totalPrice": {
+            "type": "centPrecision",
+            "currencyCode": "EUR",
+            "centAmount": -4290,
+            "fractionDigits": 2
+          },
+          "id": "b7acf6d4-a939-4068-9e73-a58810d641db",
+          "name": {
+            "en": "10% off demo"
+          },
+          "money": {
+            "type": "centPrecision",
+            "currencyCode": "EUR",
+            "centAmount": -4290,
+            "fractionDigits": 2
+          },
+          "slug": "10percent-off-demo",
+          "quantity": 1,
+          "discountedPricePerQuantity": [],
+          "taxCategory": {
+            "typeId": "tax-category",
+            "id": "3b52cdd8-c767-4c98-923f-a269e01a6ff2"
+          },
+          "taxRate": {
+            "name": "19% incl.",
+            "amount": 0.05,
+            "includedInPrice": true,
+            "country": "DE",
+            "id": "tVaR2Xbm",
+            "subRates": []
+          },
+          "state": [
+            {
+              "quantity": 1,
+              "state": {
+                "typeId": "state",
+                "id": "8e759a36-c9b5-4a8d-8472-742d5f33ff25"
+              }
+            }
+          ],
+          "taxedPrice": {
+            "totalNet": {
+              "type": "centPrecision",
+              "currencyCode": "EUR",
+              "centAmount": -4086,
+              "fractionDigits": 2
+            },
+            "totalGross": {
+              "type": "centPrecision",
+              "currencyCode": "EUR",
+              "centAmount": -4290,
+              "fractionDigits": 2
+            }
+          }
+        },
+        {
+          "totalPrice": {
+            "type": "centPrecision",
+            "currencyCode": "EUR",
+            "centAmount": -2145,
+            "fractionDigits": 2
+          },
+          "id": "dadbcec4-6844-46fb-b8d3-be51380d6b23",
+          "name": {
+            "en": "5% off"
+          },
+          "money": {
+            "type": "centPrecision",
+            "currencyCode": "EUR",
+            "centAmount": -2145,
+            "fractionDigits": 2
+          },
+          "slug": "5percent-off",
+          "quantity": 1,
+          "discountedPricePerQuantity": [],
+          "taxCategory": {
+            "typeId": "tax-category",
+            "id": "3b52cdd8-c767-4c98-923f-a269e01a6ff2"
+          },
+          "taxRate": {
+            "name": "19% incl.",
+            "amount": 0.05,
+            "includedInPrice": true,
+            "country": "DE",
+            "id": "tVaR2Xbm",
+            "subRates": []
+          },
+          "state": [
+            {
+              "quantity": 1,
+              "state": {
+                "typeId": "state",
+                "id": "8e759a36-c9b5-4a8d-8472-742d5f33ff25"
+              }
+            }
+          ],
+          "taxedPrice": {
+            "totalNet": {
+              "type": "centPrecision",
+              "currencyCode": "EUR",
+              "centAmount": -2043,
+              "fractionDigits": 2
+            },
+            "totalGross": {
+              "type": "centPrecision",
+              "currencyCode": "EUR",
+              "centAmount": -2145,
+              "fractionDigits": 2
+            }
+          }
+        },
+        {
+          "totalPrice": {
+            "type": "centPrecision",
+            "currencyCode": "EUR",
+            "centAmount": 0,
+            "fractionDigits": 2
+          },
+          "id": "cf5314c1-70c9-44d3-9ef6-9f10c05512e2",
+          "name": {
+            "en": "custom text"
+          },
+          "money": {
+            "type": "centPrecision",
+            "currencyCode": "EUR",
+            "centAmount": 0,
+            "fractionDigits": 2
+          },
+          "slug": "custom-text",
+          "quantity": 1,
+          "discountedPricePerQuantity": [],
+          "taxCategory": {
+            "typeId": "tax-category",
+            "id": "3b52cdd8-c767-4c98-923f-a269e01a6ff2"
+          },
+          "taxRate": {
+            "name": "19% incl.",
+            "amount": 0.05,
+            "includedInPrice": true,
+            "country": "DE",
+            "id": "tVaR2Xbm",
+            "subRates": []
+          },
+          "state": [
+            {
+              "quantity": 1,
+              "state": {
+                "typeId": "state",
+                "id": "8e759a36-c9b5-4a8d-8472-742d5f33ff25"
+              }
+            }
+          ],
+          "taxedPrice": {
+            "totalNet": {
+              "type": "centPrecision",
+              "currencyCode": "EUR",
+              "centAmount": 0,
+              "fractionDigits": 2
+            },
+            "totalGross": {
+              "type": "centPrecision",
+              "currencyCode": "EUR",
+              "centAmount": 0,
+              "fractionDigits": 2
+            }
+          }
+        }
+      ],
+      "transactionFee": true,
+      "discountCodes": [],
+      "cart": {
+        "typeId": "cart",
+        "id": "e24e8400-ad24-4e28-be6a-124cfa557b47"
+      },
+      "shippingAddress": {
+        "country": "DE"
+      },
+      "billingAddress": {
+        "firstName": "Tom",
+        "lastName": "D",
+        "streetName": "test 123",
+        "postalCode": "12-123",
+        "city": "test",
+        "country": "US",
+        "email": "john.doe@example.com"
+      },
+      "itemShippingAddresses": [],
+      "refusedGifts": []
+    }
+  }
+}

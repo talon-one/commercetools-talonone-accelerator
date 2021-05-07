@@ -1,0 +1,11 @@
+[
+  {
+    "action": "setCustomType",
+    "type": {
+      "key": "talon_one_customer_metadata"
+    },
+    "fields": {
+      "talon_one_customer_referral_codes": ["123", "234", "EUR__658-253"]
+    }
+  }
+]

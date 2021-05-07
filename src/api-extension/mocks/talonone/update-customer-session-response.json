@@ -1,0 +1,204 @@
+{
+  "effects": [
+    {
+      "campaignId": 50,
+      "rulesetId": 102,
+      "ruleIndex": 0,
+      "ruleName": "More than one item in shopping cart",
+      "effectType": "setDiscount",
+      "props": {
+        "name": "10% off",
+        "value": 149.3
+      }
+    },
+    {
+      "campaignId": 50,
+      "rulesetId": 102,
+      "ruleIndex": 0,
+      "ruleName": "More than one item in shopping cart",
+      "effectType": "setDiscount",
+      "props": {
+        "name": "5% off",
+        "value": 74.65
+      }
+    },
+    {
+      "campaignId": 50,
+      "rulesetId": 102,
+      "ruleIndex": 0,
+      "ruleName": "More than one item in shopping cart",
+      "effectType": "addFreeItem",
+      "props": {
+        "sku": "125",
+        "name": "Free Item 125"
+      }
+    },
+    {
+      "campaignId": 50,
+      "rulesetId": 102,
+      "ruleIndex": 0,
+      "ruleName": "More than one item in shopping cart",
+      "effectType": "addFreeItem",
+      "props": {
+        "sku": "125",
+        "name": "Free Item 125"
+      }
+    },
+    {
+      "campaignId": 50,
+      "rulesetId": 102,
+      "ruleIndex": 0,
+      "ruleName": "More than one item in shopping cart",
+      "effectType": "addFreeItem",
+      "props": {
+        "sku": "126",
+        "name": "Free Item 126"
+      }
+    },
+    {
+      "campaignId": 50,
+      "rulesetId": 102,
+      "ruleIndex": 0,
+      "ruleName": "More than one item in shopping cart",
+      "effectType": "showNotification",
+      "props": {
+        "notificationType": "Info",
+        "title": "Info",
+        "body": "Info message."
+      }
+    },
+    {
+      "campaignId": 50,
+      "rulesetId": 102,
+      "ruleIndex": 0,
+      "ruleName": "More than one item in shopping cart",
+      "effectType": "showNotification",
+      "props": {
+        "notificationType": "Offer",
+        "title": "Offer title",
+        "body": "Offer message."
+      }
+    },
+    {
+      "campaignId": 50,
+      "rulesetId": 102,
+      "ruleIndex": 0,
+      "ruleName": "More than one item in shopping cart",
+      "effectType": "showNotification",
+      "props": {
+        "notificationType": "Error",
+        "title": "Error title",
+        "body": "Error message."
+      }
+    },
+    {
+      "campaignId": 50,
+      "rulesetId": 102,
+      "ruleIndex": 0,
+      "ruleName": "More than one item in shopping cart",
+      "effectType": "showNotification",
+      "props": {
+        "notificationType": "Misc",
+        "title": "Misc title",
+        "body": "Misc message."
+      }
+    },
+    {
+      "campaignId": 50,
+      "rulesetId": 102,
+      "ruleIndex": 0,
+      "ruleName": "More than one item in shopping cart",
+      "effectType": "rejectCoupon",
+      "props": {
+        "value": "Cool-Summer!",
+        "rejectionReason": "CouponNotFound"
+      }
+    },
+    {
+      "campaignId": 50,
+      "rulesetId": 102,
+      "ruleIndex": 0,
+      "ruleName": "More than one item in shopping cart",
+      "effectType": "rejectCoupon",
+      "props": {
+        "value": "Cool-Summer!",
+        "rejectionReason": "CampaignLimitReached"
+      }
+    },
+    {
+      "campaignId": 50,
+      "rulesetId": 102,
+      "ruleIndex": 0,
+      "ruleName": "More than one item in shopping cart",
+      "effectType": "acceptCoupon",
+      "triggeredByCoupon": 658,
+      "props": {
+        "value": "Cool-Summer!"
+      }
+    },
+    {
+      "campaignId": 50,
+      "rulesetId": 102,
+      "ruleIndex": 0,
+      "ruleName": "More than one item in shopping cart",
+      "effectType": "setDiscount",
+      "triggeredByCoupon": 658,
+      "props": {
+        "name": "10% off",
+        "value": 1.8
+      }
+    },
+    {
+      "campaignId": 17,
+      "rulesetId": 101,
+      "ruleIndex": 0,
+      "ruleName": "Title",
+      "effectType": "setDiscountPerItem",
+      "props": {
+        "name": "10% off per item#0",
+        "value": 1.3,
+        "position": 0
+      }
+    }
+  ],
+  "customerSession": {
+    "integrationId": "077a0797-5d07-4304-9e0b-7439f3a389e9",
+    "created": "2021-02-17T12:53:17.997934Z",
+    "applicationId": 4,
+    "profileId": "1",
+    "couponCodes": ["coup-test"],
+    "referralCode": "",
+    "state": "open",
+    "cartItems": [
+      {
+        "name": "jeans Michael Kors dark blue",
+        "sku": "f70e09f8-1aa2-4869-aef2-9c0fc4d4e564",
+        "quantity": 1,
+        "price": 13,
+        "category": "cloths",
+        "position": 0
+      },
+      {
+        "name": "jeans Michael Kors dark blue",
+        "sku": "15a84852-8ec2-4625-859e-e0cc7bdb3135",
+        "quantity": 1,
+        "price": 12,
+        "category": "pizzas",
+        "position": 1
+      }
+    ],
+    "additionalCosts": {
+      "ShippingCost": {
+        "price": 5
+      }
+    },
+    "attributes": {},
+    "firstSession": true,
+    "total": 30,
+    "cartItemTotal": 25,
+    "additionalCostTotal": 5
+  },
+  "createdCoupons": [],
+  "createdReferrals": [],
+  "ruleFailureReasons": []
+}

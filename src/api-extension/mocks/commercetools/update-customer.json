@@ -1,0 +1,37 @@
+{
+  "id": "0e221bb9-b138-437c-be58-aff777ac6070",
+  "version": 13,
+  "lastMessageSequenceNumber": 2,
+  "createdAt": "2021-03-30T15:07:50.050Z",
+  "lastModifiedAt": "2021-04-22T11:48:06.949Z",
+  "lastModifiedBy": {
+    "clientId": "GLAAwez_cJDkRs9QKIbJSPdO",
+    "isPlatformClient": false,
+    "customer": {
+      "typeId": "customer",
+      "id": "0e221bb9-b138-437c-be58-aff777ac6070"
+    }
+  },
+  "createdBy": {
+    "clientId": "GLAAwez_cJDkRs9QKIbJSPdO",
+    "isPlatformClient": false
+  },
+  "email": "john@example.com",
+  "firstName": "John",
+  "lastName": "Doe",
+  "password": "7ZG0qCqlgHpv1cY17oUfyP/ImgvCnmbfObQNCSucwBo=$Mj7uOaLCTDzYRk50iUUSplITuow/q15aKNFCt4Sh7Ts=",
+  "addresses": [],
+  "shippingAddressIds": [],
+  "billingAddressIds": [],
+  "isEmailVerified": false,
+  "custom": {
+    "type": {
+      "typeId": "type",
+      "id": "8d19ace4-0967-408b-b3cf-046ef00c4d24"
+    },
+    "fields": {
+      "talon_one_customer_referral_codes": ["123", "234", "EUR__658-253"]
+    }
+  },
+  "stores": []
+}
