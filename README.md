@@ -1,163 +1,176 @@
-# TalonOne Commercetools Integration
+# commercetools connector
+
+The Talon.One's [commercetools](https://commercetools.com) connector allows you to integrate the Talon.One Promotion Engine into your commercetools Commerce Platform.
+
+- [Requirements](#requirements)
+- [Getting started](#getting-started)
+  - [Creating .env file](#creating-env-file)
+  - [Creating Types in Commercetools](#creating-types-in-commercetools)
+  - [Creating an API Extension in Commercetools](#creating-an-api-extension-in-commercetools)
+  - [Deploying an Application](#deploying-an-application)
+  - [Mapping Attributes between commercetools and Talon.One](#mapping-attributes-between-commercetools-and-talonone)
+    - [Supported customer commercetools core fields](#supported-customer-commercetools-core-fields)
+- [More](#more)
+
+## Requirements
+
+The connector relies on AWS. To use the connector, ensure you have:
+
+- A commercetools Commerce Platform account
+- An AWS account with Amazon Lambda
+- A Talon.One deployment
 
 ## Getting started
 
-First, install and configure tools from the list below (if you don't
-have them yet):
+Apply all the following sections in sequence to configure and install the connector.
 
-* [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html)
-* [Serverless Framework](https://www.serverless.com/framework/docs/providers/aws/guide/installation/)
-  * To work with `Serverless Framework` you can create IAM user with
-    minimal privileges (e.g. `iam/serverless-dev-iam.sample.json`).
+### Installing the tools
 
-Then you can check if everything is ok:
+1. Install the following tools:
 
-```bash
-aws sts get-caller-identity
-serverless --version
-```
+- [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html)
+- [serverless](https://www.serverless.com/framework/docs/providers/aws/guide/installation/)
+  **Notes:*- To use _serverless_, create an IAM user with minimal privileges.
+  See an example in [iam/serverless-dev-iam.sample.json](iam/serverless-dev-iam.sample.json).
 
-In the next step, we will configure our environment.
+1. Check your setup:
 
-### Creating .env file
+   ```bash
+   aws sts get-caller-identity
+   serverless --version
+   ```
+
+### Creating the `.env` file
+
+1. Copy the `.env` sample file from this repository:
 
 ```bash
 cp .env.sample .env
-vi .env
 ```
 
-where variables are:
+1. Edit its content to update the following variables:
 
-* `CTP_PROJECT_KEY`, `CTP_CLIENT_SECRET`, `CTP_CLIENT_ID`,
-  `CTP_AUTH_URL`, `CTP_API_URL`, `CTP_SCOPES` - Commercetools API Client
-  Configuration (you can get these by creanting new API Client with
-  scope `manage_project` -
-  [more details](https://docs.commercetools.com/merchant-center/api-clients)).
-* `CTP_DEPLOY_TYPE`, `CTP_POST_BODY` - Commercetools API Extension
-  configuration parameters
-  ([more details](https://docs.commercetools.com/api/projects/api-extensions#aws-lambda-destination)).
-  To configure `accessKey` and `accessSecret` you can create another IAM
-  user with minimal privileges (e.g. `iam/ct-dev-iam.sample.json`).
-* `TALON_ONE_API_KEY_V1_<currency code>`, `TALON_ONE_BASE_PATH_<currency
-  code>` - Talon.One API Client Configuration (you can get these by
-  creanting new API Client -
-  [more details](https://help.talon.one/hc/en-us/articles/360010114859-Creating-an-API-Key)).
-  * `<currency code>` - The currency code compliant to
-    [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) (e.g. `EUR`,
-    `USD`). Each currency code should have a unique application in
-    Talon.One.
-* `TALON_ONE_FALLBACK_CURRENCY` - one of the currency codes used above
-  or empty string if we don't want to use fallback. Fallback will be
-  used when it will not be possible to match already set codes with code
-  from Commercetools. For example:
-  * Currency code received from CTP: `EUR`
-  * Currency codes in configuration: `PLN`, `USD`
-      * Fallback currency code: `PLN`
-        * Currency code sent to Talon.One: `PLN`
-      * Fallback currency code: `''`
-        * No data was sent to Talon.One.
-* `TALON_ONE_ATTRIBUTES_MAPPINGS` - Mappings configuration.
-* `LANGUAGE` - The default language code, that will be used to map
-  information from Commercetools to Talon.One (by default `en`).
-* `DISCOUNT_TAX_CATEGORY_ID` - Tax category identifier in Commercetools
-  applied to discounts from Talon.One.
-* `ONLY_VERIFIED_PROFILES` - Commercetools will send only profiles with
-  verified email address.
-* `SKU_TYPE` - SKU from Talon.One will be converted to `SKU_TYPE` in
-  Commercetools. Possible values:
-  * `CTP_PRODUCT_ID` (T1 SKU -> CTP Product ID)
-  * `CTP_PRODUCT_ID_WITH_VARIANT_ID` (T1 SKU -> CTP Product ID and
-    Variant ID)
-    * `SKU_SEPARATOR` - You must pass a Product ID with Variant ID
-      separated by `SKU_SEPARATOR` (e.g. T1 SKU = "123@1"). Default: `@`.
-  * `CTP_VARIANT_SKU` (T1 SKU -> CTP SKU)
-* `VERIFY_PRODUCT_IDENTIFIERS` - option defining whether to validate SKU
-  from Talon.One in Commercetools (may reduce performance). Possible
-  values: `0` (disabled), `1` (enabled).
-* `CART_ATTRIBUTE_MAPPING`, `CART_ITEM_ATTRIBUTE_MAPPING` -
-  [Data Mapping Specification](./docs/data-mapping-spec.md)
+- `CTP_PROJECT_KEY`, `CTP_CLIENT_SECRET`, `CTP_CLIENT_ID`, `CTP_AUTH_URL`,
+  `CTP_API_URL`, `CTP_SCOPES`: commercetools API Client Configuration. Create a new API Client with
+  scope `manage_project` to get the values.
+  See [API Clients](https://docs.commercetools.com/merchant-center/api-clients).
 
-Next, we will create custom types.
+- `CTP_DEPLOY_TYPE`, `CTP_POST_BODY`: commercetools API Extension configuration parameters.
+  See [AWS Lamba](https://docs.commercetools.com/api/projects/api-extensions#aws-lambda-destination).
 
-### Creating Types in Commercetools
+  To configure `accessKey` and `accessSecret` create another IAM user with minimal
+  privileges. See an example in [`iam/ct-dev-iam.sample.json`](iam/ct-dev-iam.sample.json).
+
+- `TALON_ONE_API_KEY_V1_<currency code>`: Create an API key to get the values:
+  See [Creating an API key](https://help.talon.one/hc/en-us/articles/360010114859-Creating-an-API-Key).
+
+  `<currency code>` is the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code of your Application.
+
+- `TALON_ONE_BASE_PATH_<currency code>`: The base URL of your Talon.One deployment. For example: `https://mycompany..europe-west1.talon.one`.
+
+- `TALON_ONE_FALLBACK_CURRENCY`: One of the currency codes used above or an empty string.
+  The fallback is used when the currency from commercetools cannot be matched in Talon.One.
+
+  Example:
+
+  - If `EUR` is received from commercetools and the Talon.One Application uses `PLN` and `USD`, and PLN as fallback, we use turn `EUR` into `PLN`.
+
+  - If the fallback is an empty string, **no data is shared with Talon.One** if the currency doesn't match.
+
+- `TALON_ONE_ATTRIBUTES_MAPPINGS`: Mappings configuration.
+
+- `LANGUAGE`: The default language code used to map information from commercetools to Talon.One. Defaults to `en`.
+
+- `DISCOUNT_TAX_CATEGORY_ID`: Tax category identifier in commercetools applied to discounts from Talon.One.
+
+- `ONLY_VERIFIED_PROFILES`: commercetools will send only profiles with a verified email address.
+
+- `SKU_TYPE`: Determines how the SKU from Talon.One is converted to `SKU_TYPE` in Commercetools. Possible values:
+  - `CTP_PRODUCT_ID`: Talon.One SKU to CTP Product ID.
+  - `CTP_PRODUCT_ID_WITH_VARIANT_ID`: Talon.One SKU to CTP Product ID and Variant ID. If you choose this, also set `SKU_SEPARATOR`. Defaults to `@`.
+  - `CTP_VARIANT_SKU`: Talon.One SKU to CTP SKU.
+
+- `VERIFY_PRODUCT_IDENTIFIERS`: Determines whether to validate SKUs from Talon.One in Commercetools.
+  ⚠️ May reduce performance. Possible values: `0` for disabled, `1` for enabled.
+
+- `CART_ATTRIBUTE_MAPPING`, `CART_ITEM_ATTRIBUTE_MAPPING`: [Data mapping specification](./docs/data-mapping-spec.md)
+
+### Creating types in Commercetools
+
+To support Talon.One-specific data, create custom types in Commercetools. Run:
 
 ```bash
 yarn register-api-types
 ```
 
-Now, we can move on to the next step, which is creating an API Extension
-in Commercetools.
+### Creating an API extension in Commercetools
 
-### Creating an API Extension in Commercetools
+The [API
+extension](https://docs.commercetools.com/api/projects/api-extensions#top)
+allows us to process the custom types in Commercetools.
 
-To create an extension, run the following command:
+To create the required extension, run the following command:
 
 ```
 yarn register-api-extension
 ```
 
-If you run this again, or if you already have extensions in
+The application is ready to be deployed.
+
+#### Managing the extensions
+
+If you run this script again, or if you already have extensions in
 Commercetools, you will be prompted to select the one you would like to
 remove.
 
-**Be careful this cannot be undone!**
+**This cannot be undone!**
 
-In the first case, find our lambda function by following the structure
+To delete an extension, find the lambda function by following the structure
 below and select it:
 
-`arn:aws:lambda:<AWS REGION>:<AWS ACCOUNT
-ID>:function:t1-ct-<STAGE>-api-extension`
+`arn:aws:lambda:<AWS REGION>:<AWS ACCOUNTID>:function:t1-ct-<STAGE>-api-extension`
 
-(If you don't remove the redundant function, all registered functions
-will be run every time you call Commercetools API related to those API
-Extensions.)
+**Note:** If you don't remove the redundant function, all registered functions will be run
+every time you call the commercetools API related to those API Extensions.
 
-In the second case or if you are not sure, select "None".
 
-At the end you will see the details of the newly created extension in
-Commercetools.
+### Deploying an application
 
-The final step is deploying an Application.
-
-### Deploying an Application
-
-To deploy the lambda function, run the following command:
+To deploy the lambda function to your AWS setup, run:
 
 ```bash
 yarn deploy [--stage stage]
 ```
 
-By default, `stage` is set to `dev`.
+**Note:** By default, `stage` is set to `dev`.
 
-Finally, you can call the function and check the logs:
+When the application is deployed, you can call the Lambda function and check the logs:
 
 ```bash
 yarn api-extension:invoke
 yarn api-extension:logs
 ```
 
-### Mapping Attributes between commercetools and Talon.One
+### Mapping attributes between commercetools and Talon.One
 
-Talon.One requires specific predefined pack of attributes which can be
-sent from commercetools. To specify which attributes should be sent, a
-`TALON_ONE_ATTRIBUTES_MAPPINGS` env variable must be defined as a JSON f.e:
-```sh
+Talon.One requires a specific predefined set of [attributes](https://developers.talon.one/Getting-Started/attributes) which can be sent from commercetools. To specify which attributes should be sent, define a
+`TALON_ONE_ATTRIBUTES_MAPPINGS` env variable as a **one-line** JSON object.
+
+Indented example:
+
+```json
 {
    "customerProfile":{
       "onlyVerifiedProfiles": true,
       "mappings":{
-         "commerceToolsAttributeOneName":"talonOneAttributeOneName",
-         "commerceToolsAttributeTwoName":"talonOneAttributeTwoName",
+         "defaultBillingAddressStreetName":"BillingAddress1",
+         "defaultBillingAddressCity":"BillingAddress1",
       }
    }
 }
 ```
 
-Variable accept JSON as a single line string
-
-```sh
-{ "customerProfile":{ "onlyVerifiedProfiles": true, "mappings":{ "commerceToolsAttributeOneName":"talonOneAttributeOneName", "commerceToolsAttributeTwoName":"talonOneAttributeTwoName", } } }
-```
+To see the list of built-in Talon.One attributes, see [Attributes](https://developers.talon.one/Getting-Started/attributes#customer-profile-entity).
 
 #### Supported customer commercetools core fields
 
