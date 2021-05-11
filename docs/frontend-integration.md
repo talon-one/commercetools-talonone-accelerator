@@ -3,15 +3,25 @@
 ## Features
 
 - [Coupons](#coupons)
+  - [Applying a coupon](#applying-a-coupon)
+  - [Receiving coupons](#receiving-coupons)
+  - [Removing a coupon](#removing-a-coupon)
 - [Referrals](#referrals)
+  - [Applying a referral code](#applying-a-referral-code)
+  - [Receiving referrals](#receiving-referrals)
+  - [Removing a referral](#removing-a-referral)
 - [Free items](#free-items)
+  - [Receiving free items](#receiving-free-items)
 - [Discounts](#discounts)
+  - [Receiving discounts](#receiving-discounts)
 - [Discount per item](#discount-per-item)
+  - [Receiving a discount per item](#receiving-a-discount-per-item)
 - [Notifications](#notifications)
+  - [Receiving notifications](#receiving-notifications)
 
 ### Coupons
 
-#### Apply a coupon
+#### Applying a coupon
 
 Query:
 
@@ -85,7 +95,7 @@ Sample result:
 }
 ```
 
-#### Receive coupons
+#### Receiving coupons
 
 Query:
 
@@ -147,7 +157,7 @@ Custom line items with `talon_one_line_item_effect` equal to
 `acceptCoupon` are coupons. The coupon value is in the field with name
 `talon_one_coupon_code`.
 
-#### Remove a coupon
+#### Removing a coupon
 
 Query:
 
@@ -206,7 +216,7 @@ Sample result:
 
 ### Referrals
 
-#### Apply a referral code
+#### Applying a referral code
 
 Query:
 
@@ -263,7 +273,7 @@ Sample result:
 }
 ```
 
-#### Receive referrals
+#### Receiving referrals
 
 Query:
 
@@ -307,7 +317,7 @@ Sample result:
 }
 ```
 
-#### Remove a referral
+#### Removing a referral
 
 Query:
 
@@ -359,7 +369,7 @@ Sample result:
 
 ### Free items
 
-#### Receive free items
+#### Receiving free items
 
 Query:
 
@@ -432,7 +442,7 @@ free items.
 
 ### Discounts
 
-#### Receive discounts
+#### Receiving discounts
 
 Query:
 
@@ -513,7 +523,7 @@ Custom line items with `talon_one_line_item_effect` equal to
 
 ### Discount per item
 
-#### Receive discount per item
+#### Receiving a discount per item
 
 Query:
 
@@ -586,7 +596,7 @@ item. The difference between `price.value.centAmount` and
 
 ### Notifications
 
-#### Receive notifications
+#### Receiving notifications
 
 Query:
 

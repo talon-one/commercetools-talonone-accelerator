@@ -1,4 +1,6 @@
-# Data Mapping Specification
+# Data mapping specification
+
+The mapping is defined as follows, using the [RFC 5234 (ABNF)](https://tools.ietf.org/html/rfc5234) notation.
 
 ```abnf
 data-mapping   = transformation *( ";" *SP transformation )
@@ -13,15 +15,15 @@ ct-attr-keys   = ct-attr-key *( "," ct-attr-key )
 ct-attr-key    = ALPHA *255( ALPHA / DIGIT / "_" / "-" )
 ```
 
-where:
+Where:
 
-- `ct-attr-name` - attribute name from Commercetools
-- `ct-attr-key` - attribute value field name from Commercetools (only
+- `ct-attr-name`: attribute name from Commercetools
+- `ct-attr-key`: attribute value field name from Commercetools (only
   applies when the attribute value is an object)
-- `ct-attr-keys` - the keys that will be used to filter and order the
+- `ct-attr-keys`: the keys that will be used to filter and order the
   values in the object
-- `t1-attr-name` - attribute name from Talon.One
-- `t1-attr-type` - attribute type from Talon.One (by default `"string"`)
+- `t1-attr-name`: attribute name from Talon.One
+- `t1-attr-type`: attribute type from Talon.One (by default `"string"`)
 
 ## Example
 
