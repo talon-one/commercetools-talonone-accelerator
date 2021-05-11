@@ -189,23 +189,28 @@ For more GraphQL queries, see [Frontend integration](docs/frontend-integration.m
 
 ### Mapping attributes between commercetools and Talon.One
 
-You can create custom [attributes](https://developers.talon.one/Getting-Started/attributes) in Talon.One to represent any data you require to manage your promotions.
+You can create custom
+[attributes](https://help.talon.one/hc/en-us/articles/360010028740-Creating-Attributes) in
+Talon.One to represent any data you require to manage your promotions.
 
-This connector supports a list of [commercetools customer core fields](#supported-customer-commercetools-core-fields). Map the ones you need to their Talon.One equivalents that you created.
+This connector supports a list of
+[commercetools customer core fields](#supported-customer-commercetools-core-fields). Map the ones you
+need to their Talon.One equivalents that you created.
 
 To define the mapping, use the `TALON_ONE_ATTRIBUTES_MAPPINGS` env variable as a **one-line** JSON object.
 
 **Indented example:**
 
-For example, to identify our customers with the same ID in Talon.One and commercetools, we map the `id` field to
-`integrationId` with the following JSON:
+For example, if you have a custom attribute in Talon.One called
+`shippingAddressStreet`, you can map the address of a customer from
+commercetools with the following JSON:
 
 ```json
 {
    "customerProfile":{
       "onlyVerifiedProfiles": true,
       "mappings":{
-         "id":"integrationId",
+         "defaultShippingAddressStreetName":"shippingAddressStreet",
       }
    }
 }
