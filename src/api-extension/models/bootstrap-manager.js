@@ -1,121 +1,166 @@
 'use strict';
+const { LoggerService } = require('../services/logger');
 const { CustomerEventValidator } = require('./customer-event-validator');
 const { OrderEventValidator } = require('./order-event-validator');
 const { CartEventValidator } = require('./cart-event-validator');
 const { EventType } = require('./event-type');
+const { EventValidationMode } = require('./event-validation-mode');
 
 class CartBootstrapStrategy {
   /**
-   * @param {Object} event
+   * @param {CtpCartEvent} event
    * @param {Object} context
-   * @param {LoggerService} logger
    */
-  process(event, context, logger) {
-    logger.info('Cart event fired');
-
+  process(event, context) {
     context.isCartEvent = true;
     context.currencyCode = event.resource.obj.totalPrice.currencyCode;
   }
 
   /**
    * @param {Object} event
-   * @returns {boolean}
+   * @return {boolean}
    */
-  validate(event) {
+  simpleValidation(event) {
+    return ['Update', 'Create'].includes(event?.action);
+  }
+
+  /**
+   * @param {Object} event
+   * @return {boolean}
+   */
+  schemaValidation(event) {
     return CartEventValidator.validate(event);
   }
 }
 
 class CustomerBootstrapStrategy {
   /**
-   * @param {Object} event
+   * @param {CtpCustomerEvent} event
    * @param {Object} context
-   * @param {LoggerService} logger
    */
-  process(event, context, logger) {
-    logger.info('Customer event fired');
-
+  process(event, context) {
     context.isCustomerEvent = true;
   }
 
   /**
    * @param {Object} event
-   * @returns {boolean}
+   * @return {boolean}
    */
-  validate(event) {
+  simpleValidation(event) {
+    return ['Update', 'Create'].includes(event?.action);
+  }
+
+  /**
+   * @param {Object} event
+   * @return {boolean}
+   */
+  schemaValidation(event) {
     return CustomerEventValidator.validate(event);
   }
 }
 
 class OrderBootstrapStrategy {
   /**
-   * @param {Object} event
+   * @param {CtpOrderEvent} event
    * @param {Object} context
-   * @param {LoggerService} logger
    */
-  process(event, context, logger) {
-    logger.info('Order event fired');
-
+  process(event, context) {
     context.isOrderEvent = true;
     context.currencyCode = event.resource.obj.totalPrice.currencyCode;
   }
 
   /**
    * @param {Object} event
-   * @returns {boolean}
+   * @return {boolean}
    */
-  validate(event) {
+  simpleValidation(event) {
+    return ['Update', 'Create'].includes(event?.action);
+  }
+
+  /**
+   * @param {Object} event
+   * @return {boolean}
+   */
+  schemaValidation(event) {
     return OrderEventValidator.validate(event);
   }
 }
 
 class UnknownBootstrapStrategy {
+  process() {}
+
   /**
-   * @param {Object} event
-   * @param {Object} context
-   * @param {LoggerService} logger
+   * @return {boolean}
    */
-  process(event, context, logger) {
-    logger.info('Unknown event fired');
+  simpleValidation() {
+    return true;
   }
 
   /**
-   * @returns {boolean}
+   * @return {boolean}
    */
-  validate() {
+  schemaValidation() {
     return true;
   }
 }
 
 class BootstrapManager {
   /**
-   * @param {EventType} event
+   * @param {EventType} eventType
+   * @param {EventValidationMode} validationMode
+   * @param {LoggerService} logger
    */
-  constructor(event) {
-    this._event = event;
+  constructor(eventType, validationMode, logger) {
+    if (!EventType.isValid(eventType)) {
+      throw new Error('Invalid event type.');
+    }
+
+    if (!EventValidationMode.isValid(validationMode)) {
+      throw new Error('Invalid event validation mode.');
+    }
+
+    if (!(logger instanceof LoggerService)) {
+      throw new Error('Invalid logger type.');
+    }
+
+    this._eventType = eventType;
+    this._validationMode = validationMode;
+    this._logger = logger;
+
     this._strategies = {
-      [EventType.cart]: new CartBootstrapStrategy(),
-      [EventType.customer]: new CustomerBootstrapStrategy(),
-      [EventType.order]: new OrderBootstrapStrategy(),
-      [EventType.unknown]: new UnknownBootstrapStrategy(),
+      [EventType.CART]: new CartBootstrapStrategy(),
+      [EventType.CUSTOMER]: new CustomerBootstrapStrategy(),
+      [EventType.ORDER]: new OrderBootstrapStrategy(),
+      [EventType.UNKNOWN]: new UnknownBootstrapStrategy(),
     };
+
+    this._bootstrap = this._strategies[this._eventType];
   }
 
   /**
    * @param {Object} event
    * @param {Object} context
-   * @param {LoggerService} logger
    */
-  process(event, context, logger) {
-    this._strategies[this._event].process(event, context, logger);
+  process(event, context) {
+    this._logger.info(`BootstrapManager processing ${this._eventType}`);
+    this._bootstrap.process(event, context);
   }
 
   /**
    * @param {Object} event
-   * @returns {boolean}
+   * @return {boolean}
    */
   validate(event) {
-    return this._strategies[this._event].validate(event);
+    switch (this._validationMode) {
+      case EventValidationMode.SIMPLE:
+        return this._bootstrap.simpleValidation(event);
+
+      case EventValidationMode.JSON_SCHEMA:
+        return this._bootstrap.schemaValidation(event);
+
+      default:
+        return false;
+    }
   }
 }
 

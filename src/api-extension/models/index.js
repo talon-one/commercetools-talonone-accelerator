@@ -8,7 +8,6 @@ module.exports = {
   REFERRAL_CODE_SEPARATOR: require('./customer-action-factory').REFERRAL_CODE_SEPARATOR,
   REFERRAL_CREATED_PIPE: require('./customer-action-factory').REFERRAL_CREATED_PIPE,
   CartActionFactory: require('./cart-action-factory').CartActionFactory,
-  CartActionsMapper: require('./cart-actions-mapper').CartActionsMapper,
   CartEventMapper: require('./cart-event-mapper').CartEventMapper,
   CartEventValidator: require('./cart-event-validator').CartEventValidator,
   CustomerEventValidator: require('./customer-event-validator').CustomerEventValidator,
@@ -29,6 +28,7 @@ module.exports = {
   UpdateAction: require('./update-action').UpdateAction,
   Validator: require('./validator').Validator,
   DataMapper: require('./data-mapper').DataMapper,
+  LoyaltyPoints: require('./loyalty-points').LoyaltyPoints,
   RemoveCustomLineItemBuilder: require('./remove-custom-line-item-builder')
     .RemoveCustomLineItemBuilder,
   ChangeLineItemQuantityBuilder: require('./change-line-item-quantity-builder')

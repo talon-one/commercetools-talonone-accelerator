@@ -37,16 +37,14 @@ custom:
         - SKU_SEPARATOR
         - LANGUAGE
         - LOGGER_MODE
-        - DISCOUNT_TAX_CATEGORY_ID
         - CTP_LINE_ITEM_METADATA_TYPE_BODY
         - CTP_CART_METADATA_TYPE_BODY
         - CTP_CUSTOMER_METADATA_TYPE_BODY
-        - TALON_ONE_FALLBACK_CURRENCY
         - VERIFY_PRODUCT_IDENTIFIERS
 
 functions:
   api-extension:
-    handler: src/api-extension/index.handler
+    handler: src/api-extension/aws-index.handler
 
 plugins:
   - serverless-webpack

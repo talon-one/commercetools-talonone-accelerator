@@ -6,41 +6,49 @@ const { LoggerService } = require('../services/logger');
 const { ApiClientService } = require('../services/api-client');
 const { ApiClientMockService } = require('../services/api-client-mock');
 const { MapperSettings } = require('./mapper-settings');
+const { EventValidationMode } = require('./event-validation-mode');
 
 const TALON_ONE_API_KEY_V1_PREFIX = 'TALON_ONE_API_KEY_V1_';
 const TALON_ONE_API_BASE_PATH_PREFIX = 'TALON_ONE_API_BASE_PATH_';
 
 class Env {
   /**
-   * @returns {string}
+   * @return {string}
    */
   getLoggerMode() {
     return process.env.LOGGER_MODE ?? 'NONE';
   }
 
   /**
-   * @returns {string}
+   * @return {number}
+   */
+  getEventValidationMode() {
+    return EventValidationMode[process.env.EVENT_VALIDATION_MODE] ?? EventValidationMode.SIMPLE;
+  }
+
+  /**
+   * @return {string}
    */
   getCartAttributeMapping() {
     return process.env.CART_ATTRIBUTE_MAPPING ?? '';
   }
 
   /**
-   * @returns {string}
+   * @return {string}
    */
   getCartItemAttributeMapping() {
     return process.env.CART_ITEM_ATTRIBUTE_MAPPING ?? '';
   }
 
   /**
-   * @returns {boolean}
+   * @return {boolean}
    */
   isUnitTest() {
     return !!parseInt(process.env.UNIT_TEST, 10);
   }
 
   /**
-   * @returns {MapperSettings}
+   * @return {MapperSettings}
    */
   getMapperSettings() {
     return new MapperSettings(
@@ -48,26 +56,37 @@ class Env {
       process.env.LANGUAGE,
       process.env.SKU_TYPE,
       process.env.SKU_SEPARATOR,
-      !!parseInt(process.env.VERIFY_PRODUCT_IDENTIFIERS, 10)
+      !!parseInt(process.env.VERIFY_PRODUCT_IDENTIFIERS, 10),
+      process.env.PAY_WITH_POINTS_ATTRIBUTE_NAME
     );
   }
 
   /**
-   * @returns {LoggerService}
+   * @return {LoggerService}
    */
   getLoggerService() {
     return new LoggerService(this.getLoggerMode());
   }
 
   /**
-   * @returns {any}
+   * @return {any}
    */
   getAttributeMappings() {
-    return JSON.parse(process.env.TALON_ONE_ATTRIBUTES_MAPPINGS);
+    const mappings = process.env.TALON_ONE_ATTRIBUTES_MAPPINGS;
+
+    if (mappings) {
+      try {
+        return JSON.parse(mappings);
+      } catch (e) {
+        //
+      }
+    }
+
+    return {};
   }
 
   /**
-   * @returns {function(): BroadcastApiClient}
+   * @return {function(): BroadcastApiClient}
    */
   getBroadcastApiClient() {
     let instance;
@@ -90,7 +109,7 @@ class Env {
   }
 
   /**
-   * @returns {function(): ApiClientService|ApiClientMockService}
+   * @return {function(): ApiClientService|ApiClientMockService}
    */
   getApiClient() {
     const ApiClient = this.isUnitTest() ? ApiClientMockService : ApiClientService;
@@ -109,7 +128,7 @@ class Env {
   }
 
   /**
-   * @returns {function(): CtpApiClientService|CtpApiClientMockService}
+   * @return {function(): CtpApiClientService|CtpApiClientMockService}
    */
   getCtpApiClient() {
     const ApiClient = this.isUnitTest() ? CtpApiClientMockService : CtpApiClientService;
@@ -133,7 +152,7 @@ class Env {
   }
 
   /**
-   * @returns {Object}
+   * @return {Object}
    * @private
    */
   _getAvailableCurrencies() {
@@ -156,7 +175,7 @@ class Env {
 
   /**
    * @param {null|string} currencyCode
-   * @returns {null|string}
+   * @return {null|string}
    * @private
    */
   _getValidCurrency(currencyCode) {
@@ -175,7 +194,7 @@ class Env {
 
   /**
    * @param {null|string} currencyCode
-   * @returns {{path: string, key: string}}
+   * @return {{path: string, key: string}}
    * @private
    */
   _getApiCredentials(currencyCode) {

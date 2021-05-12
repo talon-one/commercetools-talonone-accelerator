@@ -15,8 +15,17 @@ class CartEventMapper {
    * @param {string} cartItemAttributeMapping
    * @param {LoggerService} logger
    * @param {string} currencyCode
+   * @param {string} payWithPointsAttributeName
    */
-  constructor(cart, lang, cartAttributeMapping, cartItemAttributeMapping, logger, currencyCode) {
+  constructor(
+    cart,
+    lang,
+    cartAttributeMapping,
+    cartItemAttributeMapping,
+    logger,
+    currencyCode,
+    payWithPointsAttributeName
+  ) {
     this.cart = cart;
     this.lang = lang;
     this.cartId = cart.id;
@@ -29,6 +38,7 @@ class CartEventMapper {
     this.cartItemAttributeMapping = cartItemAttributeMapping;
     this.logger = logger;
     this.currencyCode = currencyCode;
+    this.payWithPointsAttributeName = payWithPointsAttributeName;
   }
 
   getSessionIntegrationId() {
@@ -96,13 +106,23 @@ class CartEventMapper {
    * @returns {Object|null}
    */
   getAttributes() {
+    let result = null;
+
     if (this.cartAttributeMapping) {
       const dataMapper = new DataMapper(this.cartAttributeMapping, this.logger);
 
-      return dataMapper.process(this.cart);
+      result = dataMapper.process(this.cart);
     }
 
-    return null;
+    if (this.payWithPointsAttributeName) {
+      if (!result) {
+        result = {};
+      }
+      result[this.payWithPointsAttributeName] = !!this.custom?.fields
+        ?.talon_one_cart_pay_with_points;
+    }
+
+    return result;
   }
 
   /**

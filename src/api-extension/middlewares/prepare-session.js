@@ -2,7 +2,7 @@
 const { CustomerSessionFactory } = require('../models');
 
 const prepareSessionMiddleware = ({
-  mapperSettings: { lang },
+  mapperSettings: { lang, payWithPointsAttributeName },
   logger,
   cartAttributeMapping,
   cartItemAttributeMapping,
@@ -18,7 +18,8 @@ const prepareSessionMiddleware = ({
           cartAttributeMapping,
           cartItemAttributeMapping,
           logger,
-          context.currencyCode
+          context.currencyCode,
+          payWithPointsAttributeName
         );
         logger.test(context.customerSessionV2, true);
       } else if (context.isOrderEvent === true) {

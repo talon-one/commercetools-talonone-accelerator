@@ -9,14 +9,14 @@ const timePlugin = (opts = {}) => {
   const { logger } = { ...defaults, ...opts };
   const store = {};
 
-  const start = (name) => {
-    store[name] = process.hrtime();
+  const start = (action) => {
+    store[action] = process.hrtime();
   };
 
-  const stop = (name) => {
+  const stop = (action) => {
     logger({
-      name,
-      time: `${process.hrtime(store[name])[1] / 1000000} ms`,
+      name: action,
+      time: `${process.hrtime(store[action])[1] / 1000000} ms`,
     });
   };
 

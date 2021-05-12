@@ -1,4 +1,5 @@
 'use strict';
+const { LoyaltyPoints } = require('./loyalty-points');
 const { SetCustomTypeBuilder } = require('./set-custom-type-builder');
 const { EffectType } = require('./effect-type');
 
@@ -14,14 +15,14 @@ class CustomerActionFactory {
    * @param {CtpCustomerCustomFields} customFields
    */
   constructor(customFields) {
-    this.customFields = customFields;
+    this._customFields = customFields;
   }
 
   /**
    * @param {any[]} effects
    * @param {any[]} [actions=[]]
-   * @param {string[]} pipes
-   * @returns {Promise<any[]>}
+   * @param {string[]} [pipes=[REFERRAL_CREATED_PIPE]]
+   * @return {Promise<any[]>}
    */
   async createActions(effects, actions = [], pipes = [REFERRAL_CREATED_PIPE]) {
     if (!effects || !effects.length) {
@@ -39,7 +40,7 @@ class CustomerActionFactory {
   /**
    * @param {any[]} effects
    * @param {any[]} actions
-   * @returns {any[]}
+   * @return {any[]}
    * @private
    */
   _referralCreated(effects, actions) {
@@ -62,15 +63,28 @@ class CustomerActionFactory {
 
     const builder = new SetCustomTypeBuilder();
 
-    if (this.customFields?.fields?.talon_one_customer_referral_codes) {
-      builder.referrals(this.customFields.fields.talon_one_customer_referral_codes);
+    if (this._customFields?.fields?.talon_one_customer_loyalty_points) {
+      try {
+        builder.loyaltyPoints(
+          JSON.parse(this._customFields.fields.talon_one_customer_loyalty_points).map(
+            ({ id, name, title, balance, currency }) =>
+              new LoyaltyPoints(id, name, title, balance, currency)
+          )
+        );
+      } catch (e) {
+        //
+      }
+    }
+
+    if (this._customFields?.fields?.talon_one_customer_referral_codes) {
+      builder.referrals(this._customFields.fields.talon_one_customer_referral_codes);
     }
 
     for (const referralCode of Object.values(referralCodes)) {
       builder.addReferral(referralCode.codes.join(REFERRAL_CODE_SEPARATOR));
     }
 
-    if (builder.hasReferrals()) {
+    if (builder.hasReferrals() || builder.hasLoyaltyPoints()) {
       return [...actions, builder.build()];
     }
 

@@ -4,6 +4,15 @@
       "action": "setCustomType"
     },
     {
+      "action": "setCustomType",
+      "fields": {
+        "talon_one_cart_notifications": "[{\"type\":\"Info\",\"title\":\"Info\",\"body\":\"Info message.\",\"effect\":\"showNotification\",\"code\":\"\"},{\"type\":\"Offer\",\"title\":\"Offer title\",\"body\":\"Offer message.\",\"effect\":\"showNotification\",\"code\":\"\"},{\"type\":\"Error\",\"title\":\"Error title\",\"body\":\"Error message.\",\"effect\":\"showNotification\",\"code\":\"\"},{\"type\":\"Misc\",\"title\":\"Misc title\",\"body\":\"Misc message.\",\"effect\":\"showNotification\",\"code\":\"\"},{\"type\":\"Error\",\"title\":\"\",\"body\":\"Cool-Summer!\",\"effect\":\"rejectCoupon\",\"code\":\"CouponNotFound\"},{\"type\":\"Error\",\"title\":\"\",\"body\":\"Cool-Summer!\",\"effect\":\"rejectCoupon\",\"code\":\"CampaignLimitReached\"},{\"type\":\"Info\",\"title\":\"\",\"body\":\"Cool-Summer!\",\"effect\":\"acceptCoupon\",\"code\":\"\"}]"
+      },
+      "type": {
+        "key": "talon_one_cart_metadata"
+      }
+    },
+    {
       "action": "removeCustomLineItem",
       "customLineItemId": "791a3df6-2cf0-4623-86f8-a3c585a6d3a4"
     },
@@ -23,72 +32,72 @@
     },
     {
       "action": "addCustomLineItem",
+      "custom": {
+        "fields": {
+          "talon_one_line_item_effect": "setDiscount"
+        },
+        "type": {
+          "key": "talon_one_line_item_metadata"
+        }
+      },
+      "money": {
+        "centAmount": -14930,
+        "currencyCode": "EUR",
+        "fractionDigits": 2,
+        "type": "centPrecision"
+      },
       "name": {
         "en": "10% off"
       },
-      "money": {
-        "type": "centPrecision",
-        "currencyCode": "EUR",
-        "centAmount": -14930,
-        "fractionDigits": 2
-      },
       "slug": "10percent-off",
       "taxCategory": {
-        "typeId": "tax-category",
-        "id": "3b52cdd8-c767-4c98-923f-a269e01a6ff2"
-      },
-      "custom": {
-        "type": {
-          "key": "talon_one_line_item_metadata"
-        },
-        "fields": {
-          "talon_one_line_item_effect": "setDiscount"
-        }
+        "id": "3b52cdd8-c767-4c98-923f-a269e01a6ff2",
+        "typeId": "tax-category"
       }
     },
     {
       "action": "addCustomLineItem",
+      "custom": {
+        "fields": {
+          "talon_one_line_item_effect": "setDiscount"
+        },
+        "type": {
+          "key": "talon_one_line_item_metadata"
+        }
+      },
+      "money": {
+        "centAmount": -7465,
+        "currencyCode": "EUR",
+        "fractionDigits": 2,
+        "type": "centPrecision"
+      },
       "name": {
         "en": "5% off"
       },
-      "money": {
-        "type": "centPrecision",
-        "currencyCode": "EUR",
-        "centAmount": -7465,
-        "fractionDigits": 2
-      },
       "slug": "5percent-off",
       "taxCategory": {
-        "typeId": "tax-category",
-        "id": "3b52cdd8-c767-4c98-923f-a269e01a6ff2"
-      },
-      "custom": {
-        "type": {
-          "key": "talon_one_line_item_metadata"
-        },
-        "fields": {
-          "talon_one_line_item_effect": "setDiscount"
-        }
+        "id": "3b52cdd8-c767-4c98-923f-a269e01a6ff2",
+        "typeId": "tax-category"
       }
     },
     {
       "action": "addLineItem",
       "custom": {
-        "type": {
-          "key": "talon_one_line_item_metadata"
-        },
         "fields": {
           "talon_one_line_item_effect": "addFreeItem"
+        },
+        "type": {
+          "key": "talon_one_line_item_metadata"
         }
       },
       "externalPrice": {
-        "type": "centPrecision",
-        "currencyCode": "EUR",
         "centAmount": 0,
-        "fractionDigits": 2
+        "currencyCode": "EUR",
+        "fractionDigits": 2,
+        "type": "centPrecision"
       },
-      "sku": "126",
-      "quantity": 1
+      "quantity": 1,
+      "sku": "126"
     },
     {
       "action": "addCustomLineItem",
@@ -157,32 +166,23 @@
       "lineItemId": "a0c07745-cc5b-48e0-a3fb-d96e81a1d12a"
     },
     {
-      "action": "setCustomType",
-      "type": {
-        "key": "talon_one_cart_metadata"
-      },
-      "fields": {
-        "talon_one_cart_notifications": "[{\"type\":\"Info\",\"title\":\"Info\",\"body\":\"Info message.\",\"effect\":\"showNotification\",\"code\":\"\"},{\"type\":\"Offer\",\"title\":\"Offer title\",\"body\":\"Offer message.\",\"effect\":\"showNotification\",\"code\":\"\"},{\"type\":\"Error\",\"title\":\"Error title\",\"body\":\"Error message.\",\"effect\":\"showNotification\",\"code\":\"\"},{\"type\":\"Misc\",\"title\":\"Misc title\",\"body\":\"Misc message.\",\"effect\":\"showNotification\",\"code\":\"\"},{\"type\":\"Error\",\"title\":\"\",\"body\":\"Cool-Summer!\",\"effect\":\"rejectCoupon\",\"code\":\"CouponNotFound\"},{\"type\":\"Error\",\"title\":\"\",\"body\":\"Cool-Summer!\",\"effect\":\"rejectCoupon\",\"code\":\"CampaignLimitReached\"},{\"type\":\"Info\",\"title\":\"\",\"body\":\"Cool-Summer!\",\"effect\":\"acceptCoupon\",\"code\":\"\"}]"
-      }
-    },
-    {
       "action": "addLineItem",
       "custom": {
-        "type": {
-          "key": "talon_one_line_item_metadata"
-        },
         "fields": {
           "talon_one_line_item_effect": "addFreeItem"
+        },
+        "type": {
+          "key": "talon_one_line_item_metadata"
         }
       },
       "externalPrice": {
-        "type": "centPrecision",
-        "currencyCode": "EUR",
         "centAmount": 0,
-        "fractionDigits": 2
+        "currencyCode": "EUR",
+        "fractionDigits": 2,
+        "type": "centPrecision"
       },
-      "sku": "125",
-      "quantity": 2
+      "quantity": 2,
+      "sku": "125"
     }
   ],
   "responseType": "UpdateRequest"

@@ -69,7 +69,10 @@ class ApiClientService {
   async updateCustomerSession(id, payload) {
     const integrationRequest = new IntegrationRequest(payload);
 
-    integrationRequest.responseContent = [IntegrationRequest.ResponseContentEnum.customerSession];
+    integrationRequest.responseContent = [
+      IntegrationRequest.ResponseContentEnum.customerSession,
+      IntegrationRequest.ResponseContentEnum.loyalty,
+    ];
 
     return this.client
       .updateCustomerSessionV2(id, integrationRequest)

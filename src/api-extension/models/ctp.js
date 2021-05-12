@@ -14,6 +14,7 @@
 
 /**
  * @typedef {Object} CtpLineItem
+ * @property {string} id
  * @property {Object} name
  * @property {string} productId
  * @property {number} quantity
@@ -30,11 +31,14 @@
 
 /**
  * @typedef {Object} CtpCustomLineItem
+ * @property {string} id
  * @property {Object} name
  * @property {string} productId
  * @property {number} quantity
  * @property {CtpPrice} totalPrice
  * @property {CtpPrice} money
+ * @property {Object} custom
+ * @property {Object} custom.fields
  */
 
 /**
@@ -45,6 +49,7 @@
  * @property {Object} fields
  * @property {string} fields.talon_one_cart_notifications
  * @property {string} fields.talon_one_cart_referral_code
+ * @property {boolean} fields.talon_one_cart_pay_with_points
  */
 
 /**
@@ -71,6 +76,7 @@
  * @typedef {Object} CtpCustomerCustomFields
  * @property {Object} fields
  * @property {string[]} fields.talon_one_customer_referral_codes
+ * @property {string} fields.talon_one_customer_loyalty_points
  */
 
 /**

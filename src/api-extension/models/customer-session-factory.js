@@ -17,6 +17,7 @@ class CustomerSessionFactory {
    * @param {string} cartItemAttributeMapping
    * @param {LoggerService} logger
    * @param {string} currencyCode
+   * @param {string} payWithPointsAttributeName
    * @returns {null|CustomerSessionObject}
    */
   static constructFromCartEvent(
@@ -25,7 +26,8 @@ class CustomerSessionFactory {
     cartAttributeMapping,
     cartItemAttributeMapping,
     logger,
-    currencyCode
+    currencyCode,
+    payWithPointsAttributeName
   ) {
     let session = null;
     const cartEventMapper = new CartEventMapper(
@@ -34,7 +36,8 @@ class CustomerSessionFactory {
       cartAttributeMapping,
       cartItemAttributeMapping,
       logger,
-      currencyCode
+      currencyCode,
+      payWithPointsAttributeName
     );
 
     if (cartEventMapper.getSessionIntegrationId()) {
