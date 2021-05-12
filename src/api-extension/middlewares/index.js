@@ -6,6 +6,5 @@ module.exports = {
   prepareSession: require('./prepare-session'),
   updateProfile: require('./update-profile'),
   updateSession: require('./update-session'),
-  prefetchCustomer: require('./prefetch-customer'),
   unitTest: require('./unit-test'),
 };

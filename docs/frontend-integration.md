@@ -3,25 +3,16 @@
 ## Features
 
 - [Coupons](#coupons)
-  - [Applying a coupon](#applying-a-coupon)
-  - [Receiving coupons](#receiving-coupons)
-  - [Removing a coupon](#removing-a-coupon)
 - [Referrals](#referrals)
-  - [Applying a referral code](#applying-a-referral-code)
-  - [Receiving referrals](#receiving-referrals)
-  - [Removing a referral](#removing-a-referral)
 - [Free items](#free-items)
-  - [Receiving free items](#receiving-free-items)
 - [Discounts](#discounts)
-  - [Receiving discounts](#receiving-discounts)
 - [Discount per item](#discount-per-item)
-  - [Receiving a discount per item](#receiving-a-discount-per-item)
 - [Notifications](#notifications)
-  - [Receiving notifications](#receiving-notifications)
+- [Loyalty](#loyalty)
 
 ### Coupons
 
-#### Applying a coupon
+#### Apply a coupon
 
 Query:
 
@@ -95,7 +86,7 @@ Sample result:
 }
 ```
 
-#### Receiving coupons
+#### Receive coupons
 
 Query:
 
@@ -157,7 +148,7 @@ Custom line items with `talon_one_line_item_effect` equal to
 `acceptCoupon` are coupons. The coupon value is in the field with name
 `talon_one_coupon_code`.
 
-#### Removing a coupon
+#### Remove a coupon
 
 Query:
 
@@ -216,7 +207,7 @@ Sample result:
 
 ### Referrals
 
-#### Applying a referral code
+#### Apply a referral code
 
 Query:
 
@@ -273,7 +264,7 @@ Sample result:
 }
 ```
 
-#### Receiving referrals
+#### Receive referrals
 
 Query:
 
@@ -317,7 +308,7 @@ Sample result:
 }
 ```
 
-#### Removing a referral
+#### Remove a referral
 
 Query:
 
@@ -369,7 +360,7 @@ Sample result:
 
 ### Free items
 
-#### Receiving free items
+#### Receive free items
 
 Query:
 
@@ -442,7 +433,7 @@ free items.
 
 ### Discounts
 
-#### Receiving discounts
+#### Receive discounts
 
 Query:
 
@@ -523,7 +514,7 @@ Custom line items with `talon_one_line_item_effect` equal to
 
 ### Discount per item
 
-#### Receiving a discount per item
+#### Receive discount per item
 
 Query:
 
@@ -596,7 +587,7 @@ item. The difference between `price.value.centAmount` and
 
 ### Notifications
 
-#### Receiving notifications
+#### Receive notifications
 
 Query:
 
@@ -684,5 +675,118 @@ to get notifications or another resource:
       }
     }
   }
+}
+```
+
+### Loyalty
+
+#### Pay with points
+
+Query:
+
+```graphql
+mutation updateCart($version: Long!, $shoppingCartId: String) {
+  updateCart(
+    version: $version
+    id: $shoppingCartId
+    actions: {
+      setCustomType: {
+        type: { key: "talon_one_cart_metadata" }
+        fields: [{ name: "talon_one_cart_pay_with_points", value: "true" }]
+      }
+    }
+  ) {
+    custom {
+      customFieldsRaw {
+        name
+        value
+      }
+    }
+  }
+}
+```
+
+Sample variables:
+
+```json
+{
+  "version": 70,
+  "shoppingCartId": "faef1da2-75b7-40bc-a906-1a9b57012f97"
+}
+```
+
+Sample result:
+
+```json
+{
+  "data": {
+    "updateCart": {
+      "custom": {
+        "customFieldsRaw": [
+          {
+            "name": "talon_one_cart_pay_with_points",
+            "value": true
+          }
+        ]
+      }
+    }
+  }
+}
+```
+
+#### Receive loyalty points
+
+Query:
+
+```graphql
+query getLoyaltyPoints($customerId: String!) {
+  customer(id: $customerId) {
+    custom {
+      customFieldsRaw {
+        name
+        value
+      }
+    }
+  }
+}
+```
+
+Sample variables:
+
+```json
+{
+  "customerId": "449ddd9d-1003-4cdc-a0e6-7118aa0c38e5"
+}
+```
+
+Sample result:
+
+```json
+{
+  "data": {
+    "customer": {
+      "custom": {
+        "customFieldsRaw": [
+          {
+            "name": "talon_one_customer_loyalty_points",
+            "value": "[{\"id\":1,\"name\":\"SampleWallet\",\"title\":\"Sample Wallet\",\"balance\":0,\"currency\":\"EUR\"}]"
+          }
+        ]
+      }
+    }
+  }
+}
+```
+
+The `talon_one_customer_loyalty_points` field contains a serialized list
+of loyalty points. Each loyalty point has the following format:
+
+```json
+{
+  "id": "",
+  "name": "",
+  "title": "",
+  "balance": "",
+  "currency": ""
 }
 ```

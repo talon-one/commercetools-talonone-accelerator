@@ -8,8 +8,16 @@ class MapperSettings {
    * @param {string} skuTypeKey
    * @param {string} skuSeparator
    * @param {boolean} verifyFreeItems
+   * @param {string} payWithPointsAttributeName
    */
-  constructor(taxCategoryId, lang, skuTypeKey, skuSeparator, verifyFreeItems) {
+  constructor(
+    taxCategoryId,
+    lang,
+    skuTypeKey,
+    skuSeparator,
+    verifyFreeItems,
+    payWithPointsAttributeName
+  ) {
     if (!SkuType[skuTypeKey]) {
       throw new Error('Invalid skuType.');
     }
@@ -19,6 +27,14 @@ class MapperSettings {
     this.skuType = SkuType[skuTypeKey];
     this.skuSeparator = skuSeparator;
     this.verifyFreeItemsFlag = verifyFreeItems;
+    this.payWithPointsAttributeName = payWithPointsAttributeName;
+  }
+
+  /**
+   * @returns {string}
+   */
+  getPayWithPointsAttributeName() {
+    return this.payWithPointsAttributeName;
   }
 
   /**

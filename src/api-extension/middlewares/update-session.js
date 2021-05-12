@@ -26,6 +26,7 @@ const updateSessionMiddleware = ({ apiClient, logger }) => {
 
         logger.test('updateCustomerSessionV2.data').test(data, true);
         context.sessionEffects = data?.effects?.map((e) => ({ ...e, fromApi: data.fromApi })) || [];
+        context.sessionLoyalty = data?.loyalty || {};
         context.talonSession = data?.customerSession || [];
       } catch (err) {
         logger.error(err);

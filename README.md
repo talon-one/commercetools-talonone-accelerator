@@ -4,13 +4,17 @@ The Talon.One's [commercetools](https://commercetools.com) connector allows you 
 
 - [Requirements](#requirements)
 - [Getting started](#getting-started)
-  - [Creating .env file](#creating-env-file)
-  - [Creating Types in Commercetools](#creating-types-in-commercetools)
-  - [Creating an API Extension in Commercetools](#creating-an-api-extension-in-commercetools)
-  - [Deploying an Application](#deploying-an-application)
-  - [Mapping Attributes between commercetools and Talon.One](#mapping-attributes-between-commercetools-and-talonone)
+  - [Installing the tools](#installing-the-tools)
+  - [Creating the `.env` file](#creating-the-env-file)
+  - [Creating types in Commercetools](#creating-types-in-commercetools)
+  - [Creating the API extension in Commercetools](#creating-the-api-extension-in-commercetools)
+    - [Managing the extensions](#managing-the-extensions)
+  - [Deploying an application](#deploying-an-application)
+  - [Testing the integration](#testing-the-integration)
+  - [Mapping attributes between commercetools and Talon.One](#mapping-attributes-between-commercetools-and-talonone)
     - [Supported customer commercetools core fields](#supported-customer-commercetools-core-fields)
-- [More](#more)
+- [Testing your integration](#testing-your-integration)
+- [Related topics](#related-topics)
 
 ## Requirements
 
@@ -27,10 +31,12 @@ Apply all the following sections in sequence to configure and install the connec
 - [Installing the tools](#installing-the-tools)
 - [Creating the `.env` file](#creating-the-env-file)
 - [Creating types in Commercetools](#creating-types-in-commercetools)
-- [Creating an API extension in Commercetools](#creating-an-api-extension-in-commercetools)
+- [Creating the API extension in Commercetools](#creating-the-api-extension-in-commercetools)
   - [Managing the extensions](#managing-the-extensions)
 - [Deploying an application](#deploying-an-application)
+- [Testing the integration](#testing-the-integration)
 - [Mapping attributes between commercetools and Talon.One](#mapping-attributes-between-commercetools-and-talonone)
+  - [Supported customer commercetools core fields](#supported-customer-commercetools-core-fields)
 
 ### Installing the tools
 
@@ -90,6 +96,8 @@ Apply all the following sections in sequence to configure and install the connec
    - `LANGUAGE`: The default language code used to map information from commercetools to Talon.One. Defaults to `en`.
 
    - `DISCOUNT_TAX_CATEGORY_ID`: Tax category identifier in commercetools applied to discounts from Talon.One.
+     **Note:** If you are using discounts or coupons in Talon.One, you must set this variable.
+     See [details](docs/envs/DISCOUNT_TAX_CATEGORY_ID.md).
 
    - `ONLY_VERIFIED_PROFILES`: commercetools will send only profiles with a verified email address.
 
@@ -98,12 +106,16 @@ Apply all the following sections in sequence to configure and install the connec
      - `CTP_PRODUCT_ID_WITH_VARIANT_ID`: Talon.One SKU to CTP Product ID and Variant ID. If you choose this, also set `SKU_SEPARATOR`. Defaults to `@`.
      - `CTP_VARIANT_SKU`: Talon.One SKU to CTP SKU.
 
-  - `VERIFY_PRODUCT_IDENTIFIERS`: Determines whether to validate SKUs from Talon.One in Commercetools.
-    ⚠️ May reduce performance. Possible values: `0` for disabled, `1` for enabled.
+   - `VERIFY_PRODUCT_IDENTIFIERS`: Determines whether to validate SKUs from Talon.One in Commercetools.
+     ⚠️ May reduce performance. Possible values: `0` for disabled, `1` for enabled.
 
-  - `TALON_ONE_ATTRIBUTES_MAPPINGS`: Determines the mapping between the Talon.One attributes and their commercetools equivalents. See [Mapping attributes](#mapping-attributes-between-commercetools-and-talonone).
+   - `TALON_ONE_ATTRIBUTES_MAPPINGS`: Determines the mapping between the Talon.One attributes and their commercetools equivalents. See [Mapping attributes](#mapping-attributes-between-commercetools-and-talonone).
 
-  - `CART_ATTRIBUTE_MAPPING`, `CART_ITEM_ATTRIBUTE_MAPPING`: Determines the mapping between Talon.One cart and cart item attributes and their commercetools equivalents. See [Data mapping specification](./docs/data-mapping-spec.md)
+   - `CART_ATTRIBUTE_MAPPING`, `CART_ITEM_ATTRIBUTE_MAPPING`:
+    [Data Mapping Specification](./docs/data-mapping-spec.md)
+    [Examples](docs/data-mapping-examples.md)
+
+   - `PAY_WITH_POINTS_ATTRIBUTE_NAME`: The name of the attribute to use to pay with loyalty points (e.g. `PayWithPoints`).
 
 ### Creating types in Commercetools
 
@@ -123,7 +135,7 @@ to process the required custom types in commercetools.
 
 To create the required extension, run the following command:
 
-```
+```bash
 yarn register-api-extension
 ```
 
@@ -293,3 +305,4 @@ Once you have configured the connector, you can test the integration by:
 
 - [Frontend Integration](docs/frontend-integration.md)
 - [Data Mapping Specification](docs/data-mapping-spec.md)
+- [API docs](docs/API.md)

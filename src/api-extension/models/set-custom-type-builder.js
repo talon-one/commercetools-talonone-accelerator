@@ -1,4 +1,5 @@
 'use strict';
+const { LoyaltyPoints } = require('./loyalty-points');
 const { UpdateAction } = require('./update-action');
 const { Notification } = require('./notification');
 const { TalonOneCartMetadata } = require('./talon-one-cart-metadata');
@@ -12,11 +13,22 @@ class SetCustomTypeBuilder {
 
     this._notifications = [];
     this._referrals = [];
+    this._loyaltyPoints = [];
+  }
+
+  /**
+   * @param {boolean} payWithPoints
+   * @return {SetCustomTypeBuilder}
+   */
+  payWithPoints(payWithPoints) {
+    this._addField(TalonOneCartMetadata.payWithPointsFieldName, !!payWithPoints);
+
+    return this;
   }
 
   /**
    * @param {string} referralCode
-   * @returns {SetCustomTypeBuilder}
+   * @return {SetCustomTypeBuilder}
    */
   referralCode(referralCode) {
     this._addField(TalonOneCartMetadata.referralCodesFieldName, referralCode);
@@ -25,14 +37,14 @@ class SetCustomTypeBuilder {
   }
 
   /**
-   * @returns {SetCustomTypeBuilder}
+   * @return {SetCustomTypeBuilder}
    */
   removeReferralCode() {
     return this.referralCode('');
   }
 
   /**
-   * @returns {SetCustomTypeBuilder}
+   * @return {SetCustomTypeBuilder}
    */
   cartType() {
     this.action.type = {
@@ -43,7 +55,7 @@ class SetCustomTypeBuilder {
   }
 
   /**
-   * @returns {SetCustomTypeBuilder}
+   * @return {SetCustomTypeBuilder}
    */
   customerType() {
     this.action.type = {
@@ -55,7 +67,7 @@ class SetCustomTypeBuilder {
 
   /**
    * @param {Notification[]} notifications
-   * @returns {SetCustomTypeBuilder}
+   * @return {SetCustomTypeBuilder}
    */
   notifications(notifications) {
     for (const notification of notifications) {
@@ -66,7 +78,7 @@ class SetCustomTypeBuilder {
 
   /**
    * @param {Notification} notification
-   * @returns {SetCustomTypeBuilder}
+   * @return {SetCustomTypeBuilder}
    */
   addNotification(notification) {
     if (!(notification instanceof Notification)) {
@@ -79,11 +91,18 @@ class SetCustomTypeBuilder {
   }
 
   /**
-   * @returns {SetCustomTypeBuilder}
+   * @return {boolean}
+   */
+  hasNotifications() {
+    return !!this._notifications.length;
+  }
+
+  /**
+   * @return {SetCustomTypeBuilder}
    * @private
    */
   _buildNotifications() {
-    if (!this._notifications.length) {
+    if (!this.hasNotifications()) {
       return this;
     }
 
@@ -97,8 +116,51 @@ class SetCustomTypeBuilder {
   }
 
   /**
+   * @param {LoyaltyPoints[]} loyaltyPoints
+   * @return {SetCustomTypeBuilder}
+   */
+  loyaltyPoints(loyaltyPoints) {
+    for (const points of loyaltyPoints) {
+      this.addLoyaltyPoints(points);
+    }
+    return this;
+  }
+
+  /**
+   * @param {LoyaltyPoints} loyaltyPoints
+   * @return {SetCustomTypeBuilder}
+   */
+  addLoyaltyPoints(loyaltyPoints) {
+    if (!(loyaltyPoints instanceof LoyaltyPoints)) {
+      throw new Error('Invalid loyaltyPoints type.');
+    }
+
+    this._loyaltyPoints.push(loyaltyPoints.toObject());
+
+    return this;
+  }
+
+  /**
+   * @return {SetCustomTypeBuilder}
+   * @private
+   */
+  _buildLoyaltyPoints() {
+    if (!this.hasLoyaltyPoints()) {
+      return this;
+    }
+
+    this.customerType();
+    this._addField(
+      TalonOneCustomerMetadata.loyaltyPointsFieldName,
+      JSON.stringify(this._loyaltyPoints)
+    );
+
+    return this;
+  }
+
+  /**
    * @param {string[]} referrals
-   * @returns {SetCustomTypeBuilder}
+   * @return {SetCustomTypeBuilder}
    */
   referrals(referrals) {
     for (const referral of referrals) {
@@ -110,7 +172,7 @@ class SetCustomTypeBuilder {
 
   /**
    * @param {string} referral
-   * @returns {SetCustomTypeBuilder}
+   * @return {SetCustomTypeBuilder}
    */
   addReferral(referral) {
     this._referrals.push(referral);
@@ -119,7 +181,7 @@ class SetCustomTypeBuilder {
   }
 
   /**
-   * @returns {SetCustomTypeBuilder}
+   * @return {SetCustomTypeBuilder}
    * @private
    */
   _buildReferrals() {
@@ -134,15 +196,22 @@ class SetCustomTypeBuilder {
   }
 
   /**
-   * @returns {boolean}
+   * @return {boolean}
    */
   hasReferrals() {
     return !!this._referrals.length;
   }
 
   /**
+   * @return {boolean}
+   */
+  hasLoyaltyPoints() {
+    return !!this._loyaltyPoints.length;
+  }
+
+  /**
    * @param {Object} fields
-   * @returns {SetCustomTypeBuilder}
+   * @return {SetCustomTypeBuilder}
    */
   fields(fields) {
     this.action.fields = fields;
@@ -158,11 +227,12 @@ class SetCustomTypeBuilder {
   }
 
   /**
-   * @returns {Object}
+   * @return {Object}
    */
   build() {
     this._buildNotifications();
     this._buildReferrals();
+    this._buildLoyaltyPoints();
 
     return this.action;
   }

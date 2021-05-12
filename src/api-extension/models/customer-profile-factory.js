@@ -1,6 +1,5 @@
 'use strict';
 const { NewCustomerProfile } = require('talon_one');
-const { CartEventMapper } = require('./cart-event-mapper');
 const { CustomerEventMapper } = require('./customer-event-mapper');
 
 /**
@@ -10,43 +9,6 @@ const { CustomerEventMapper } = require('./customer-event-mapper');
  */
 
 class CustomerProfileFactory {
-  /**
-   * @param {CtpCartEvent} event
-   * @param {string} lang
-   * @param {string} cartAttributeMapping
-   * @param {string} cartItemAttributeMapping
-   * @param {LoggerService} logger
-   * @param {string} currencyCode
-   * @returns {null|CustomerProfileObject}
-   */
-  static constructFromCartEvent(
-    { resource: { obj } } = { resource: { obj: {} } },
-    lang,
-    cartAttributeMapping,
-    cartItemAttributeMapping,
-    logger,
-    currencyCode
-  ) {
-    const cartEventMapper = new CartEventMapper(
-      obj,
-      lang,
-      cartAttributeMapping,
-      cartItemAttributeMapping,
-      logger,
-      currencyCode
-    );
-    let profile = null;
-
-    if (cartEventMapper.getProfileIntegrationId()) {
-      profile = {
-        id: cartEventMapper.getProfileIntegrationId(),
-        payload: NewCustomerProfile.constructFromObject({}),
-      };
-    }
-
-    return profile;
-  }
-
   /**
    * @param {CtpCustomerEvent} event
    * @param {object} attributeMappings

@@ -50,6 +50,16 @@ class AppBuilder {
   }
 
   /**
+   * @param {number} value
+   * @returns {AppBuilder}
+   */
+  setEventValidationMode(value) {
+    this.config.eventValidationMode = value;
+
+    return this;
+  }
+
+  /**
    * @param {MapperSettings} settings
    * @returns {AppBuilder}
    */

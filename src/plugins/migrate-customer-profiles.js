@@ -15,7 +15,7 @@ class MigrateCustomerProfiles extends Plugin {
   constructor(serverless, options) {
     super(serverless, options);
 
-    ({ MIGRATION_BATCH_SIZE: this.batchSize } = this.serverless.service.provider.environment);
+    ({ MIGRATION_BATCH_SIZE: this.batchSize = 20 } = this.serverless.service.provider.environment);
 
     this.commands = {
       'migrate-customer-profiles': {
