@@ -109,11 +109,15 @@ Apply all the following sections in sequence to configure and install the connec
    - `VERIFY_PRODUCT_IDENTIFIERS`: Determines whether to validate SKUs from Talon.One in Commercetools.
      ⚠️ May reduce performance. Possible values: `0` for disabled, `1` for enabled.
 
-   - `TALON_ONE_ATTRIBUTES_MAPPINGS`: Determines the mapping between the Talon.One attributes and their commercetools equivalents. See [Mapping attributes](#mapping-attributes-between-commercetools-and-talonone).
+   - `VERIFY_TAX_IDENTIFIERS`: Determines whether to validate the TAX ID from the lambda configuration in
+     Commercetools. ⚠️ May reduce performance.  Possible values: `0` (disabled), `1` (enabled).
+
+   - `TALON_ONE_ATTRIBUTES_MAPPINGS`: Determines the mapping between the Talon.One attributes
+     and their commercetools equivalents. See [Mapping attributes](#mapping-attributes-between-commercetools-and-talonone).
 
    - `CART_ATTRIBUTE_MAPPING`, `CART_ITEM_ATTRIBUTE_MAPPING`:
-    [Data Mapping Specification](./docs/data-mapping-spec.md)
-    [Examples](docs/data-mapping-examples.md)
+     [Data Mapping Specification](./docs/data-mapping-spec.md)
+     [Examples](docs/data-mapping-examples.md)
 
    - `PAY_WITH_POINTS_ATTRIBUTE_NAME`: The name of the attribute to use to pay with loyalty points (e.g. `PayWithPoints`).
 

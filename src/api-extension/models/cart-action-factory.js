@@ -29,6 +29,7 @@ const COMPACT_ADD_LINE_ITEM_ACTIONS_PIPE = '_compactAddLineItemActions';
 const RESET_PIPE = '_reset';
 const PREFETCHING_PIPE = '_prefetching';
 const VERIFY_FREE_ITEMS_PIPE = '_verifyFreeItems';
+const VERIFY_TAX_IDS_PIPE = '_verifyTaxIds';
 const UPDATE_CUSTOMER_PIPE = '_updateCustomer';
 const EFFECTS_PIPE = '_effects';
 
@@ -84,6 +85,7 @@ class CartActionFactory {
     this._skuType = this._mapperSettings.getSkuType();
     this._skuSeparator = this._mapperSettings.getSkuSeparator();
     this._verifyFreeItemsFlag = this._mapperSettings.getVerifyFreeItemsFlag();
+    this._verifyTaxIdsFlag = this._mapperSettings.getVerifyTaxIdsFlag();
 
     this._context = {};
     this._customType = new SetCustomTypeBuilder();
@@ -106,6 +108,7 @@ class CartActionFactory {
       RESET_PIPE,
       VERIFY_FREE_ITEMS_PIPE,
       BUILD_CUSTOM_TYPE_PIPE,
+      VERIFY_TAX_IDS_PIPE,
       UPDATE_CUSTOMER_PIPE,
     ]
   ) {
@@ -451,7 +454,7 @@ class CartActionFactory {
     const payWithPoints = this._cart?.custom?.fields?.talon_one_cart_pay_with_points;
 
     if (payWithPoints) {
-      this._customType.payWithPoints(payWithPoints);
+      this._customType.cartType().payWithPoints(payWithPoints);
     }
 
     return [this._customType.build(), ...actions];
@@ -506,8 +509,12 @@ class CartActionFactory {
     const customerId = this._cart?.customerId;
     this._logger.test('update customer id').test(customerId).test(this._sessionLoyalty, true);
 
-    if (!customerId || !effects?.length) {
+    if (!customerId) {
       return actions;
+    }
+
+    if (!effects?.length) {
+      effects = [];
     }
 
     const referralCodes = {};
@@ -692,6 +699,58 @@ class CartActionFactory {
    * @return {any[]}
    * @private
    */
+  async _verifyTaxIds(effects, actions) {
+    this._logger.test('verify tax ids');
+
+    if (!this._verifyTaxIdsFlag) {
+      return actions;
+    }
+
+    let fetchData = false;
+
+    // eslint-disable-next-line guard-for-in,no-restricted-syntax
+    for (const pos in actions) {
+      const { action } = actions[pos];
+
+      if (action === UpdateAction.addCustomLineItem) {
+        fetchData = true;
+
+        break;
+      }
+    }
+
+    if (!fetchData) {
+      this._logger.info('Skipping tax category validation...');
+      return actions;
+    }
+
+    let data = [];
+
+    try {
+      data = await this._ctpApiClient().fetchTaxCategoryByIds([this._taxCategoryId]);
+    } catch (err) {
+      this._logger.error(err);
+    }
+
+    this._logger.test(data, true);
+
+    if (!data?.body?.total) {
+      this._logger.error({
+        invalidTaxCategoryId: this._taxCategoryId,
+      });
+      return [];
+    }
+
+    // reindex
+    return actions;
+  }
+
+  /**
+   * @param {any[]} effects
+   * @param {any[]} actions
+   * @return {any[]}
+   * @private
+   */
   _reset(effects, actions) {
     const result = [];
 
@@ -815,4 +874,15 @@ class CartActionFactory {
   }
 }
 
-module.exports = { CartActionFactory };
+module.exports = {
+  CartActionFactory,
+  PREFETCHING_PIPE,
+  PREPARE_CONTEXT_PIPE,
+  EFFECTS_PIPE,
+  COMPACT_ADD_LINE_ITEM_ACTIONS_PIPE,
+  RESET_PIPE,
+  VERIFY_FREE_ITEMS_PIPE,
+  VERIFY_TAX_IDS_PIPE,
+  BUILD_CUSTOM_TYPE_PIPE,
+  UPDATE_CUSTOMER_PIPE,
+};

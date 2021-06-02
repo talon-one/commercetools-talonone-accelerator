@@ -28,6 +28,7 @@ function setupEnv(env = {}) {
   process.env.SKU_TYPE = 'CTP_VARIANT_SKU';
   process.env.SKU_SEPARATOR = '@';
   process.env.VERIFY_PRODUCT_IDENTIFIERS = '1';
+  process.env.VERIFY_TAX_IDENTIFIERS = '0';
   process.env.PAY_WITH_POINTS_ATTRIBUTE_NAME = '';
   process.env = { ...process.env, ...env };
 
@@ -181,6 +182,23 @@ describe('api-extension', () => {
       .then((response) => {
         expect(response).toBeDefined();
         expect(response).toEqual(out);
+      });
+  });
+
+  it('update cart event with tax verification', () => {
+    const session = deepClone(updateCustomerSessionResponse);
+    for (let i = 5; i <= 12; i++) {
+      delete session.effects[i];
+    }
+
+    return setupEnv({
+      CUSTOMER_SESSION_MOCK: session,
+      VERIFY_TAX_IDENTIFIERS: 1,
+    })
+      .run(updateCartEvent)
+      .then((response) => {
+        expect(response).toBeDefined();
+        expect(response).toEqual({ actions: [], responseType: 'UpdateRequest' });
       });
   });
 

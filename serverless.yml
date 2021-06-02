@@ -41,6 +41,7 @@ custom:
         - CTP_CART_METADATA_TYPE_BODY
         - CTP_CUSTOMER_METADATA_TYPE_BODY
         - VERIFY_PRODUCT_IDENTIFIERS
+        - VERIFY_TAX_IDENTIFIERS
 
 functions:
   api-extension:

@@ -57,6 +57,7 @@ class Env {
       process.env.SKU_TYPE,
       process.env.SKU_SEPARATOR,
       !!parseInt(process.env.VERIFY_PRODUCT_IDENTIFIERS, 10),
+      !!parseInt(process.env.VERIFY_TAX_IDENTIFIERS, 10),
       process.env.PAY_WITH_POINTS_ATTRIBUTE_NAME
     );
   }

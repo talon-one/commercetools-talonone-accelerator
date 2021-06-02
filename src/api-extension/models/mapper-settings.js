@@ -8,6 +8,7 @@ class MapperSettings {
    * @param {string} skuTypeKey
    * @param {string} skuSeparator
    * @param {boolean} verifyFreeItems
+   * @param {boolean} verifyTaxIds
    * @param {string} payWithPointsAttributeName
    */
   constructor(
@@ -16,6 +17,7 @@ class MapperSettings {
     skuTypeKey,
     skuSeparator,
     verifyFreeItems,
+    verifyTaxIds,
     payWithPointsAttributeName
   ) {
     if (!SkuType[skuTypeKey]) {
@@ -27,6 +29,7 @@ class MapperSettings {
     this.skuType = SkuType[skuTypeKey];
     this.skuSeparator = skuSeparator;
     this.verifyFreeItemsFlag = verifyFreeItems;
+    this.verifyTaxIdsFlag = verifyTaxIds;
     this.payWithPointsAttributeName = payWithPointsAttributeName;
   }
 
@@ -63,6 +66,13 @@ class MapperSettings {
    */
   getVerifyFreeItemsFlag() {
     return this.verifyFreeItemsFlag;
+  }
+
+  /**
+   * @returns {boolean}
+   */
+  getVerifyTaxIdsFlag() {
+    return this.verifyTaxIdsFlag;
   }
 
   /**

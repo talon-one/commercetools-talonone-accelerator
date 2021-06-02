@@ -47,6 +47,7 @@ class CtpApiClientService {
 
     this.products = requestBuilder.createRequestBuilder({ projectKey }).products;
     this.customers = requestBuilder.createRequestBuilder({ projectKey }).customers;
+    this.taxes = requestBuilder.createRequestBuilder({ projectKey }).taxCategories;
 
     if (!this.constructor.instance) {
       this.constructor.instance = {};
@@ -69,6 +70,19 @@ class CtpApiClientService {
     }
 
     return this._update(this.customers.byId(id).build(), version, actions);
+  }
+
+  async fetchTaxCategoryByIds(ids) {
+    ids = ids
+      // filter invalid UUID
+      ?.filter(this._checkUuidV4)
+      ?.join('","');
+
+    if (ids?.length < 5) {
+      return [];
+    }
+
+    return this._fetch(this.taxes.where(`id in ("${ids}")`).withTotal().build());
   }
 
   async fetchProductsBySkus(skus) {
