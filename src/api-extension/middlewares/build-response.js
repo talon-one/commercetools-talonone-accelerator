@@ -1,4 +1,9 @@
 'use strict';
+const {
+  UPDATE_CUSTOMER_PIPE,
+  PREFETCHING_PIPE,
+  PREPARE_CONTEXT_PIPE,
+} = require('../models/cart-action-factory');
 const { CartActionFactory, CustomerActionFactory } = require('../models');
 
 const buildResponseMiddleware = ({ logger, mapperSettings, ctpApiClient }) => {
@@ -9,6 +14,7 @@ const buildResponseMiddleware = ({ logger, mapperSettings, ctpApiClient }) => {
       let actions = [];
       const {
         isCustomerEvent,
+        isOrderEvent,
         profileEffects = [],
         sessionEffects = [],
         sessionLoyalty = {},
@@ -38,6 +44,30 @@ const buildResponseMiddleware = ({ logger, mapperSettings, ctpApiClient }) => {
         );
 
         actions = await factory.createActions(sessionEffects);
+      } else if (isOrderEvent === true) {
+        const { customLineItems = [], lineItems = [] } = obj;
+
+        const factory = new CartActionFactory(
+          mapperSettings,
+          obj,
+          talonSession,
+          currencyCode,
+          lineItems,
+          customLineItems,
+          ctpApiClient,
+          logger,
+          sessionLoyalty
+        );
+
+        try {
+          await factory.createActions(sessionEffects, [
+            PREFETCHING_PIPE,
+            PREPARE_CONTEXT_PIPE,
+            UPDATE_CUSTOMER_PIPE,
+          ]);
+        } catch (e) {
+          logger.error(e);
+        }
       }
 
       context.response = {

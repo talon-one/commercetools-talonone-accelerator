@@ -24,6 +24,12 @@ class CtpApiClientMockService {
     return process.env.CTP_UPDATE_CUSTOMER_BY_ID_MOCK || updateCustomerResponse;
   }
 
+  async fetchTaxCategoryByIds(ids) {
+    this.taxIds = ids;
+
+    return process.env.CTP_TAX_CATEGORY_BY_IDS_MOCK || [];
+  }
+
   async fetchProductsBySkus(skus) {
     this.skus = skus;
 
