@@ -11,9 +11,9 @@ All work on Commercetools <-> Talon.One Connector happens directly on [GitHub](h
 ## Bugs
 
 We are using [GitHub Issues](https://github.com/talon-one/commercetools-talonone-connector/issues) for bug tracking.
-Please provide as many details as possible, including a reproduction if possible when reporting a bug.
+Please follow our templates when reporting a bug, providing as many details as possible to help us and other contributors respond the best we can.
 
-Before you report a bug, please make sure you've searched existing issues to minimize duplicates.
+Before you report a bug or ask for a feature request, please make sure you've searched existing issues to minimize duplicates.
 
 ## Your First Pull Request
 
