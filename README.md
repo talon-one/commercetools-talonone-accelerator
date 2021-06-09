@@ -1,5 +1,7 @@
 # commercetools connector
 
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.0-4baaaa.svg)](code_of_conduct.md)
+
 The Talon.One's [commercetools](https://commercetools.com) connector allows you to integrate the Talon.One Promotion Engine into your commercetools Commerce Platform.
 
 - [Requirements](#requirements)
@@ -310,3 +312,7 @@ Once you have configured the connector, you can test the integration by:
 - [Frontend Integration](docs/frontend-integration.md)
 - [Data Mapping Specification](docs/data-mapping-spec.md)
 - [API docs](docs/API.md)
+
+## Code of Conduct
+
+We have adopted a [Code of Conduct](https://github.com/talon-one/commercetools-talonone-connector/blob/master/CODE_OF_CONDUCT.md) that we expect project participants to adhere to. Please read the full text so that you can understand what actions will and will not be tolerated as part of your activity in this community.
