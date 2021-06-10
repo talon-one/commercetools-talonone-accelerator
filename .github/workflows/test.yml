@@ -20,7 +20,7 @@ jobs:
         node-version: '14.x'
     - name: 'Install dependencies'
       run: yarn install
-    - name: 'Setup serverless'
+    - name: 'Run serverless tests'
       uses: serverless/github-action@v2.18.0
-    - name: 'Run tests'
-      run: yarn test
+      with:
+        args: invoke test
