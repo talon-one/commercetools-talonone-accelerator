@@ -21,6 +21,6 @@ jobs:
     - name: 'Install dependencies'
       run: yarn install
     - name: 'Setup serverless'
-      uses: serverless/github-action@2.18.0
+      uses: serverless/github-action@v2.18.0
     - name: 'Run tests'
       run: yarn test
