@@ -317,7 +317,7 @@ Once you have configured the connector, you can test the integration by:
 
 If you are using Commercetools <-> Talon.One Connector, found a bug or have an idea how to improve it, please read our [Contributing Guidelines](https://github.com/talon-one/commercetools-talonone-connector/blob/master/.github/CONTRIBUTING.md) first and follow them.
 
-You can follow the [list of open and active issues](https://github.com/talon-one/commercetools-talonone-connector/issues) or contact us directly under [opensource [at] talon.one](mailto:opensource@talon.one).
+You can follow the [list of open and active issues](https://github.com/talon-one/commercetools-talonone-connector/issues) or contact us directly under [opensource@talon.one](mailto:opensource@talon.one).
 
 ## Code of Conduct
 
