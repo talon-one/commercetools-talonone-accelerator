@@ -1,4 +1,4 @@
-The following is a set of guidelines for contributing to the Commercetools <-> Talon.One Connector.
+The following is a set of guidelines for contributing to the commercetools <-> Talon.One Connector.
 
 ## Code of Conduct
 
@@ -6,7 +6,7 @@ We have adopted a [Code of Conduct](https://github.com/talon-one/commercetools-t
 
 ## Development
 
-All work on Commercetools <-> Talon.One Connector happens directly on [GitHub](https://github.com/talon-one/commercetools-talonone-connector). Both core team members and external contributors send pull requests which go through the same process (review, testing, acceptance, etc.).
+All work on commercetools <-> Talon.One Connector happens directly on [GitHub](https://github.com/talon-one/commercetools-talonone-connector). Both core team members and external contributors send pull requests which go through the same process (review, testing, acceptance, etc.).
 
 ## Bugs
 

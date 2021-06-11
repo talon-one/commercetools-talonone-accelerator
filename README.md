@@ -315,7 +315,7 @@ Once you have configured the connector, you can test the integration by:
 
 ## Contributing  [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
-If you are using Commercetools <-> Talon.One Connector, found a bug or have an idea how to improve it, please read our [Contributing Guidelines](https://github.com/talon-one/commercetools-talonone-connector/blob/master/.github/CONTRIBUTING.md) first and follow them.
+If you are using commercetools <-> Talon.One Connector, found a bug or have an idea how to improve it, please read our [Contributing Guidelines](https://github.com/talon-one/commercetools-talonone-connector/blob/master/.github/CONTRIBUTING.md) first and follow them.
 
 You can follow the [list of open and active issues](https://github.com/talon-one/commercetools-talonone-connector/issues) or contact us directly under [opensource@talon.one](mailto:opensource@talon.one).
 
