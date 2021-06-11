@@ -7,7 +7,7 @@ const REFERRAL_CODE_SEPARATOR = '__';
 const REFERRAL_CREATED_PIPE = '_referralCreated';
 
 /**
- * Creates Customer Update Actions based on Talon.One effects and customer events from Commercetools.
+ * Creates Customer Update Actions based on Talon.One effects and customer events from commercetools.
  * @see https://docs.commercetools.com/api/projects/customers#update-actions
  */
 class CustomerActionFactory {

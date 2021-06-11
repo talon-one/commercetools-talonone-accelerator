@@ -26,7 +26,7 @@ and attributes in Talon.one assosiated with `Cart Item`, e.g.:
 ![cartTotalPrice](attr-2.png)
 
 For example, if you want to transfer a `color` attribute from
-Commercetools to the `color` attribute in Talon.One, you can set:
+commercetools to the `color` attribute in Talon.One, you can set:
 
 ```
 CART_ITEM_ATTRIBUTE_MAPPING="color.key:color"

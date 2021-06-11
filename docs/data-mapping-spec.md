@@ -15,8 +15,8 @@ ct-attr-key    = ALPHA *255( ALPHA / DIGIT / "_" / "-" )
 
 where:
 
-- `ct-attr-name` - attribute name from Commercetools
-- `ct-attr-key` - attribute value field name from Commercetools (only
+- `ct-attr-name` - attribute name from commercetools
+- `ct-attr-key` - attribute value field name from commercetools (only
   applies when the attribute value is an object)
 - `ct-attr-keys` - the keys that will be used to filter and order the
   values in the object
@@ -25,7 +25,7 @@ where:
 
 ## Example
 
-### Commercetools Attribute (source)
+### commercetools Attribute (source)
 
 ```json
 {
