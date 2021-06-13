@@ -93,7 +93,12 @@ class CtpApiClientService {
     }
 
     return this._fetch(
-      this.products.where(`masterData(current(variants(sku in ("${skus}"))))`).withTotal().build()
+      this.products
+        .where(
+          `masterData(current(masterVariant(sku in ("${skus}")) or variants(sku in ("${skus}"))))`
+        )
+        .withTotal()
+        .build()
     );
   }
 
