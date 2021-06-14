@@ -36,7 +36,7 @@ const EFFECTS_PIPE = '_effects';
 const REFERRAL_CODE_SEPARATOR = '__';
 
 /**
- * Creates Cart Update Actions based on Talon.One effects and shopping cart from Commercetools.
+ * Creates Cart Update Actions based on Talon.One effects and shopping cart from commercetools.
  * @see https://docs.commercetools.com/api/projects/carts#update-actions
  */
 class CartActionFactory {

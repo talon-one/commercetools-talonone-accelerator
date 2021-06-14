@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Customer Event",
-  "description": "A customer event from Commercetools.",
+  "description": "A customer event from commercetools.",
   "type": "object",
   "properties": {
     "action": {

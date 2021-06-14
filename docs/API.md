@@ -90,7 +90,7 @@ Configure ActionFactory.
 
 ### actionFactory.constructFromEffect(effectType, props) ⇒ <code>null</code> \| <code>Object</code>
 
-Create Commercetools Update Action based on Effect from TalonOne.
+Create commercetools Update Action based on Effect from TalonOne.
 
 **Kind**: instance method of [<code>ActionFactory</code>](#ActionFactory)
 

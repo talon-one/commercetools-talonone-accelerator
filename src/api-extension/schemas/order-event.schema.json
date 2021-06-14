@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Order Event",
-  "description": "An order event from Commercetools.",
+  "description": "An order event from commercetools.",
   "definitions": {
     "money": {
       "type": "object",
