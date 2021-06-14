@@ -164,8 +164,7 @@ To create the required extension, run the following command:
 yarn register-api-extension
 ```
 
-**Note:** You can see the created extensions
-ions using [Impex](https://docs.commercetools.com/tutorials/#impex) using the `Extensions` endpoint. The function is named `t1-ct-dev-api-extension`.
+**Note:** You can see the created extensions using [Impex](https://docs.commercetools.com/tutorials/#impex) using the `Extensions` endpoint. The function is named `t1-ct-dev-api-extension`.
 
 The application is ready [to be deployed](##deploying-an-application).
 
