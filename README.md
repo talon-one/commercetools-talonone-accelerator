@@ -10,13 +10,13 @@ The Talon.One's [commercetools](https://commercetools.com) connector allows you 
   - [Creating the `.env` file](#creating-the-env-file)
   - [Creating types in commercetools](#creating-types-in-commercetools)
   - [Creating the API extension in commercetools](#creating-the-api-extension-in-commercetools)
-    - [Managing the extensions](#managing-the-extensions)
+    - [Deleting an extension](#deleting-an-extension)
   - [Deploying an application](#deploying-an-application)
-  - [Testing the integration](#testing-the-integration)
   - [Mapping attributes between commercetools and Talon.One](#mapping-attributes-between-commercetools-and-talonone)
-    - [Supported customer commercetools core fields](#supported-customer-commercetools-core-fields)
 - [Testing your integration](#testing-your-integration)
 - [Related topics](#related-topics)
+- [Contributing](#contributing)
+- [Code of Conduct](#code-of-conduct)
 
 ## Requirements
 
@@ -24,21 +24,11 @@ The connector relies on AWS. To use the connector, ensure you have:
 
 - A commercetools Commerce Platform account
 - An AWS account with Amazon Lambda
-- A Talon.One deployment
+- A Talon.One deployment with at least one enabled campaign with one test rule. Example: Always trigger a notification.
 
 ## Getting started
 
 Apply all the following sections in sequence to configure and install the connector.
-
-- [Installing the tools](#installing-the-tools)
-- [Creating the `.env` file](#creating-the-env-file)
-- [Creating types in commercetools](#creating-types-in-commercetools)
-- [Creating the API extension in commercetools](#creating-the-api-extension-in-commercetools)
-  - [Managing the extensions](#managing-the-extensions)
-- [Deploying an application](#deploying-an-application)
-- [Testing the integration](#testing-the-integration)
-- [Mapping attributes between commercetools and Talon.One](#mapping-attributes-between-commercetools-and-talonone)
-  - [Supported customer commercetools core fields](#supported-customer-commercetools-core-fields)
 
 ### Installing the tools
 
@@ -48,8 +38,16 @@ Apply all the following sections in sequence to configure and install the connec
    - [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html)
    - [serverless](https://www.serverless.com/framework/docs/providers/aws/guide/installation/)
 
-     **Notes:** To use _serverless_, create an IAM user with minimal privileges.
-     See an example in [iam/serverless-dev-iam.sample.json](iam/serverless-dev-iam.sample.json).
+1. To use _serverless_, create an IAM user with minimal privileges.
+   See an example in [iam/serverless-dev-iam.sample.json](iam/serverless-dev-iam.sample.json)
+   and see the [serveless documentation](https://www.serverless.com/framework/docs/providers/aws/guide/credentials/)
+
+1. Clone the repository.
+1. From the root, run:
+
+   ```bash
+   yarn install
+   ```
 
 1. Check your setup:
 
@@ -60,7 +58,7 @@ Apply all the following sections in sequence to configure and install the connec
 
 ### Creating the `.env` file
 
-1. Copy the `.env` sample file from this repository:
+1. From the root of the repository, copy the `.env` sample file:
 
    ```bash
    cp .env.sample .env
@@ -84,7 +82,33 @@ Apply all the following sections in sequence to configure and install the connec
 
      `<currency code>` is the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code of your Application.
 
-   - `TALON_ONE_BASE_PATH_<currency code>`: The base URL of your Talon.One deployment. For example: `https://mycompany..europe-west1.talon.one`.
+     Example: `TALON_ONE_API_KEY_V1_EUR=fae976f994ec07bfc33e`.
+
+   - `TALON_ONE_BASE_PATH_<currency code>`: The base URL of your Talon.One deployment.
+
+     Example: `TALON_ONE_BASE_PATH_EUR=https://mycompany.europe-west1.talon.one`.
+
+   - `LANGUAGE`: The default language code used to map information from commercetools to Talon.One. Defaults to `en`.
+    Find the value in **Settings** > **Project settings** > **Languages** in the Merchant Center. Each product must
+    have a name in the chosen language.
+
+   - `DISCOUNT_TAX_CATEGORY_ID`: Tax category identifier in commercetools applied to discounts from Talon.One.
+     **Note:** If you are using discounts or coupons in Talon.One, you must set this variable.
+     See [details](docs/envs/DISCOUNT_TAX_CATEGORY_ID.md).
+
+   - `TALON_ONE_ATTRIBUTES_MAPPINGS`: Determines the mapping between the Talon.One attributes
+     and their commercetools equivalents. See [Mapping attributes](#mapping-attributes-between-commercetools-and-talonone).
+
+   - `CART_ATTRIBUTE_MAPPING`, `CART_ITEM_ATTRIBUTE_MAPPING`:
+     [Data Mapping Specification](./docs/data-mapping-spec.md)
+     [Examples](docs/data-mapping-examples.md)
+
+   - `LOGGER_MODE`: The level of logging. You can set it to `DEBUG` if you want more information about the setup process.
+
+   - `MIGRATION_BATCH_SIZE`: The size of the data bulk (number of customers) fetched from commercetools and sent to
+     Talon.One. Defaults to `20`.
+
+1. (Optional) You can also set the following environment variables:
 
    - `TALON_ONE_FALLBACK_CURRENCY`: One of the currency codes used above or an empty string.
      The fallback is used when the currency from commercetools cannot be matched in Talon.One.
@@ -95,11 +119,8 @@ Apply all the following sections in sequence to configure and install the connec
          PLN as fallback, we use turn `EUR` into `PLN`.
      > - If the fallback is an empty string, **no data is shared with Talon.One** if the currency doesn't match.
 
-   - `LANGUAGE`: The default language code used to map information from commercetools to Talon.One. Defaults to `en`.
-
-   - `DISCOUNT_TAX_CATEGORY_ID`: Tax category identifier in commercetools applied to discounts from Talon.One.
-     **Note:** If you are using discounts or coupons in Talon.One, you must set this variable.
-     See [details](docs/envs/DISCOUNT_TAX_CATEGORY_ID.md).
+   - `PAY_WITH_POINTS_ATTRIBUTE_NAME`: The name of the attribute to use to pay with loyalty points. Example:
+     `PayWithPoints`.
 
    - `ONLY_VERIFIED_PROFILES`: commercetools will send only profiles with a verified email address.
 
@@ -114,8 +135,6 @@ Apply all the following sections in sequence to configure and install the connec
    - `VERIFY_TAX_IDENTIFIERS`: Determines whether to validate the TAX ID from the lambda configuration in
      commercetools. ⚠️ May reduce performance.  Possible values: `0` (disabled), `1` (enabled).
 
-   - `TALON_ONE_ATTRIBUTES_MAPPINGS`: Determines the mapping between the Talon.One attributes
-     and their commercetools equivalents. See [Mapping attributes](#mapping-attributes-between-commercetools-and-talonone).
 
    - `CART_ATTRIBUTE_MAPPING`, `CART_ITEM_ATTRIBUTE_MAPPING`:
      [Data Mapping Specification](./docs/data-mapping-spec.md)
@@ -147,63 +166,39 @@ yarn register-api-extension
 
 **Note:** You can see the created extentions using [Impex](https://docs.commercetools.com/tutorials/#impex) using the `Extensions` endpoint. The function is named `t1-ct-dev-api-extension`.
 
-The application is ready to be deployed.
+The application is ready [to be deployed](##deploying-an-application).
 
-#### Managing the extensions
+#### Deleting an extension
+
+**⚠️ This cannot be undone!**
 
 If you run this script again, or if you already have extensions in
-commercetools, you will be prompted to select the one you would like to
-remove.
-
-**This cannot be undone!**
+commercetools, you are prompted to select the extension to remove.
 
 To delete an extension, find the lambda function by following the structure
 below and select it:
 
 `arn:aws:lambda:<AWS REGION>:<AWS ACCOUNTID>:function:t1-ct-<STAGE>-api-extension`
 
-**Note:** If you don't remove the redundant function, all registered functions will be run
+**Note:** If you don't remove the redundant function, all registered functions run
 every time you call the commercetools API related to those API Extensions.
 
 ### Deploying an application
 
-To deploy the lambda function to your AWS setup, run:
+1. To deploy the lambda function to your AWS setup, run:
 
-```bash
-yarn deploy [--stage stage]
-```
+   ```bash
+   yarn deploy [--stage stage]
+   ```
 
-**Note:** By default, `stage` is set to `dev`.
+   **Note:** By default, `stage` is set to `dev`.
 
-When the application is deployed, you can call the Lambda function and check the logs:
+1. When the application is deployed, call the Lambda function and check the logs:
 
-```bash
-yarn api-extension:invoke
-yarn api-extension:logs
-```
-
-### Testing the integration
-
-You can use [Impex](https://docs.commercetools.com/tutorials/#impex)'s GraphiQL tool to run the following query:
-
-```js
-mutation{
-  createCart (draft: {
-    currency: "EUR"
-  }) {
-    custom {
-      customFieldsRaw {
-        name
-        value
-      }
-    }
-  }
-}
-```
-
-It should return a `talon_one_cart_notifications` custom field with a message saying the integration is ready.
-
-For more GraphQL queries, see [Frontend integration](docs/frontend-integration.md).
+   ```bash
+   yarn api-extension:invoke
+   yarn api-extension:logs
+   ```
 
 ### Mapping attributes between commercetools and Talon.One
 
@@ -234,91 +229,66 @@ commercetools with the following JSON:
 }
 ```
 
-#### Supported customer commercetools core fields
-
-- `id`
-- `email`
-- `firstName`
-- `lastName`
-- `name`
-- `createdAt`
-- `customerNumber`
-- `middleName`
-- `title`
-- `salutation`
-- `dateOfBirth`
-- `companyName`
-- `vatId`
-- `defaultShippingAddressId`
-- `defaultBillingAddressId`
-- `externalId`
-- `isEmailVerified`
-- `defaultBillingAddressTitle`
-- `defaultBillingAddressSalutation`
-- `defaultBillingAddressFirstName`
-- `defaultBillingAddressLastName`
-- `defaultBillingAddressStreetName`
-- `defaultBillingAddressStreetNumber`
-- `defaultBillingAddressAdditionalStreetInfo`
-- `defaultBillingAddressPostalCode`
-- `defaultBillingAddressCity`
-- `defaultBillingAddressRegion`
-- `defaultBillingAddressState`
-- `defaultBillingAddressCountry`
-- `defaultBillingAddressCompany`
-- `defaultBillingAddressDepartment`
-- `defaultBillingAddressBuilding`
-- `defaultBillingAddressApartment`
-- `defaultBillingAddressPOBox`
-- `defaultBillingAddressPhone`
-- `defaultBillingAddressMobile`
-- `defaultBillingAddressEmail`
-- `defaultBillingAddressFax`
-- `defaultBillingAddressAdditionalAddressInfo`
-- `defaultShippingAddressTitle`
-- `defaultShippingAddressSalutation`
-- `defaultShippingAddressFirstName`
-- `defaultShippingAddressLastName`
-- `defaultShippingAddressStreetName`
-- `defaultShippingAddressStreetNumber`
-- `defaultShippingAddressAdditionalStreetInfo`
-- `defaultShippingAddressPostalCode`
-- `defaultShippingAddressCity`
-- `defaultShippingAddressRegion`
-- `defaultShippingAddressState`
-- `defaultShippingAddressCountry`
-- `defaultShippingAddressCompany`
-- `defaultShippingAddressDepartment`
-- `defaultShippingAddressBuilding`
-- `defaultShippingAddressApartment`
-- `defaultShippingAddressPOBox`
-- `defaultShippingAddressPhone`
-- `defaultShippingAddressMobile`
-- `defaultShippingAddressEmail`
-- `defaultShippingAddressFax`
-- `defaultShippingAddressAdditionalAddressInfo`
+To see the supported customer core fields, see [Supported fields](docs/supported-fields.md).
 
 ## Testing your integration
 
-Once you have configured the connector, you can test the integration by:
+Once you have configured the connector, you can test the integration:
 
-1. Enabling your connected Application's campaign in Talon.One.
+1. Enable your connected Application's campaign in Talon.One.
+1. Ensure the campaign contains a triggerable rule. We recommend a rule that always sends a notification.
 1. Trigger a data transfer to Talon.One, for example by creating a cart in your e-commerce platform.
 1. Check the API logs in Talon.One to check the data you received by clicking
    **Account** > **Dev Tools** > **Integration API Log**.
+
+You can also use [Impex](https://docs.commercetools.com/tutorials/#impex)'s GraphiQL tool to run the graphQL queries.
+
+For example, if your Talon.One campaign has a rule that generates a notification, you can run the following query:
+
+```js
+mutation{
+  createCart (draft: {
+    currency: "EUR"
+  }) {
+    custom {
+      customFieldsRaw {
+        name
+        value
+      }
+    }
+  }
+}
+```
+
+It should return a `talon_one_cart_notifications` custom field.
+
+For more GraphQL queries, see [Frontend integration](docs/frontend-integration.md).
 
 ## Related topics
 
 - [Frontend Integration](docs/frontend-integration.md)
 - [Data Mapping Specification](docs/data-mapping-spec.md)
-- [API docs](docs/API.md)
+- [Connector API docs](docs/API.md)
+- [Talon.One developer documentation](https://docs.talon.one)
+- [commercetools documentation](https://docs.commercetools.com/)
 
-## Contributing  [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+## Contributing
 
-If you are using commercetools <-> Talon.One Connector, found a bug or have an idea how to improve it, please read our [Contributing Guidelines](https://github.com/talon-one/commercetools-talonone-connector/blob/master/.github/CONTRIBUTING.md) first and follow them.
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
-You can follow the [list of open and active issues](https://github.com/talon-one/commercetools-talonone-connector/issues) or contact us directly under [opensource@talon.one](mailto:opensource@talon.one).
+If you are using commercetools <-> Talon.One Connector, found a bug or have an
+idea how to improve it, please read our [Contributing
+Guidelines](https://github.com/talon-one/commercetools-talonone-connector/blob/master/.github/CONTRIBUTING.md)
+first and follow them.
+
+You can follow the [list of open and active
+issues](https://github.com/talon-one/commercetools-talonone-connector/issues) or
+contact us directly under [opensource@talon.one](mailto:opensource@talon.one).
 
 ## Code of Conduct
 
-We have adopted a [Code of Conduct](https://github.com/talon-one/commercetools-talonone-connector/blob/master/CODE_OF_CONDUCT.md) that we expect project participants to adhere to. Please read the full text so that you can understand what actions will and will not be tolerated as part of your activity in this community.
+We have adopted a [Code of
+Conduct](https://github.com/talon-one/commercetools-talonone-connector/blob/master/CODE_OF_CONDUCT.md)
+that we expect project participants to adhere to. Please read the full text so
+that you can understand what actions will and will not be tolerated as part of
+your activity in this community.
