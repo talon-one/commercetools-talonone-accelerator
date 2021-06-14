@@ -13,7 +13,7 @@ class RegisterApiExtensionPlugin extends Plugin {
 
     this.commands = {
       'register-api-types': {
-        usage: 'Create Commercetools API Types',
+        usage: 'Create commercetools API Types',
         lifecycleEvents: ['execute'],
       },
     };
