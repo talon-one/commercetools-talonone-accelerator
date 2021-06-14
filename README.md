@@ -1,6 +1,6 @@
 # commercetools connector
 
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.0-4baaaa.svg)](code_of_conduct.md)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.0-4baaaa.svg)](CODE_OF_CONDUCT.md)
 
 The Talon.One's [commercetools](https://commercetools.com) connector allows you to integrate the Talon.One Promotion Engine into your commercetools Commerce Platform.
 
