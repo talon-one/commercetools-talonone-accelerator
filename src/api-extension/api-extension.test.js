@@ -340,7 +340,7 @@ describe('api-extension', () => {
       });
   });
 
-  it('pay with points', () => {
+  it('pay with points - false', () => {
     const out = deepClone(updateCartEventCustomerSession);
     out.payload.attributes.PayWithPoints = false;
 
