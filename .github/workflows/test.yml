@@ -21,7 +21,7 @@ jobs:
     - name: 'Install dependencies'
       run: yarn install
     - name: 'Setup .env file for tests'
-      run: cp .github/workflows/.env.test .env
+      run: cp src/api-extension/mocks/env/.env.test .env
     - name: 'Run serverless tests'
       uses: serverless/github-action@v2.18.0
       with:
