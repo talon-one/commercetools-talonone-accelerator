@@ -1,5 +1,5 @@
 # this workflow runs on all pull requests.
-name: 'Run tests'
+name: '✅ Tests'
 
 on:
   pull_request:
