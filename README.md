@@ -30,20 +30,6 @@ The connector relies on AWS. To use the connector, ensure you have:
 
 Apply all the following sections in sequence to configure and install the connector.
 
-- [Requirements](#requirements)
-- [Getting started](#getting-started)
-  - [Installing the tools](#installing-the-tools)
-  - [Creating the `.env` file](#creating-the-env-file)
-  - [Creating types in commercetools](#creating-types-in-commercetools)
-  - [Creating the API extension in commercetools](#creating-the-api-extension-in-commercetools)
-    - [Deleting an extension](#deleting-an-extension)
-  - [Deploying an application](#deploying-an-application)
-  - [Mapping attributes between commercetools and Talon.One](#mapping-attributes-between-commercetools-and-talonone)
-- [Testing your integration](#testing-your-integration)
-- [Related topics](#related-topics)
-- [Contributing](#contributing)
-- [Code of Conduct](#code-of-conduct)
-
 ### Installing the tools
 
 1. Install the following tools:
