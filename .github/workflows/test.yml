@@ -6,7 +6,6 @@ on:
   push:
     branches:
       - master
-      - chore-add-test-workflow*
 
 jobs:
   test:
