@@ -1,6 +1,6 @@
 # commercetools connector
 
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.0-4baaaa.svg)](CODE_OF_CONDUCT.md)
+[![✅ Tests](https://github.com/talon-one/commercetools-talonone-connector/actions/workflows/test.yml/badge.svg?branch=master)](https://github.com/talon-one/commercetools-talonone-connector/actions/workflows/test.yml) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.0-4baaaa.svg)](CODE_OF_CONDUCT.md)
 
 The Talon.One's [commercetools](https://commercetools.com) connector allows you to integrate the Talon.One Promotion Engine into your commercetools Commerce Platform.
 
@@ -40,7 +40,7 @@ Apply all the following sections in sequence to configure and install the connec
 
 1. To use _serverless_, create an IAM user with minimal privileges.
    See an example in [iam/serverless-dev-iam.sample.json](iam/serverless-dev-iam.sample.json)
-   and see the [serveless documentation](https://www.serverless.com/framework/docs/providers/aws/guide/credentials/)
+   and see the [serverless documentation](https://www.serverless.com/framework/docs/providers/aws/guide/credentials/)
 
 1. Clone the repository.
 1. From the root, run:
@@ -72,7 +72,7 @@ Apply all the following sections in sequence to configure and install the connec
      See [API Clients](https://docs.commercetools.com/merchant-center/api-clients).
 
    - `CTP_DEPLOY_TYPE`, `CTP_POST_BODY`: commercetools API Extension configuration parameters.
-     See [AWS Lamba](https://docs.commercetools.com/api/projects/api-extensions#aws-lambda-destination).
+     See [AWS Lambda](https://docs.commercetools.com/api/projects/api-extensions#aws-lambda-destination).
 
      To configure `accessKey` and `accessSecret` create another IAM user with minimal
      privileges. See an example in [`iam/ct-dev-iam.sample.json`](iam/ct-dev-iam.sample.json).
@@ -164,7 +164,7 @@ To create the required extension, run the following command:
 yarn register-api-extension
 ```
 
-**Note:** You can see the created extentions using [Impex](https://docs.commercetools.com/tutorials/#impex) using the `Extensions` endpoint. The function is named `t1-ct-dev-api-extension`.
+**Note:** You can see the created extensions using [Impex](https://docs.commercetools.com/tutorials/#impex) using the `Extensions` endpoint. The function is named `t1-ct-dev-api-extension`.
 
 The application is ready [to be deployed](##deploying-an-application).
 
@@ -236,12 +236,12 @@ To see the supported customer core fields, see [Supported fields](docs/supported
 Once you have configured the connector, you can test the integration:
 
 1. Enable your connected Application's campaign in Talon.One.
-1. Ensure the campaign contains a triggerable rule. We recommend a rule that always sends a notification.
+1. Ensure the campaign contains a "triggerable" rule. We recommend a rule that always sends a notification.
 1. Trigger a data transfer to Talon.One, for example by creating a cart in your e-commerce platform.
 1. Check the API logs in Talon.One to check the data you received by clicking
    **Account** > **Dev Tools** > **Integration API Log**.
 
-You can also use [Impex](https://docs.commercetools.com/tutorials/#impex)'s GraphiQL tool to run the graphQL queries.
+You can also use [Impex](https://docs.commercetools.com/tutorials/#impex)'s GraphiQL tool to run the GraphQL queries.
 
 For example, if your Talon.One campaign has a rule that generates a notification, you can run the following query:
 

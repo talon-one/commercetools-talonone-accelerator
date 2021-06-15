@@ -1,0 +1,27 @@
+# this workflow runs on all pull requests.
+name: '✅ Tests'
+
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: 'Checkout code'
+      uses: actions/checkout@v2
+    - name: 'Setup node'
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14.x'
+    - name: 'Install dependencies'
+      run: yarn install
+    - name: 'Setup .env file for tests'
+      run: cp src/api-extension/mocks/env/.env.test .env
+    - name: 'Run serverless tests'
+      uses: serverless/github-action@v2.18.0
+      with:
+        args: invoke test

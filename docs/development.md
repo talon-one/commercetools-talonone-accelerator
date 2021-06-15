@@ -24,6 +24,18 @@ yarn create:test -f myFunction -p src/myFunction
 yarn test [--stage stage] [--region region] [-f function]
 ```
 
+In case you wish to run the unit tests suite without any pre-configuration, you can use [`src/api-extension/mocks/env/.env.test`](../src/api-extension/mocks/env/.env.test) file as the `.env` by copying it to the repository root before running the tests:
+```bash
+# from repository root
+cp src/api-extension/mocks/env/.env.test .env
+# now run tests
+yarn test
+```
+
+### Running unit tests only
+
+
+
 ## Deploying application
 
 Deploy all (run only at the first time):
