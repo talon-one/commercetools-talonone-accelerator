@@ -7,6 +7,7 @@ const { ApiClientService } = require('../services/api-client');
 const { ApiClientMockService } = require('../services/api-client-mock');
 const { MapperSettings } = require('./mapper-settings');
 const { EventValidationMode } = require('./event-validation-mode');
+const { CloudProvider } = require('./cloud-provider');
 
 const TALON_ONE_API_KEY_V1_PREFIX = 'TALON_ONE_API_KEY_V1_';
 const TALON_ONE_API_BASE_PATH_PREFIX = 'TALON_ONE_API_BASE_PATH_';
@@ -17,6 +18,27 @@ class Env {
    */
   getLoggerMode() {
     return process.env.LOGGER_MODE ?? 'NONE';
+  }
+
+  /**
+   * @return {string}
+   */
+  getProvider() {
+    return process.env.PROVIDER ?? CloudProvider.AWS;
+  }
+
+  /**
+   * @return {string}
+   */
+  getBasicAuthUsername() {
+    return process.env.BASIC_AUTH_USERNAME;
+  }
+
+  /**
+   * @return {string}
+   */
+  getBasicAuthPassword() {
+    return process.env.BASIC_AUTH_PASSWORD;
   }
 
   /**

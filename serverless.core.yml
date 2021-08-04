@@ -3,14 +3,7 @@ service: t1-ct
 frameworkVersion: '2'
 useDotenv: true
 variablesResolutionMode: 20210219
-
-provider:
-  name: aws
-  stage: dev
-  region: eu-central-1
-  runtime: nodejs14.x
-  lambdaHashingVersion: 20201221
-  memorySize: 1024
+configValidationMode: error
 
 custom:
   webpack:
@@ -43,15 +36,9 @@ custom:
         - VERIFY_PRODUCT_IDENTIFIERS
         - VERIFY_TAX_IDENTIFIERS
 
-functions:
-  api-extension:
-    handler: src/api-extension/aws-index.handler
+provider: ${file(./serverless.${env:PROVIDER}.yml):provider}
+functions: ${file(./serverless.${env:PROVIDER}.yml):functions}
+plugins: ${file(./serverless.${env:PROVIDER}.yml):plugins}
 
-plugins:
-  - serverless-webpack
-  - ./src/plugins/build-optimizer.js
-  - serverless-dotenv-plugin
-  - serverless-jest-plugin
-  - ./src/plugins/register-api-extension.js
-  - ./src/plugins/migrate-customer-profiles.js
-  - ./src/plugins/register-api-types.js
+<<<:
+  - custom: ${file(./serverless.${env:PROVIDER}.yml):custom}

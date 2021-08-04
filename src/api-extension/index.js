@@ -4,7 +4,13 @@ const { main } = require('./main');
 const m = require('./middlewares');
 
 const env = new Env();
-const builder = new AppBuilder(main, env.getLoggerService());
+const builder = new AppBuilder(
+  main,
+  env.getLoggerService(),
+  env.getProvider(),
+  env.getBasicAuthUsername(),
+  env.getBasicAuthPassword()
+);
 const handler = builder
   .setMapperSettings(env.getMapperSettings())
   .setApiClient(env.getApiClient())
@@ -13,8 +19,8 @@ const handler = builder
   .setAttributeMappings(env.getAttributeMappings())
   .setCartAttributeMapping(env.getCartAttributeMapping())
   .setCartItemAttributeMapping(env.getCartItemAttributeMapping())
+  .setEventValidationMode(env.getEventValidationMode())
   .use(m.bootstrap)
-  .use(m.prefetchCustomer)
   .use(m.prepareProfile)
   .use(m.updateProfile)
   .use(m.prepareSession)

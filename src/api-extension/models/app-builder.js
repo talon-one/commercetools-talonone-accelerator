@@ -1,10 +1,23 @@
 'use strict';
 const middy = require('@middy/core');
 const timePlugin = require('../plugins/time');
+const { CloudProvider } = require('./cloud-provider');
+const { googleMiddy } = require('./google-middy');
 
 class AppBuilder {
-  constructor(handler, logger) {
-    this.handler = middy(handler, timePlugin({ logger: logger.info.bind(logger) }));
+  constructor(handler, logger, provider, username, password) {
+    switch (provider) {
+      case CloudProvider.AWS:
+        this.handler = middy(handler, timePlugin({ logger: logger.info.bind(logger) }));
+        break;
+      case CloudProvider.GCP:
+        this.handler = googleMiddy(handler, username, password);
+        break;
+      default:
+        throw new Error('Invalid provider.');
+    }
+
+    this.provider = provider;
     this.config = {};
     this.setLogger(logger);
   }
@@ -110,7 +123,12 @@ class AppBuilder {
   }
 
   build() {
-    return this.handler;
+    switch (this.provider) {
+      case CloudProvider.GCP:
+        return this.handler.main;
+      default:
+        return this.handler;
+    }
   }
 }
 

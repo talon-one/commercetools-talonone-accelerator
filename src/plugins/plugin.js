@@ -7,6 +7,7 @@ const clientQueue = require('@commercetools/sdk-middleware-queue');
 const fetch = require('node-fetch');
 
 const AWS_PROVIDER = 'aws';
+const GCP_PROVIDER = 'google';
 
 /**
  * @property {string} projectKey
@@ -45,8 +46,8 @@ class Plugin {
 
     this.provider = this.serverless.service.provider.name;
 
-    if (this.provider !== AWS_PROVIDER) {
-      throw new Error('Unsupported provider. Please choose aws.');
+    if (![GCP_PROVIDER, AWS_PROVIDER].includes(this.provider)) {
+      throw new Error(`Unsupported provider. Please choose ${GCP_PROVIDER} or ${AWS_PROVIDER}.`);
     }
   }
 
