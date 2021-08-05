@@ -24,7 +24,7 @@ The Talon.One's [commercetools](https://commercetools.com) connector allows you 
 
 ## Requirements
 
-The connector relies on AWS. To use the connector, ensure you have:
+The connector relies on AWS or GCP. To use the connector, ensure you have:
 
 - A commercetools Commerce Platform account
 - An AWS account with Amazon Lambda **OR** a Google Cloud Platform account
@@ -42,9 +42,16 @@ Apply all the following sections in sequence to configure and install the connec
    - [serverless](https://www.serverless.com/framework/docs/providers/aws/guide/installation/)
    - If using AWS, [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html)
 
-1. To use _serverless_, create an IAM user with minimal privileges.
-   See an example in [iam/serverless-dev-iam.sample.json](iam/serverless-dev-iam.sample.json)
-   and see the [serverless documentation](https://www.serverless.com/framework/docs/providers/aws/guide/credentials/)
+1. To use _serverless_:
+
+   - For AWS: Create an IAM user with minimal privileges.
+
+     See an example in [iam/serverless-dev-iam.sample.json](iam/serverless-dev-iam.sample.json)
+     and see the [serverless AWS documentation](https://www.serverless.com/framework/docs/providers/aws/guide/credentials/)
+
+   - For GCP: Create a service account with appropriate roles and download the JSON file with credentials.
+
+     See the  [serveless GCP documentation](https://www.serverless.com/framework/docs/providers/google/guide/credentials/).
 
 1. Clone the repository.
 1. From the root, run:
@@ -55,9 +62,18 @@ Apply all the following sections in sequence to configure and install the connec
 
 1. Check your setup:
 
+   For AWS:
+
    ```bash
    aws sts get-caller-identity
-   serverless --version
+   serverless --version</pre></td>
+   ```
+
+   For GCP:
+
+   ```bash
+   gcloud auth activate-service-account --key-file="<path to credentials>"
+   gcloud info
    ```
 
 ### Creating the `.env` file
@@ -96,11 +112,11 @@ Uncomment all commented variables under `For Google` and edit them:
 
 - `PROVIDER`: `google`. Defaults to: `aws`.
 - `GCP_PROJECT`: Google project name.
-- `GCP_CREDENTIALS`: The absolute path to your Google service account credentials (reference).
+- `GCP_CREDENTIALS`: The absolute path to your Google service account credentials file created in the [Installing the tools section](#installing-the-tools).
 - `BASIC_AUTH_USERNAME` and `BASIC_AUTH_PASSWORD`: for security reasons we need to set
   up basic authentication for the HTTP endpoint (same as in the first point)
 
-**Example**:
+##### Example
 
 ```ini
 CTP_POST_BODY="{"destination":{"type":"HTTP","url":"https://europe-west3-t1-integration.cloudfunctions.net/t1-ct-dev-api-extension","authentication":{"type":"AuthorizationHeader","headerValue":"Basic dXNlcjEyMzpwYXNzd29yZDEyMw=="}},"triggers":[{"resourceTypeId":"cart","actions":["Create","Update"]},{"resourceTypeId":"customer","actions":["Create","Update"]},{"resourceTypeId":"order","actions":["Create","Update"]}]}"
