@@ -8,6 +8,10 @@ The Talon.One's [commercetools](https://commercetools.com) connector allows you 
 - [Getting started](#getting-started)
   - [Installing the tools](#installing-the-tools)
   - [Creating the `.env` file](#creating-the-env-file)
+  - [Choosing the platform](#choosing-the-platform)
+    - [Using AWS](#using-aws)
+    - [Using GCP](#using-gcp)
+  - [Editing the shared variables](#editing-the-shared-variables)
   - [Creating types in commercetools](#creating-types-in-commercetools)
   - [Creating the API extension in commercetools](#creating-the-api-extension-in-commercetools)
     - [Deleting an extension](#deleting-an-extension)
@@ -23,7 +27,7 @@ The Talon.One's [commercetools](https://commercetools.com) connector allows you 
 The connector relies on AWS. To use the connector, ensure you have:
 
 - A commercetools Commerce Platform account
-- An AWS account with Amazon Lambda
+- An AWS account with Amazon Lambda **OR** a Google Cloud Platform account
 - A Talon.One deployment with at least one enabled campaign with one test rule. Example: Always trigger a notification.
 
 ## Getting started
@@ -35,8 +39,8 @@ Apply all the following sections in sequence to configure and install the connec
 1. Install the following tools:
 
    - [Yarn](https://yarnpkg.com/getting-started/install)
-   - [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html)
    - [serverless](https://www.serverless.com/framework/docs/providers/aws/guide/installation/)
+   - If using AWS, [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html)
 
 1. To use _serverless_, create an IAM user with minimal privileges.
    See an example in [iam/serverless-dev-iam.sample.json](iam/serverless-dev-iam.sample.json)
@@ -64,18 +68,57 @@ Apply all the following sections in sequence to configure and install the connec
    cp .env.sample .env
    ```
 
+### Choosing the platform
+
+Open the `.env` file and choose between GCP or AWS.
+
+#### Using AWS
+
+AWS is the default.
+
+- Edit the `CTP_POST_BODY` variable under `For AWS`: It contains the commercetools API Extension configuration parameters.
+  - `accessKey`: An AWS access key.
+  - `accessSecret`: An AWS secret.
+
+To configure `accessKey` and `accessSecret` create another IAM user with minimal
+privileges. See an example in [`iam/ct-dev-iam.sample.json`](iam/ct-dev-iam.sample.json).
+Also see [AWS Lambda](https://docs.commercetools.com/api/projects/api-extensions#aws-lambda-destination).
+
+#### Using GCP
+
+Uncomment all commented variables under `For Google` and edit them:
+
+- `CTP_POST_BODY`: It contains the commercetools API Extension configuration parameters.
+
+  - `url`: URL for the lambda function. Retrieve it from CLI after deployment or from Google Console.
+    Example: `https://europe-west3-t1-integration.cloudfunctions.net/t1-ct-dev-api-extension`
+  - `headerValue`: A combination of `BASIC_AUTH_USERNAME` and `BASIC_AUTH_PASSWORD`. You can generate a hash with `echo -n "<user>:<password>" | base64`.
+
+- `PROVIDER`: `google`. Defaults to: `aws`.
+- `GCP_PROJECT`: Google project name.
+- `GCP_CREDENTIALS`: The absolute path to your Google service account credentials (reference).
+- `BASIC_AUTH_USERNAME` and `BASIC_AUTH_PASSWORD`: for security reasons we need to set
+  up basic authentication for the HTTP endpoint (same as in the first point)
+
+**Example**:
+
+```ini
+CTP_POST_BODY="{"destination":{"type":"HTTP","url":"https://europe-west3-t1-integration.cloudfunctions.net/t1-ct-dev-api-extension","authentication":{"type":"AuthorizationHeader","headerValue":"Basic dXNlcjEyMzpwYXNzd29yZDEyMw=="}},"triggers":[{"resourceTypeId":"cart","actions":["Create","Update"]},{"resourceTypeId":"customer","actions":["Create","Update"]},{"resourceTypeId":"order","actions":["Create","Update"]}]}"
+PROVIDER="google"
+GCP_PROJECT="t1-integration"
+GCP_CREDENTIALS="Z:\vault\gcp.json"
+BASIC_AUTH_USERNAME="user123"
+BASIC_AUTH_PASSWORD="password123"
+```
+
+### Editing the shared variables
+
 1. Edit its content to update the following variables:
 
    - `CTP_PROJECT_KEY`, `CTP_CLIENT_SECRET`, `CTP_CLIENT_ID`, `CTP_AUTH_URL`,
      `CTP_API_URL`, `CTP_SCOPES`: commercetools API Client Configuration. Create a new API Client with
      scope `manage_project` to get the values.
      See [API Clients](https://docs.commercetools.com/merchant-center/api-clients).
-
-   - `CTP_DEPLOY_TYPE`, `CTP_POST_BODY`: commercetools API Extension configuration parameters.
-     See [AWS Lambda](https://docs.commercetools.com/api/projects/api-extensions#aws-lambda-destination).
-
-     To configure `accessKey` and `accessSecret` create another IAM user with minimal
-     privileges. See an example in [`iam/ct-dev-iam.sample.json`](iam/ct-dev-iam.sample.json).
 
    - `TALON_ONE_API_KEY_V1_<currency code>`: Create an API key to get the values:
      See [Creating an API key](https://help.talon.one/hc/en-us/articles/360010114859-Creating-an-API-Key).
@@ -108,7 +151,7 @@ Apply all the following sections in sequence to configure and install the connec
    - `MIGRATION_BATCH_SIZE`: The size of the data bulk (number of customers) fetched from commercetools and sent to
      Talon.One. Defaults to `20`.
 
-1. (Optional) You can also set the following environment variables:
+1. (Optional) Set the following variables:
 
    - `TALON_ONE_FALLBACK_CURRENCY`: One of the currency codes used above or an empty string.
      The fallback is used when the currency from commercetools cannot be matched in Talon.One.
@@ -134,7 +177,6 @@ Apply all the following sections in sequence to configure and install the connec
 
    - `VERIFY_TAX_IDENTIFIERS`: Determines whether to validate the TAX ID from the lambda configuration in
      commercetools. ⚠️ May reduce performance.  Possible values: `0` (disabled), `1` (enabled).
-
 
    - `CART_ATTRIBUTE_MAPPING`, `CART_ITEM_ATTRIBUTE_MAPPING`:
      [Data Mapping Specification](./docs/data-mapping-spec.md)
