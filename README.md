@@ -243,7 +243,7 @@ every time you call the commercetools API related to those API Extensions.
 
 ### Deploying an application
 
-1. To deploy the lambda function to your AWS setup, run:
+1. To deploy the extension, run:
 
    ```bash
    yarn deploy [--stage stage]
@@ -257,6 +257,8 @@ every time you call the commercetools API related to those API Extensions.
    yarn api-extension:invoke
    yarn api-extension:logs
    ```
+
+1. If you use GCP, [allow unauthenticated HTTP function invocation](https://cloud.google.com/functions/docs/securing/managing-access-iam#gcloud_4).
 
 ### Mapping attributes between commercetools and Talon.One
 
