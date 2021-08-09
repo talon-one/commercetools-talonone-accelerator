@@ -12,6 +12,7 @@ functions:
 
 plugins:
   - serverless-webpack
+  - ./src/plugins/build-optimizer.js
   - serverless-dotenv-plugin
   - serverless-jest-plugin
   - ./src/plugins/register-api-extension.js
@@ -20,3 +21,7 @@ plugins:
 
 custom:
   provider: aws
+  webpack:
+    webpackConfig: 'webpack.config.js'
+    includeModules: true
+    packager: 'yarn'

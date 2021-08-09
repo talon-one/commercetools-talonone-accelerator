@@ -6,10 +6,6 @@ variablesResolutionMode: 20210219
 configValidationMode: error
 
 custom:
-  webpack:
-    webpackConfig: 'webpack.config.js'
-    includeModules: true
-    packager: 'yarn'
   jest:
     collectCoverage: true
   dotenv:

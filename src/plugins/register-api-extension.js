@@ -5,6 +5,7 @@ const requestBuilder = require('@commercetools/api-request-builder');
 
 const NONE_CHOICE = 'None';
 const CT_AWS_DESTINATION_TYPE = 'AWSLambda';
+const CT_HTTP_DESTINATION_TYPE = 'HTTP';
 
 class RegisterApiExtensionPlugin extends Plugin {
   constructor(serverless, options) {
@@ -71,9 +72,19 @@ class RegisterApiExtensionPlugin extends Plugin {
     const extensions = {};
 
     for (const { id, version, destination = {} } of results) {
-      if (destination.type === CT_AWS_DESTINATION_TYPE) {
-        choices.push(`${destination.arn}`);
-        extensions[destination.arn] = { id, version };
+      switch (destination.type) {
+        case CT_AWS_DESTINATION_TYPE:
+          choices.push(`${destination.arn}`);
+          extensions[destination.arn] = { id, version };
+          break;
+
+        case CT_HTTP_DESTINATION_TYPE:
+          choices.push(`${destination.url}`);
+          extensions[destination.url] = { id, version };
+          break;
+
+        default:
+          break;
       }
     }
 
