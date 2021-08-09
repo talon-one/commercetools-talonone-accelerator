@@ -127,6 +127,26 @@ BASIC_AUTH_USERNAME="user123"
 BASIC_AUTH_PASSWORD="password123"
 ```
 
+In the above example, the `CTP_POST_BODY` variable contains the following fields and values:
+
+```json
+{
+  "destination": {
+    "type": "HTTP",
+    "url": "https://europe-west3-t1-integration.cloudfunctions.net/t1-ct-dev-api-extension",
+    "authentication": {
+      "type": "AuthorizationHeader",
+      "headerValue": "Basic dXNlcjEyMzpwYXNzd29yZDEyMw=="
+    }
+  },
+  "triggers": [
+    { "resourceTypeId": "cart", "actions": ["Create", "Update"] },
+    { "resourceTypeId": "customer", "actions": ["Create", "Update"] },
+    { "resourceTypeId": "order", "actions": ["Create", "Update"] }
+  ]
+}
+```
+
 ### Editing the shared variables
 
 1. Edit its content to update the following variables:
