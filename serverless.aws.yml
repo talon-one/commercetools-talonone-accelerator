@@ -1,0 +1,27 @@
+provider:
+  name: aws
+  stage: dev
+  lambdaHashingVersion: 20201221
+  memorySize: 1024
+  region: eu-central-1
+  runtime: nodejs14.x
+
+functions:
+  api-extension:
+    handler: src/api-extension/index.handler
+
+plugins:
+  - serverless-webpack
+  - ./src/plugins/build-optimizer.js
+  - serverless-dotenv-plugin
+  - serverless-jest-plugin
+  - ./src/plugins/register-api-extension.js
+  - ./src/plugins/migrate-customer-profiles.js
+  - ./src/plugins/register-api-types.js
+
+custom:
+  provider: aws
+  webpack:
+    webpackConfig: 'webpack.config.js'
+    includeModules: true
+    packager: 'yarn'

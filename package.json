@@ -1,8 +1,8 @@
 {
   "name": "talon_one_commercetools",
   "description": "",
-  "license": "UNLICENSED",
-  "version": "0.0.0",
+  "license": "MIT",
+  "version": "1.0.0",
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
@@ -27,7 +27,8 @@
     "api-extension:logs": "sls logs -t -f api-extension",
     "docs": "jsdoc -a all -c jsdoc.json -r ./src/ -R README.md -d ./docs/jsdoc && jsdoc2md --files ./src/**/* > ./docs/API.md",
     "logs": "yarn api-extension:logs",
-    "deploy": "sls deploy"
+    "deploy": "sls deploy",
+    "print": "sls print"
   },
   "dependencies": {
     "@commercetools/api-request-builder": "^5.6.3",
@@ -44,6 +45,7 @@
   "devDependencies": {
     "@serverless/eslint-config": "^3.0.0",
     "docdash": "^1.2.0",
+    "dotenv": "^10.0.0",
     "eslint": "^7.21.0",
     "eslint-plugin-import": "^2.22.1",
     "git-list-updated": "^1.2.1",
@@ -57,10 +59,12 @@
     "prettier": "^2.2.1",
     "serverless-commercetools-plugin": "^1.1.8",
     "serverless-dotenv-plugin": "^3.8.1",
+    "serverless-google-cloudfunctions": "^4.2.0",
     "serverless-jest-plugin": "^0.3.0",
     "serverless-webpack": "^5.4.1",
     "terser-webpack-plugin": "^5.1.1",
-    "webpack": "^5.26.3"
+    "webpack": "^5.26.3",
+    "yaml-boost": "^2.0.0"
   },
   "husky": {
     "hooks": {

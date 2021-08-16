@@ -1,0 +1,33 @@
+provider:
+  name: google
+  # https://cloud.google.com/functions/docs/locations
+  region: europe-west3
+  runtime: nodejs14
+  stage: dev
+  memorySize: 1024
+  project: ${env:GCP_PROJECT}
+  credentials: ${env:GCP_CREDENTIALS}
+
+functions:
+  api-extension:
+    handler: http
+    events:
+        - http: path
+
+plugins:
+  - serverless-google-cloudfunctions
+  - serverless-dotenv-plugin
+  - serverless-jest-plugin
+  - ./src/plugins/register-api-extension.js
+  - ./src/plugins/migrate-customer-profiles.js
+  - ./src/plugins/register-api-types.js
+
+custom:
+  provider: google
+  dotenv:
+    required:
+      env:
+        - GCP_PROJECT
+        - GCP_CREDENTIALS
+        - BASIC_AUTH_USERNAME
+        - BASIC_AUTH_PASSWORD
