@@ -291,7 +291,10 @@ This connector supports a list of
 [commercetools customer core fields](#supported-customer-commercetools-core-fields). Map the ones you
 need to their Talon.One equivalents that you created.
 
-To define the mapping, use the `TALON_ONE_ATTRIBUTES_MAPPINGS` env variable as a **one-line** JSON object.
+To define the mapping, use the `TALON_ONE_ATTRIBUTES_MAPPINGS` env variable as a **one-line** JSON object:
+
+- The keys in the `mappings` object are commercetools fields.
+- The correpsonding values are Talon.One attributes.
 
 **Indented example:**
 
@@ -311,6 +314,8 @@ commercetools with the following JSON:
 ```
 
 To see the supported customer core fields, see [Supported fields](docs/supported-fields.md).
+
+To map cart item attributes and cart item attributes, see [Data mapping examples](docs/data-mapping-examples.md).
 
 ## Testing your integration
 
