@@ -222,7 +222,8 @@ In the above example, the `CTP_POST_BODY` variable contains the following fields
 
 ### Creating types in commercetools
 
-To support Talon.One-specific data, create custom types in commercetools. Run:
+[Types define custom fields](https://docs.commercetools.com/api/projects/types) in commercetools.
+To support Talon.One-specific data, run the following command to create the appropriate types:
 
 ```bash
 yarn register-api-types
