@@ -96,6 +96,8 @@ AWS is the default.
   - `accessKey`: An AWS access key.
   - `accessSecret`: An AWS secret.
 
+**Important:** This variable contains a JSON object. Ensure it is valid JSON.
+
 To configure `accessKey` and `accessSecret` create another IAM user with minimal
 privileges. See an example in [`iam/ct-dev-iam.sample.json`](iam/ct-dev-iam.sample.json).
 Also see [AWS Lambda](https://docs.commercetools.com/api/projects/api-extensions#aws-lambda-destination).
@@ -115,6 +117,8 @@ Uncomment all commented variables under `For Google` and edit them:
 - `GCP_CREDENTIALS`: The absolute path to your Google service account credentials file created in the [Installing the tools section](#installing-the-tools).
 - `BASIC_AUTH_USERNAME` and `BASIC_AUTH_PASSWORD`: for security reasons we need to set
   up basic authentication for the HTTP endpoint (same as in the first point)
+
+**Important:** This variable contains a JSON object. Ensure it is valid JSON.
 
 ##### Example
 
@@ -220,6 +224,8 @@ In the above example, the `CTP_POST_BODY` variable contains the following fields
 
    - `PAY_WITH_POINTS_ATTRIBUTE_NAME`: The name of the attribute to use to pay with loyalty points (e.g. `PayWithPoints`).
 
+**Important:** Some of these variables contain JSON data. Ensure it is valid JSON.
+
 ### Creating types in commercetools
 
 [Types define custom fields](https://docs.commercetools.com/api/projects/types) in commercetools.
@@ -295,6 +301,8 @@ To define the mapping, use the `TALON_ONE_ATTRIBUTES_MAPPINGS` env variable as a
 
 - The keys in the `mappings` object are commercetools fields.
 - The correpsonding values are Talon.One attributes.
+
+**Important:** This variable contains a JSON object. Ensure it is valid JSON.
 
 **Indented example:**
 
