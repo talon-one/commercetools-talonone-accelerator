@@ -294,7 +294,7 @@ You can create custom
 Talon.One to represent any data you require to manage your promotions.
 
 This connector supports a list of
-[commercetools customer core fields](#supported-customer-commercetools-core-fields). Map the ones you
+[commercetools customer core fields](docs/supported-fields.md). Map the ones you
 need to their Talon.One equivalents that you created.
 
 To define the mapping, use the `TALON_ONE_ATTRIBUTES_MAPPINGS` env variable as a **one-line** JSON object:
