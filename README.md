@@ -202,9 +202,6 @@ In the above example, the `CTP_POST_BODY` variable contains the following fields
          PLN as fallback, we use turn `EUR` into `PLN`.
      > - If the fallback is an empty string, **no data is shared with Talon.One** if the currency doesn't match.
 
-   - `PAY_WITH_POINTS_ATTRIBUTE_NAME`: The name of the attribute to use to pay with loyalty points. Example:
-     `PayWithPoints`.
-
    - `ONLY_VERIFIED_PROFILES`: commercetools will send only profiles with a verified email address.
 
    - `SKU_TYPE`: Determines how the SKU from Talon.One is converted to `SKU_TYPE` in commercetools. Possible values:
