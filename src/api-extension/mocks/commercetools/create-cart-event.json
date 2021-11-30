@@ -63,7 +63,23 @@
       "shippingAddress": {
         "country": "DE"
       },
-      "itemShippingAddresses": []
+      "itemShippingAddresses": [],
+      "custom": {
+        "type": {
+          "typeId": "type",
+          "id": "8d19ace4-0967-408b-b3cf-046ef00c4d24"
+        },
+        "fields": {
+          "external_field_1": "1",
+          "external_field_2": [
+            true,
+            false,
+            {
+              "test": true
+            }
+          ]
+        }
+      }
     }
   }
 }

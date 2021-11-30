@@ -39,6 +39,9 @@ function setupEnv(env = {}) {
   process.env.SESSION_EUR_MOCK = undefined;
   process.env.__REQUEST = undefined;
   process.env.__CUSTOMER_UPDATE_ACTIONS = undefined;
+  process.env.CTP_LINE_ITEM_METADATA_TYPE_KEY = 'talon_one_line_item_metadata';
+  process.env.CTP_CART_METADATA_TYPE_KEY = 'talon_one_cart_metadata';
+  process.env.CTP_CUSTOMER_METADATA_TYPE_KEY = 'talon_one_customer_metadata';
   process.env = { ...process.env, ...env };
 
   jest.resetModules();
@@ -100,6 +103,25 @@ for (const env of matrix) {
         .run(updateCartEvent)
         .then((response) => {
           expect(response).toBeDefined();
+          expect(response).toEqual(out);
+        });
+    });
+
+    it('update cart event with external custom types', () => {
+      const out = deepClone(updateCartActions);
+      delete out.actions[0];
+      out.actions = reindex(out.actions);
+
+      out.actions[0].type.key = 'test_2';
+      [5, 6, 7, 8, 9, 11].forEach((v) => (out.actions[v].custom.type.key = 'test_1'));
+
+      return setupEnv({
+        CTP_LINE_ITEM_METADATA_TYPE_KEY: 'test_1',
+        CTP_CART_METADATA_TYPE_KEY: 'test_2',
+        ...env,
+      })
+        .run(updateCartEvent)
+        .then((response) => {
           expect(response).toEqual(out);
         });
     });
@@ -248,7 +270,7 @@ for (const env of matrix) {
       return setupEnv(env)
         .run(createCustomerEvent)
         .then((response) => {
-          expect(response).toBeDefined();
+          expect(response).toStrictEqual({ actions: [], responseType: 'UpdateRequest' });
         });
     });
 
@@ -351,6 +373,26 @@ for (const env of matrix) {
         });
     });
 
+    it('create customer event with referrals with external custom types', () => {
+      const out = deepClone(createCustomerReferralActions);
+      out.actions[0].type.key = 'test_3';
+
+      return setupEnv({
+        TALON_ONE_API_KEY_V1_EUR: 'EUR',
+        TALON_ONE_API_BASE_PATH_EUR: 'EUR',
+        TALON_ONE_API_KEY_V1_USD: 'USD',
+        TALON_ONE_API_BASE_PATH_USD: 'USD',
+        PROFILE_USD_MOCK: usdReferralsResponse,
+        PROFILE_EUR_MOCK: eurReferralsResponse,
+        CTP_CUSTOMER_METADATA_TYPE_KEY: 'test_3',
+        ...env,
+      })
+        .run(createCustomerEvent)
+        .then((response) => {
+          expect(response).toEqual(out);
+        });
+    });
+
     it('create cart event with referrals', () => {
       return setupEnv({
         TALON_ONE_API_KEY_V1_EUR: 'EUR',
@@ -367,6 +409,31 @@ for (const env of matrix) {
           expect(JSON.parse(process.env.__CUSTOMER_UPDATE_ACTIONS)).toEqual(
             createCartUpdateCustomerReferralActions
           );
+        });
+    });
+
+    it('create cart event with referrals and external custom types', () => {
+      const out1 = deepClone(createCartReferralActions);
+      out1.actions[0].type.key = 'test_2';
+
+      const out2 = deepClone(createCartUpdateCustomerReferralActions);
+      out2[0].type.key = 'test_3';
+
+      return setupEnv({
+        TALON_ONE_API_KEY_V1_EUR: 'EUR',
+        TALON_ONE_API_BASE_PATH_EUR: 'EUR',
+        TALON_ONE_API_KEY_V1_USD: 'USD',
+        TALON_ONE_API_BASE_PATH_USD: 'USD',
+        SESSION_USD_MOCK: usdReferralsResponse,
+        SESSION_EUR_MOCK: eurReferralsResponse,
+        CTP_CART_METADATA_TYPE_KEY: 'test_2',
+        CTP_CUSTOMER_METADATA_TYPE_KEY: 'test_3',
+        ...env,
+      })
+        .run(createCartEvent)
+        .then((response) => {
+          expect(response).toEqual(out1);
+          expect(JSON.parse(process.env.__CUSTOMER_UPDATE_ACTIONS)).toEqual(out2);
         });
     });
 

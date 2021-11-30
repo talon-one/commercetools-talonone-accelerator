@@ -118,8 +118,8 @@ class CartEventMapper {
       if (!result) {
         result = {};
       }
-      result[this.payWithPointsAttributeName] = !!this.custom?.fields
-        ?.talon_one_cart_pay_with_points;
+      result[this.payWithPointsAttributeName] =
+        !!this.custom?.fields?.[TalonOneCartMetadata.payWithPointsFieldName];
     }
 
     return result;
@@ -129,7 +129,7 @@ class CartEventMapper {
    * @returns {Object|null}
    */
   getReferralCode() {
-    const code = this.cart?.custom?.fields?.talon_one_cart_referral_code ?? null;
+    const code = this.cart?.custom?.fields?.[TalonOneCartMetadata.referralCodesFieldName] ?? null;
 
     if (code) {
       const parts = code.split(REFERRAL_CODE_SEPARATOR);

@@ -22,6 +22,7 @@ const {
 } = require('talon_one');
 const { EffectType } = require('./effect-type');
 const { MapperSettings } = require('./mapper-settings');
+const { TalonOneCustomerMetadata } = require('./talon-one-customer-metadata');
 
 const PREPARE_CONTEXT_PIPE = '_prepareContext';
 const BUILD_CUSTOM_TYPE_PIPE = '_buildCustomType';
@@ -88,7 +89,22 @@ class CartActionFactory {
     this._verifyTaxIdsFlag = this._mapperSettings.getVerifyTaxIdsFlag();
 
     this._context = {};
-    this._customType = new SetCustomTypeBuilder();
+
+    this._customType = new SetCustomTypeBuilder(CartActionFactory.getInitialFields(cart));
+    this._customType.cartType();
+  }
+
+  /**
+   * @param {CtpCartEventResourceObject} cart
+   */
+  static getInitialFields(cart) {
+    let initialFields = {};
+
+    if (cart?.custom?.fields) {
+      initialFields = cart.custom.fields;
+    }
+
+    return initialFields;
   }
 
   /**
@@ -385,7 +401,7 @@ class CartActionFactory {
    */
   _acceptReferralEffect(effect, actions) {
     let { value } = effect.props;
-    const referralCode = this._cart?.custom?.fields?.talon_one_cart_referral_code;
+    const referralCode = this._cart?.custom?.fields?.[TalonOneCartMetadata.referralCodesFieldName];
 
     if (referralCode) {
       this._customType.referralCode(referralCode);
@@ -409,7 +425,7 @@ class CartActionFactory {
   _rejectReferralEffect(effect, actions) {
     // eslint-disable-next-line prefer-const
     let { value, rejectionReason } = effect.props;
-    const referralCode = this._cart?.custom?.fields?.talon_one_cart_referral_code;
+    const referralCode = this._cart?.custom?.fields?.[TalonOneCartMetadata.referralCodesFieldName];
 
     if (referralCode?.search(value) !== -1) {
       value = referralCode;
@@ -451,7 +467,7 @@ class CartActionFactory {
    * @private
    */
   _buildCustomType(effects, actions) {
-    const payWithPoints = this._cart?.custom?.fields?.talon_one_cart_pay_with_points;
+    const payWithPoints = this._cart?.custom?.fields?.[TalonOneCartMetadata.payWithPointsFieldName];
 
     if (payWithPoints) {
       this._customType.cartType().payWithPoints(payWithPoints);
@@ -553,10 +569,11 @@ class CartActionFactory {
       return actions;
     }
 
-    const builder = new SetCustomTypeBuilder();
+    const builder = new SetCustomTypeBuilder(customFields?.fields ?? {});
+    builder.customerType();
 
-    if (customFields?.fields?.talon_one_customer_referral_codes) {
-      builder.referrals(customFields.fields.talon_one_customer_referral_codes);
+    if (customFields?.fields?.[TalonOneCustomerMetadata.referralCodesFieldName]) {
+      builder.referrals(customFields.fields[TalonOneCustomerMetadata.referralCodesFieldName]);
     }
 
     for (const referralCode of Object.values(referralCodes)) {
@@ -574,10 +591,10 @@ class CartActionFactory {
       }
     }
 
-    if (customFields?.fields?.talon_one_customer_loyalty_points) {
+    if (customFields?.fields?.[TalonOneCustomerMetadata.loyaltyPointsFieldName]) {
       try {
         loyaltyProgramsFromCustomer = JSON.parse(
-          customFields.fields.talon_one_customer_loyalty_points
+          customFields.fields[TalonOneCustomerMetadata.loyaltyPointsFieldName]
         ).map(
           ({ id, name, title, balance, currency }) =>
             new LoyaltyPoints(id, name, title, balance, currency)

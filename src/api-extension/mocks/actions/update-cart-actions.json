@@ -1,11 +1,32 @@
 {
   "actions": [
     {
-      "action": "setCustomType"
+      "action": "setCustomType",
+      "fields": {
+        "external_field_1": "1",
+        "external_field_2": [
+          true,
+          false,
+          {
+            "test": true
+          }
+        ]
+      },
+      "type": {
+        "key": "talon_one_cart_metadata"
+      }
     },
     {
       "action": "setCustomType",
       "fields": {
+        "external_field_1": "1",
+        "external_field_2": [
+          true,
+          false,
+          {
+            "test": true
+          }
+        ],
         "talon_one_cart_notifications": "[{\"type\":\"Info\",\"title\":\"Info\",\"body\":\"Info message.\",\"effect\":\"showNotification\",\"code\":\"\"},{\"type\":\"Offer\",\"title\":\"Offer title\",\"body\":\"Offer message.\",\"effect\":\"showNotification\",\"code\":\"\"},{\"type\":\"Error\",\"title\":\"Error title\",\"body\":\"Error message.\",\"effect\":\"showNotification\",\"code\":\"\"},{\"type\":\"Misc\",\"title\":\"Misc title\",\"body\":\"Misc message.\",\"effect\":\"showNotification\",\"code\":\"\"},{\"type\":\"Error\",\"title\":\"\",\"body\":\"Cool-Summer!\",\"effect\":\"rejectCoupon\",\"code\":\"CouponNotFound\"},{\"type\":\"Error\",\"title\":\"\",\"body\":\"Cool-Summer!\",\"effect\":\"rejectCoupon\",\"code\":\"CampaignLimitReached\"},{\"type\":\"Info\",\"title\":\"\",\"body\":\"Cool-Summer!\",\"effect\":\"acceptCoupon\",\"code\":\"\"}]"
       },
       "type": {
