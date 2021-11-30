@@ -4,16 +4,42 @@ const { UpdateAction } = require('./update-action');
 const { Notification } = require('./notification');
 const { TalonOneCartMetadata } = require('./talon-one-cart-metadata');
 const { TalonOneCustomerMetadata } = require('./talon-one-customer-metadata');
+const { TalonOneLineItemMetadata } = require('./talon-one-line-item-metadata');
+
+const filter = (k) => k.substr(k.length - 9) === 'FieldName';
+
+const DISALLOWED_METADATA_FIELD_KEYS = [
+  ...Object.keys(TalonOneCartMetadata).filter(filter),
+  ...Object.keys(TalonOneCustomerMetadata).filter(filter),
+  ...Object.keys(TalonOneLineItemMetadata).filter(filter),
+];
+
+const mapper = (k) => DISALLOWED_METADATA_FIELD_KEYS[k];
+const DISALLOWED_METADATA_FIELDS = DISALLOWED_METADATA_FIELD_KEYS.map(mapper);
 
 class SetCustomTypeBuilder {
-  constructor() {
+  constructor(initialFields = {}) {
     this.action = {
       action: UpdateAction.setCustomType,
+      fields: SetCustomTypeBuilder.prepareInitialFields(initialFields),
     };
 
     this._notifications = [];
     this._referrals = [];
     this._loyaltyPoints = [];
+  }
+
+  static prepareInitialFields(initialFields = {}) {
+    const fields = {};
+    const keys = Object.keys(initialFields);
+
+    for (const key of keys) {
+      if (!DISALLOWED_METADATA_FIELDS.includes(key)) {
+        fields[key] = initialFields[key];
+      }
+    }
+
+    return fields;
   }
 
   /**
@@ -233,6 +259,10 @@ class SetCustomTypeBuilder {
     this._buildNotifications();
     this._buildReferrals();
     this._buildLoyaltyPoints();
+
+    if (!Object.keys(this.action.fields).length) {
+      delete this.action.fields;
+    }
 
     return this.action;
   }

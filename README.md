@@ -312,7 +312,7 @@ commercetools with the following JSON:
    "customerProfile":{
       "onlyVerifiedProfiles": true,
       "mappings":{
-         "defaultShippingAddressStreetName":"shippingAddressStreet",
+         "defaultShippingAddressStreetName":"shippingAddressStreet"
       }
    }
 }

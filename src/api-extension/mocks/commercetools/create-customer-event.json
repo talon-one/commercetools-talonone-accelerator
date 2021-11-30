@@ -25,7 +25,7 @@
           "id": "8bc88338-5797-4a8e-8ce5-23a904dcf552"
         }
       },
-      "email": "mbukowski+100@divante.pl",
+      "email": "test@example.com",
       "password": "OM2UZ8MeFpwKTmoGff/L+Wn7hWeCQTDzRRIghcJlJJo=$MHbpwWJAd1bOVPUoDtWTggn0AmRxo+Jqu2zZT/3NBD0=",
       "addresses": [],
       "shippingAddressIds": [],
@@ -38,7 +38,18 @@
           "id": "8d19ace4-0967-408b-b3cf-046ef00c4d24"
         },
         "fields": {
-          "talon_one_customer_referral_codes": ["123", "234"]
+          "external_field_1": "1",
+          "talon_one_customer_referral_codes": [
+            "123",
+            "234"
+          ],
+          "external_field_2": [
+            true,
+            false,
+            {
+              "test": true
+            }
+          ]
         }
       }
     }

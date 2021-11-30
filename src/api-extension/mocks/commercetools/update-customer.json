@@ -30,7 +30,19 @@
       "id": "8d19ace4-0967-408b-b3cf-046ef00c4d24"
     },
     "fields": {
-      "talon_one_customer_referral_codes": ["123", "234", "EUR__658-253"]
+      "external_field_1": "1",
+      "talon_one_customer_referral_codes": [
+        "123",
+        "234",
+        "EUR__658-253"
+      ],
+      "external_field_2": [
+        true,
+        false,
+        {
+          "test": true
+        }
+      ]
     }
   },
   "stores": []

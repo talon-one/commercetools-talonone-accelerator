@@ -5,7 +5,19 @@
       "key": "talon_one_customer_metadata"
     },
     "fields": {
-      "talon_one_customer_referral_codes": ["123", "234", "EUR__658-253"]
+      "external_field_1": "1",
+      "external_field_2": [
+        true,
+        false,
+        {
+          "test": true
+        }
+      ],
+      "talon_one_customer_referral_codes": [
+        "123",
+        "234",
+        "EUR__658-253"
+      ]
     }
   }
 ]

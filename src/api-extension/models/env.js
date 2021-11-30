@@ -16,6 +16,27 @@ class Env {
   /**
    * @return {string}
    */
+  static getCtpLineItemMetadataTypeKey() {
+    return process.env.CTP_LINE_ITEM_METADATA_TYPE_KEY ?? 'talon_one_line_item_metadata';
+  }
+
+  /**
+   * @return {string}
+   */
+  static getCtpCartMetadataTypeKey() {
+    return process.env.CTP_CART_METADATA_TYPE_KEY ?? 'talon_one_cart_metadata';
+  }
+
+  /**
+   * @return {string}
+   */
+  static getCtpCustomerMetadataTypeKey() {
+    return process.env.CTP_CUSTOMER_METADATA_TYPE_KEY ?? 'talon_one_customer_metadata';
+  }
+
+  /**
+   * @return {string}
+   */
   getLoggerMode() {
     return process.env.LOGGER_MODE ?? 'NONE';
   }
