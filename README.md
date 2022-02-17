@@ -30,6 +30,46 @@ The connector relies on AWS or GCP. To use the connector, ensure you have:
 - An AWS account with Amazon Lambda **OR** a Google Cloud Platform account
 - A Talon.One deployment with at least one enabled campaign with one test rule. Example: Always trigger a notification.
 
+## Capabilities
+
+The accelerator covers the following use cases and effects:
+
+|                      |                             Action/Effects                              |     Possibility      |
+| -------------------- | ----------------------------------------------------------------------- | -------------------- |
+| **Customer Profile** | Create (Registration/Login)                                             | YES                  |
+|                      | Update (only supported fields)                                          | YES                  |
+| **Cart Activity**    | Free Item (Product ID, Variant SKU, Product ID + Variant SKU)           | YES                  |
+|                      | Cart level discount                                                     | YES                  |
+|                      | Per item discount                                                       | YES                  |
+|                      | Notifications                                                           | YES                  |
+| **Coupons**          | Single coupon discount                                                  | YES                  |
+|                      | Multiple coupon discount                                                |                      |
+|                      | Create coupon code                                                      |                      |
+|                      | Accept Coupon                                                           | YES                  |
+|                      | RejectCoupon                                                            | YES                  |
+| **Referral Codes**   | Create Referral Code                                                    | YES                  |
+|                      | AcceptReferral                                                          | YES                  |
+|                      | RejectReferral                                                          | YES                  |
+| **Loyalty**          | Addition of points                                                      | YES                  |
+|                      | Deduction of points                                                     | YES                  |
+|                      | Paying with points                                                      | YES                  |
+| **Additional**       | Cart Item Flattening - Disabled                                         |                      |
+|                      | Cart Item Flattening - Enabled                                          |                      |
+|                      | Custom Cart Level attributes                                            | DEVELOPMENT REQUIRED |
+|                      | Custom Customer Profile attributes                                      | DEVELOPMENT REQUIRED |
+|                      | Multiple Talon.One Apps supportability                                  |                      |
+|                      | Specifying T1 App ID from CT cart object                                |                      |
+|                      | Dynamic T1 App ID from CT cart object                                   |                      |
+|                      | Cascading discounts                                                     |                      |
+|                      | Strike though pricing                                                   |                      |
+| **Session States**   | Set to Open once a product is added to the cart                         | YES                  |
+|                      | Set to Closed when payment is complete                                  | YES                  |
+|                      | Cannot set to Closed when payment is not successful (eg Payment Failed) | YES                  |
+|                      | Set to Cancelled when order is returned                                 | YES                  |
+|                      | Effects Rollback on Order cancellation                                  | YES                  |
+
+See the available effects in the [Talon.One documentation](https://docs.talon.one/docs/product/rules/effects/available-effects/).
+
 ## Getting started
 
 Apply all the following sections in sequence to configure and install the connector.
