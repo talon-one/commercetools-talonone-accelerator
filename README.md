@@ -1,16 +1,18 @@
-# commercetools connector
+# commercetools accelerator
 
-[![✅ Tests](https://github.com/talon-one/commercetools-talonone-connector/actions/workflows/test.yml/badge.svg?branch=master)](https://github.com/talon-one/commercetools-talonone-connector/actions/workflows/test.yml) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.0-4baaaa.svg)](CODE_OF_CONDUCT.md)
+[![✅ Tests](https://github.com/talon-one/commercetools-talonone-accelerator/actions/workflows/test.yml/badge.svg?branch=master)](https://github.com/talon-one/commercetools-talonone-accelerator/actions/workflows/test.yml) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.0-4baaaa.svg)](CODE_OF_CONDUCT.md)
 
-The Talon.One's [commercetools](https://commercetools.com) connector allows you to integrate the Talon.One Promotion Engine into your commercetools Commerce Platform.
+The Talon.One's [commercetools](https://commercetools.com) accelerator allows you to integrate the Talon.One Promotion Engine into your commercetools Commerce Platform.
 
 - [Requirements](#requirements)
+- [Capabilities](#capabilities)
 - [Getting started](#getting-started)
   - [Installing the tools](#installing-the-tools)
   - [Creating the `.env` file](#creating-the-env-file)
   - [Choosing the platform](#choosing-the-platform)
     - [Using AWS](#using-aws)
     - [Using GCP](#using-gcp)
+      - [Example](#example)
   - [Editing the shared variables](#editing-the-shared-variables)
   - [Creating types in commercetools](#creating-types-in-commercetools)
   - [Creating the API extension in commercetools](#creating-the-api-extension-in-commercetools)
@@ -24,15 +26,55 @@ The Talon.One's [commercetools](https://commercetools.com) connector allows you 
 
 ## Requirements
 
-The connector relies on AWS or GCP. To use the connector, ensure you have:
+The accelerator relies on AWS or GCP. To use the accelerator, ensure you have:
 
 - A commercetools Commerce Platform account
 - An AWS account with Amazon Lambda **OR** a Google Cloud Platform account
 - A Talon.One deployment with at least one enabled campaign with one test rule. Example: Always trigger a notification.
 
+## Capabilities
+
+The accelerator covers the following use cases and effects:
+
+|                      |                             Action/Effects                              |     Possibility      |
+| -------------------- | ----------------------------------------------------------------------- | -------------------- |
+| **Customer Profile** | Create (Registration/Login)                                             | YES                  |
+|                      | Update (only supported fields)                                          | YES                  |
+| **Cart Activity**    | Free Item (Product ID, Variant SKU, Product ID + Variant SKU)           | YES                  |
+|                      | Cart level discount                                                     | YES                  |
+|                      | Per item discount                                                       | YES                  |
+|                      | Notifications                                                           | YES                  |
+| **Coupons**          | Single coupon discount                                                  | YES                  |
+|                      | Multiple coupon discount                                                |                      |
+|                      | Create coupon code                                                      |                      |
+|                      | Accept Coupon                                                           | YES                  |
+|                      | RejectCoupon                                                            | YES                  |
+| **Referral Codes**   | Create Referral Code                                                    | YES                  |
+|                      | AcceptReferral                                                          | YES                  |
+|                      | RejectReferral                                                          | YES                  |
+| **Loyalty**          | Addition of points                                                      | YES                  |
+|                      | Deduction of points                                                     | YES                  |
+|                      | Paying with points                                                      | YES                  |
+| **Additional**       | Cart Item Flattening - Disabled                                         |                      |
+|                      | Cart Item Flattening - Enabled                                          |                      |
+|                      | Custom Cart Level attributes                                            | DEVELOPMENT REQUIRED |
+|                      | Custom Customer Profile attributes                                      | DEVELOPMENT REQUIRED |
+|                      | Multiple Talon.One Apps supportability                                  |                      |
+|                      | Specifying T1 App ID from CT cart object                                |                      |
+|                      | Dynamic T1 App ID from CT cart object                                   |                      |
+|                      | Cascading discounts                                                     |                      |
+|                      | Strike though pricing                                                   |                      |
+| **Session States**   | Set to Open once a product is added to the cart                         | YES                  |
+|                      | Set to Closed when payment is complete                                  | YES                  |
+|                      | Cannot set to Closed when payment is not successful (eg Payment Failed) | YES                  |
+|                      | Set to Cancelled when order is returned                                 | YES                  |
+|                      | Effects Rollback on Order cancellation                                  | YES                  |
+
+See the available effects in the [Talon.One documentation](https://docs.talon.one/docs/product/rules/effects/available-effects/).
+
 ## Getting started
 
-Apply all the following sections in sequence to configure and install the connector.
+Apply all the following sections in sequence to configure and install the accelerator.
 
 ### Installing the tools
 
@@ -290,7 +332,7 @@ You can create custom
 [attributes](https://help.talon.one/hc/en-us/articles/360010028740-Creating-Attributes) in
 Talon.One to represent any data you require to manage your promotions.
 
-This connector supports a list of
+This accelerator supports a list of
 [commercetools customer core fields](docs/supported-fields.md). Map the ones you
 need to their Talon.One equivalents that you created.
 
@@ -324,7 +366,7 @@ To map cart item attributes and cart item attributes, see [Data mapping examples
 
 ## Testing your integration
 
-Once you have configured the connector, you can test the integration:
+Once you have configured the accelerator, you can test the integration:
 
 1. Enable your connected Application's campaign in Talon.One.
 1. Ensure the campaign contains a "triggerable" rule. We recommend a rule that always sends a notification.
@@ -359,7 +401,7 @@ For more GraphQL queries, see [Frontend integration](docs/frontend-integration.m
 
 - [Frontend Integration](docs/frontend-integration.md)
 - [Data Mapping Specification](docs/data-mapping-spec.md)
-- [Connector API docs](docs/API.md)
+- [accelerator API docs](docs/API.md)
 - [Talon.One developer documentation](https://docs.talon.one)
 - [commercetools documentation](https://docs.commercetools.com/)
 
@@ -367,19 +409,19 @@ For more GraphQL queries, see [Frontend integration](docs/frontend-integration.m
 
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
-If you are using commercetools <-> Talon.One Connector, found a bug or have an
+If you are using commercetools <-> Talon.One accelerator, found a bug or have an
 idea how to improve it, please read our [Contributing
-Guidelines](https://github.com/talon-one/commercetools-talonone-connector/blob/master/.github/CONTRIBUTING.md)
+Guidelines](https://github.com/talon-one/commercetools-talonone-accelerator/blob/master/.github/CONTRIBUTING.md)
 first and follow them.
 
 You can follow the [list of open and active
-issues](https://github.com/talon-one/commercetools-talonone-connector/issues) or
+issues](https://github.com/talon-one/commercetools-talonone-accelerator/issues) or
 contact us directly under [opensource@talon.one](mailto:opensource@talon.one).
 
 ## Code of Conduct
 
 We have adopted a [Code of
-Conduct](https://github.com/talon-one/commercetools-talonone-connector/blob/master/CODE_OF_CONDUCT.md)
+Conduct](https://github.com/talon-one/commercetools-talonone-accelerator/blob/master/CODE_OF_CONDUCT.md)
 that we expect project participants to adhere to. Please read the full text so
 that you can understand what actions will and will not be tolerated as part of
 your activity in this community.
