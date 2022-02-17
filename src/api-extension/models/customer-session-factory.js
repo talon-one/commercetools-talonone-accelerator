@@ -2,6 +2,7 @@
 const { OrderEventMapper } = require('./order-event-mapper');
 const { NewCustomerSessionV2 } = require('talon_one');
 const { CartEventMapper } = require('./cart-event-mapper');
+const { TalonOneCartMetadata } = require('./talon-one-cart-metadata');
 
 /**
  * @typedef {Object} CustomerSessionObject
@@ -63,7 +64,9 @@ class CustomerSessionFactory {
 
         if (referralCode) {
           session.payload.referralCode = referralCode;
-        } else if (obj?.custom?.fields?.talon_one_cart_referral_code !== undefined) {
+        } else if (
+          obj?.custom?.fields?.[TalonOneCartMetadata.referralCodesFieldName] !== undefined
+        ) {
           session.payload.referralCode = '';
         }
       }

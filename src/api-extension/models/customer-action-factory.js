@@ -2,6 +2,7 @@
 const { LoyaltyPoints } = require('./loyalty-points');
 const { SetCustomTypeBuilder } = require('./set-custom-type-builder');
 const { EffectType } = require('./effect-type');
+const { TalonOneCustomerMetadata } = require('./talon-one-customer-metadata');
 
 const REFERRAL_CODE_SEPARATOR = '__';
 const REFERRAL_CREATED_PIPE = '_referralCreated';
@@ -61,12 +62,15 @@ class CustomerActionFactory {
       }
     }
 
-    const builder = new SetCustomTypeBuilder();
+    const builder = new SetCustomTypeBuilder(this._customFields?.fields ?? {});
+    builder.customerType();
 
-    if (this._customFields?.fields?.talon_one_customer_loyalty_points) {
+    if (this._customFields?.fields?.[TalonOneCustomerMetadata.loyaltyPointsFieldName]) {
       try {
         builder.loyaltyPoints(
-          JSON.parse(this._customFields.fields.talon_one_customer_loyalty_points).map(
+          JSON.parse(
+            this._customFields.fields[TalonOneCustomerMetadata.loyaltyPointsFieldName]
+          ).map(
             ({ id, name, title, balance, currency }) =>
               new LoyaltyPoints(id, name, title, balance, currency)
           )
@@ -76,8 +80,8 @@ class CustomerActionFactory {
       }
     }
 
-    if (this._customFields?.fields?.talon_one_customer_referral_codes) {
-      builder.referrals(this._customFields.fields.talon_one_customer_referral_codes);
+    if (this._customFields?.fields?.[TalonOneCustomerMetadata.referralCodesFieldName]) {
+      builder.referrals(this._customFields.fields[TalonOneCustomerMetadata.referralCodesFieldName]);
     }
 
     for (const referralCode of Object.values(referralCodes)) {

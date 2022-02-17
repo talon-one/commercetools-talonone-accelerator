@@ -1,7 +1,20 @@
 {
   "actions": [
     {
-      "action": "setCustomType"
+      "action": "setCustomType",
+      "type": {
+        "key": "talon_one_cart_metadata"
+      },
+      "fields": {
+        "external_field_1": "1",
+        "external_field_2": [
+          true,
+          false,
+          {
+            "test": true
+          }
+        ]
+      }
     }
   ],
   "responseType": "UpdateRequest"

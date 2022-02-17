@@ -7,7 +7,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "format": "prettier --write \"**/*.{js,json,md,yaml,yml}\"",
-    "test": "sls invoke test",
+    "test": "TZ='UTC' sls invoke test",
     "ci:check-format": "pipe-git-updated --base=main --ext=js --ext=json --ext=md --ext=yaml --ext=yml -- prettier -c",
     "ci:lint": "pipe-git-updated --base=main --ext=js -- eslint --ignore-path .gitignore",
     "create:function": "sls create function --path {function}",

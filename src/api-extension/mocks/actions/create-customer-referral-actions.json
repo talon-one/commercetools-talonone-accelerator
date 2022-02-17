@@ -6,6 +6,14 @@
         "key": "talon_one_customer_metadata"
       },
       "fields": {
+        "external_field_1": "1",
+        "external_field_2": [
+          true,
+          false,
+          {
+            "test": true
+          }
+        ],
         "talon_one_customer_referral_codes": [
           "123",
           "234",
