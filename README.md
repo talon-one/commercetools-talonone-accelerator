@@ -5,12 +5,14 @@
 The Talon.One's [commercetools](https://commercetools.com) accelerator allows you to integrate the Talon.One Promotion Engine into your commercetools Commerce Platform.
 
 - [Requirements](#requirements)
+- [Capabilities](#capabilities)
 - [Getting started](#getting-started)
   - [Installing the tools](#installing-the-tools)
   - [Creating the `.env` file](#creating-the-env-file)
   - [Choosing the platform](#choosing-the-platform)
     - [Using AWS](#using-aws)
     - [Using GCP](#using-gcp)
+      - [Example](#example)
   - [Editing the shared variables](#editing-the-shared-variables)
   - [Creating types in commercetools](#creating-types-in-commercetools)
   - [Creating the API extension in commercetools](#creating-the-api-extension-in-commercetools)
