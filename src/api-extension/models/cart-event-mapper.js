@@ -92,7 +92,11 @@ class CartEventMapper {
       const couponCode =
         customLineItem.custom.fields?.[TalonOneLineItemMetadata.couponCodeFieldName];
 
-      if (!couponCode || couponCode === couponToRemove) {
+      if (
+        !couponCode ||
+        couponCode === couponToRemove ||
+        couponCode.toLowerCase() === couponToRemove?.toLowerCase()
+      ) {
         continue;
       }
 

@@ -1,5 +1,7 @@
 'use strict';
 const { MoneyType } = require('./money-type');
+const Decimal = require('decimal.js');
+const { Env } = require('./env');
 
 class Money {
   /**
@@ -7,12 +9,22 @@ class Money {
    * @param {string} currencyCode
    * @param {number} amount
    * @param {number} fractionDigits
+   * @param {6|5|4} rounding
    */
-  constructor(type, currencyCode, amount, fractionDigits = 2) {
+  constructor(type, currencyCode, amount, fractionDigits = 2, rounding = Env.getRoundingMode()) {
     this.type = type;
     this.currencyCode = currencyCode;
     this.amount = amount;
     this.fractionDigits = fractionDigits;
+    this.rounding = rounding;
+
+    this.Decimal = Decimal.clone({ rounding });
+
+    if (
+      ![Decimal.ROUND_HALF_EVEN, Decimal.ROUND_HALF_UP, Decimal.ROUND_HALF_DOWN].includes(rounding)
+    ) {
+      throw new Error(`Invalid rounding mode: ${rounding}`);
+    }
 
     if (![MoneyType.CENT_PRECISION, MoneyType.DECIMAL_PRECISION].includes(this.type)) {
       throw new Error('Unsupported type.');
@@ -24,6 +36,13 @@ class Money {
    */
   getType() {
     return this.type;
+  }
+
+  /**
+   * @returns {6|5|4}
+   */
+  getRounding() {
+    return this.rounding;
   }
 
   /**
@@ -47,7 +66,9 @@ class Money {
     if (this.type === MoneyType.DECIMAL_PRECISION) {
       return this.amount;
     }
-    return this.amount / Math.pow(10, this.fractionDigits);
+    return new this.Decimal(this.getAmount())
+      .div(new this.Decimal(10).pow(this.fractionDigits))
+      .toNumber();
   }
 
   /**
@@ -57,7 +78,10 @@ class Money {
     if (this.type === MoneyType.CENT_PRECISION) {
       return this.amount;
     }
-    return Math.trunc(this.amount * Math.pow(10, this.fractionDigits));
+    return new this.Decimal(this.getAmount())
+      .mul(new this.Decimal(10).pow(this.fractionDigits))
+      .round()
+      .toNumber();
   }
 
   /**
@@ -86,9 +110,10 @@ class Money {
    * Returns a new Money object.
    *
    * @param {Money} otherMoney
+   * @param {MoneyType} type
    * @returns {Money}
    */
-  subtract(otherMoney) {
+  subtract(otherMoney, type = MoneyType.CENT_PRECISION) {
     if (!(otherMoney instanceof Money)) {
       throw new Error('Invalid otherMoney type.');
     }
@@ -101,11 +126,22 @@ class Money {
       throw new Error('Different fraction digits occurred.');
     }
 
+    if (type === MoneyType.CENT_PRECISION) {
+      return new Money(
+        MoneyType.CENT_PRECISION,
+        this.getCurrencyCode(),
+        this.getCentAmount() - otherMoney.getCentAmount(),
+        this.getFractionDigits(),
+        this.getRounding()
+      );
+    }
+
     return new Money(
-      MoneyType.CENT_PRECISION,
+      MoneyType.DECIMAL_PRECISION,
       this.getCurrencyCode(),
-      this.getCentAmount() - otherMoney.getCentAmount(),
-      this.getFractionDigits()
+      this.getDecimalAmount() - otherMoney.getDecimalAmount(),
+      this.getFractionDigits(),
+      this.getRounding()
     );
   }
 }

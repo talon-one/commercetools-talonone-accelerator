@@ -1,0 +1,351 @@
+{
+  "action": "Update",
+  "resource": {
+    "typeId": "cart",
+    "id": "0ea03793-f8c3-400c-82f4-66345c8c141a",
+    "obj": {
+      "type": "Cart",
+      "id": "0ea03793-f8c3-400c-82f4-66345c8c141a",
+      "version": 1,
+      "lastMessageSequenceNumber": 1,
+      "createdAt": "2022-02-02T10:10:10.100Z",
+      "lastModifiedAt": "2022-02-02T10:10:10.100Z",
+      "lastModifiedBy": {
+        "isPlatformClient": true
+      },
+      "createdBy": {
+        "isPlatformClient": true
+      },
+      "customerEmail": "test@example.com",
+      "lineItems": [
+        {
+          "id": "8bfd8710-dbb3-4e87-8f5e-5198e84a0c29",
+          "productId": "b37fe29d-0742-4045-aae9-9962af9864ed",
+          "name": {
+            "en": "Sneakers ”Interactive” Hogan beige",
+            "de": "Sneakers „Interactive” Hogan beige"
+          },
+          "productType": {
+            "typeId": "product-type",
+            "id": "f6ae7a35-bad0-410b-b2e6-83fa8e6a9a6d",
+            "version": 1
+          },
+          "productSlug": {
+            "en": "hogan-sneakers-1106M024-beige",
+            "de": "hogan-sneakers-1106M024-beige"
+          },
+          "variant": {
+            "id": 1,
+            "sku": "M0E20000000DVUK",
+            "key": "M0E20000000DVUK",
+            "prices": [
+              {
+                "id": "56669869-3d63-4cfd-9f0c-d7ba01fa1c91",
+                "value": {
+                  "type": "centPrecision",
+                  "currencyCode": "EUR",
+                  "centAmount": 9999,
+                  "fractionDigits": 2
+                }
+              }
+            ],
+            "images": [
+              {
+                "url": "https://s3-eu-west-1.amazonaws.com/commercetools-maximilian/products/079032_1_medium.jpg",
+                "dimensions": {
+                  "w": 0,
+                  "h": 0
+                }
+              }
+            ],
+            "attributes": [
+              {
+                "name": "articleNumberManufacturer",
+                "value": "HXW00N0E431106M024"
+              },
+              {
+                "name": "articleNumberMax",
+                "value": "79032"
+              },
+              {
+                "name": "matrixId",
+                "value": "M0E20000000DVUK"
+              },
+              {
+                "name": "baseId",
+                "value": "79032"
+              },
+              {
+                "name": "designer",
+                "value": {
+                  "key": "hogan",
+                  "label": "Hogan"
+                }
+              },
+              {
+                "name": "madeInItaly",
+                "value": {
+                  "key": "yes",
+                  "label": "yes"
+                }
+              },
+              {
+                "name": "commonSize",
+                "value": {
+                  "key": "34",
+                  "label": "34"
+                }
+              },
+              {
+                "name": "size",
+                "value": "34"
+              },
+              {
+                "name": "color",
+                "value": {
+                  "key": "beige",
+                  "label": {
+                    "it": "beige",
+                    "de": "beige",
+                    "en": "beige"
+                  }
+                }
+              },
+              {
+                "name": "colorFreeDefinition",
+                "value": {
+                  "en": "beige",
+                  "de": "beige"
+                }
+              },
+              {
+                "name": "style",
+                "value": {
+                  "key": "business",
+                  "label": "business"
+                }
+              },
+              {
+                "name": "gender",
+                "value": {
+                  "key": "women",
+                  "label": "Damen"
+                }
+              },
+              {
+                "name": "season",
+                "value": "s15"
+              }
+            ],
+            "assets": []
+          },
+          "price": {
+            "id": "d34828cb-e49a-41ac-a660-96b0f0bcfd95",
+            "value": {
+              "type": "centPrecision",
+              "currencyCode": "EUR",
+              "centAmount": 9999,
+              "fractionDigits": 2
+            }
+          },
+          "quantity": 1,
+          "discountedPricePerQuantity": [],
+          "taxRate": {
+            "name": "19% incl.",
+            "amount": 0.19,
+            "includedInPrice": true,
+            "country": "DE",
+            "id": "9ZJMhF1J",
+            "subRates": []
+          },
+          "addedAt": "2022-02-02T10:10:10.100Z",
+          "lastModifiedAt": "2022-02-02T10:10:10.100Z",
+          "state": [
+            {
+              "quantity": 1,
+              "state": {
+                "typeId": "state",
+                "id": "ad9a24d4-4c7b-41a8-b17c-3175d8a39e00"
+              }
+            }
+          ],
+          "priceMode": "ExternalTotal",
+          "totalPrice": {
+            "type": "centPrecision",
+            "currencyCode": "EUR",
+            "centAmount": 9000,
+            "fractionDigits": 2
+          },
+          "taxedPrice": {
+            "totalNet": {
+              "type": "centPrecision",
+              "currencyCode": "EUR",
+              "centAmount": 7563,
+              "fractionDigits": 2
+            },
+            "totalGross": {
+              "type": "centPrecision",
+              "currencyCode": "EUR",
+              "centAmount": 9000,
+              "fractionDigits": 2
+            },
+            "totalTax": {
+              "type": "centPrecision",
+              "currencyCode": "EUR",
+              "centAmount": 1437,
+              "fractionDigits": 2
+            }
+          },
+          "lineItemMode": "Standard"
+        }
+      ],
+      "cartState": "Active",
+      "totalPrice": {
+        "type": "centPrecision",
+        "currencyCode": "EUR",
+        "centAmount": 9000,
+        "fractionDigits": 2
+      },
+      "taxedPrice": {
+        "totalNet": {
+          "type": "centPrecision",
+          "currencyCode": "EUR",
+          "centAmount": 7563,
+          "fractionDigits": 2
+        },
+        "totalGross": {
+          "type": "centPrecision",
+          "currencyCode": "EUR",
+          "centAmount": 9000,
+          "fractionDigits": 2
+        },
+        "taxPortions": [
+          {
+            "rate": 0.05,
+            "amount": {
+              "type": "centPrecision",
+              "currencyCode": "EUR",
+              "centAmount": 0,
+              "fractionDigits": 2
+            },
+            "name": "19% incl."
+          },
+          {
+            "rate": 0.19,
+            "amount": {
+              "type": "centPrecision",
+              "currencyCode": "EUR",
+              "centAmount": 1437,
+              "fractionDigits": 2
+            },
+            "name": "19% incl."
+          }
+        ],
+        "totalTax": {
+          "type": "centPrecision",
+          "currencyCode": "EUR",
+          "centAmount": 1437,
+          "fractionDigits": 2
+        }
+      },
+      "customLineItems": [
+        {
+          "totalPrice": {
+            "type": "centPrecision",
+            "currencyCode": "EUR",
+            "centAmount": 0,
+            "fractionDigits": 2
+          },
+          "id": "faf5de08-c165-4a39-ad31-58bced11df04",
+          "name": {
+            "en": "TEST-1"
+          },
+          "money": {
+            "type": "centPrecision",
+            "currencyCode": "EUR",
+            "centAmount": 0,
+            "fractionDigits": 2
+          },
+          "slug": "TEST-1",
+          "quantity": 1,
+          "discountedPricePerQuantity": [],
+          "taxCategory": {
+            "typeId": "tax-category",
+            "id": "7f610867-da39-456d-8d9a-a96c8c3c88df"
+          },
+          "taxRate": {
+            "name": "19% incl.",
+            "amount": 0.05,
+            "includedInPrice": true,
+            "country": "DE",
+            "id": "QLyWTHPs",
+            "subRates": []
+          },
+          "state": [
+            {
+              "quantity": 1,
+              "state": {
+                "typeId": "state",
+                "id": "ad9a24d4-4c7b-41a8-b17c-3175d8a39e00"
+              }
+            }
+          ],
+          "taxedPrice": {
+            "totalNet": {
+              "type": "centPrecision",
+              "currencyCode": "EUR",
+              "centAmount": 0,
+              "fractionDigits": 2
+            },
+            "totalGross": {
+              "type": "centPrecision",
+              "currencyCode": "EUR",
+              "centAmount": 0,
+              "fractionDigits": 2
+            },
+            "totalTax": {
+              "type": "centPrecision",
+              "currencyCode": "EUR",
+              "centAmount": 0,
+              "fractionDigits": 2
+            }
+          },
+          "custom": {
+            "type": {
+              "typeId": "type",
+              "id": "307b0746-a0df-4645-871c-d45ae34f41d4"
+            },
+            "fields": {
+              "talon_one_line_item_effect": "acceptCoupon",
+              "talon_one_coupon_code": "TEST-1"
+            }
+          }
+        }
+      ],
+      "discountCodes": [],
+      "directDiscounts": [],
+      "custom": {
+        "type": {
+          "typeId": "type",
+          "id": "6f983e05-d7b9-47bc-91f3-036aedd762ef"
+        },
+        "fields": {
+          "talon_one_cart_coupon_code_action": "remove",
+          "talon_one_cart_coupon_code_action_value": "test-1"
+        }
+      },
+      "inventoryMode": "None",
+      "taxMode": "Platform",
+      "taxRoundingMode": "HalfEven",
+      "taxCalculationMode": "LineItemLevel",
+      "deleteDaysAfterLastModification": 90,
+      "refusedGifts": [],
+      "origin": "Customer",
+      "shippingAddress": {
+        "country": "DE"
+      },
+      "itemShippingAddresses": [],
+      "totalLineItemQuantity": 1
+    }
+  }
+}

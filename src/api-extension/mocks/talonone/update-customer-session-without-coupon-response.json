@@ -1,0 +1,32 @@
+{
+  "effects": [],
+  "createdCoupons": [],
+  "createdReferrals": [],
+  "customerSession": {
+    "integrationId": "0ea03793-f8c3-400c-82f4-66345c8c141a",
+    "created": "2022-02-02T10:10:10.100Z",
+    "applicationId": 89,
+    "profileId": "",
+    "state": "open",
+    "cartItems": [
+      {
+        "name": "Sneakers ”Interactive” Hogan beige",
+        "sku": "b37fe29d-0742-4045-aae9-9962af9864ed",
+        "quantity": 1,
+        "price": 99.99,
+        "position": 0
+      }
+    ],
+    "attributes": {},
+    "firstSession": true,
+    "total": 99.99,
+    "cartItemTotal": 99.99,
+    "additionalCostTotal": 0,
+    "referralCode": ""
+  },
+  "loyalty": {
+    "programs": {}
+  },
+  "ruleFailureReasons": [],
+  "fromApi": "EUR"
+}

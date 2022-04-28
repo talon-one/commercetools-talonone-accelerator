@@ -8,7 +8,7 @@ module.exports = {
   mode: 'production',
   // https://webpack.js.org/configuration/stats/
   stats: 'errors-only',
-  externals: ['node-fetch'],
+  externals: ['node-fetch', 'decimal.js'],
   optimization: {
     minimize: true,
     minimizer: [

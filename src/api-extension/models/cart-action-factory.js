@@ -27,6 +27,7 @@ const { TalonOneCustomerMetadata } = require('./talon-one-customer-metadata');
 const PREPARE_CONTEXT_PIPE = '_prepareContext';
 const BUILD_CUSTOM_TYPE_PIPE = '_buildCustomType';
 const COMPACT_ADD_LINE_ITEM_ACTIONS_PIPE = '_compactAddLineItemActions';
+const COMPACT_SET_LINE_ITEM_TOTAL_PRICE_PIPE = '_compactSetLineItemTotalPriceActions';
 const RESET_PIPE = '_reset';
 const PREFETCHING_PIPE = '_prefetching';
 const VERIFY_FREE_ITEMS_PIPE = '_verifyFreeItems';
@@ -122,6 +123,7 @@ class CartActionFactory {
       EFFECTS_PIPE,
       COMPACT_ADD_LINE_ITEM_ACTIONS_PIPE,
       RESET_PIPE,
+      COMPACT_SET_LINE_ITEM_TOTAL_PRICE_PIPE,
       VERIFY_FREE_ITEMS_PIPE,
       BUILD_CUSTOM_TYPE_PIPE,
       VERIFY_TAX_IDS_PIPE,
@@ -251,12 +253,17 @@ class CartActionFactory {
       return actions;
     }
 
+    let pos = 0;
+
     this._cart.lineItems.forEach((item) => {
       if (
         cartItem.sku === item.productId &&
         item.custom?.fields?.[TalonOneLineItemMetadata.effectFieldName] !== EffectType.addFreeItem
       ) {
-        lineItem = item;
+        if (pos === cartItem.position) {
+          lineItem = item;
+        }
+        ++pos;
       }
     });
 
@@ -269,6 +276,11 @@ class CartActionFactory {
       currencyCode: baseCurrencyCode,
       fractionDigits: baseFractionDigits = 2,
     } = lineItem.price.value;
+
+    const setLineItemTotalPriceAction = this._findSetLineItemTotalPriceActionById(
+      lineItem.id,
+      actions
+    );
 
     const baseMoney = new Money(
       MoneyType.CENT_PRECISION,
@@ -283,16 +295,38 @@ class CartActionFactory {
       effect.props.value
     );
 
-    const afterDiscountMoney = baseMoney.multiply(lineItem.quantity).subtract(discountMoney);
+    if (setLineItemTotalPriceAction?.externalTotalPrice?.totalPrice?.centAmount) {
+      baseMoney.amount = setLineItemTotalPriceAction.externalTotalPrice.totalPrice.centAmount;
 
-    builder
-      .lineItemId(lineItem.id)
-      .price(baseMoney.getCentAmount(), baseMoney.getCurrencyCode())
-      .totalPrice(afterDiscountMoney.getCentAmount(), afterDiscountMoney.getCurrencyCode());
+      setLineItemTotalPriceAction.externalTotalPrice.totalPrice.centAmount = baseMoney
+        .subtract(discountMoney, MoneyType.DECIMAL_PRECISION)
+        .getCentAmount();
+    } else {
+      const afterDiscountMoney = baseMoney
+        .multiply(lineItem.quantity)
+        .subtract(discountMoney, MoneyType.DECIMAL_PRECISION);
 
-    actions.push(builder.build());
+      builder
+        .lineItemId(lineItem.id)
+        .price(baseMoney.getCentAmount(), baseMoney.getCurrencyCode())
+        .totalPrice(afterDiscountMoney.getCentAmount(), afterDiscountMoney.getCurrencyCode());
+
+      actions.push(builder.build());
+    }
 
     return actions;
+  }
+
+  _findSetLineItemTotalPriceActionById(lineItemId, actions = []) {
+    let action = null;
+
+    actions.forEach((item) => {
+      if (item.action === UpdateAction.setLineItemTotalPrice && item.lineItemId === lineItemId) {
+        action = item;
+      }
+    });
+
+    return action;
   }
 
   /**
@@ -802,6 +836,11 @@ class CartActionFactory {
 
         result.push(builder.build());
       }
+
+      if (lineItem.priceMode === 'ExternalTotal') {
+        const builder = new SetLineItemTotalPriceBuilder();
+        result.push(builder.lineItemId(lineItem.id).build());
+      }
     }
 
     return [...result, ...actions];
@@ -889,6 +928,44 @@ class CartActionFactory {
     // reindex
     return result.filter((val) => val);
   }
+
+  /**
+   * @param {any[]} effects
+   * @param {any[]} actions
+   * @return {any[]}
+   * @private
+   */
+  _compactSetLineItemTotalPriceActions(effects, actions) {
+    const result = [...actions];
+
+    // [id, position]
+    const withoutPrices = [];
+
+    // id -> position
+    const withPrices = {};
+
+    // eslint-disable-next-line guard-for-in,no-restricted-syntax
+    for (const pos in actions) {
+      const action = actions[pos];
+
+      if (action.action === UpdateAction.setLineItemTotalPrice) {
+        if (!action.externalTotalPrice) {
+          withoutPrices.push([action.lineItemId, pos]);
+        } else {
+          withPrices[action.lineItemId] = pos;
+        }
+      }
+    }
+
+    for (const [id, pos] of withoutPrices) {
+      if (withPrices[id]) {
+        delete result[pos];
+      }
+    }
+
+    // reindex
+    return actions.filter((val) => val);
+  }
 }
 
 module.exports = {
@@ -897,6 +974,7 @@ module.exports = {
   PREPARE_CONTEXT_PIPE,
   EFFECTS_PIPE,
   COMPACT_ADD_LINE_ITEM_ACTIONS_PIPE,
+  COMPACT_SET_LINE_ITEM_TOTAL_PRICE_PIPE,
   RESET_PIPE,
   VERIFY_FREE_ITEMS_PIPE,
   VERIFY_TAX_IDS_PIPE,

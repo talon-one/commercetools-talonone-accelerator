@@ -1,0 +1,56 @@
+{
+  "actions": [
+    {
+      "action": "setCustomType",
+      "fields": {
+        "talon_one_cart_coupon_code_action": "apply",
+        "talon_one_cart_coupon_code_action_value": "test-1",
+        "talon_one_cart_notifications": "[{\"type\":\"Info\",\"title\":\"\",\"body\":\"TEST-1\",\"effect\":\"acceptCoupon\",\"code\":\"\"}]"
+      },
+      "type": {
+        "key": "talon_one_cart_metadata"
+      }
+    },
+    {
+      "action": "addCustomLineItem",
+      "name": {
+        "en": "TEST-1"
+      },
+      "money": {
+        "type": "centPrecision",
+        "currencyCode": "EUR",
+        "centAmount": 0,
+        "fractionDigits": 2
+      },
+      "slug": "TEST-1",
+      "taxCategory": {
+        "typeId": "tax-category",
+        "id": "3b52cdd8-c767-4c98-923f-a269e01a6ff2"
+      },
+      "custom": {
+        "type": {
+          "key": "talon_one_line_item_metadata"
+        },
+        "fields": {
+          "talon_one_line_item_effect": "acceptCoupon",
+          "talon_one_coupon_code": "TEST-1"
+        }
+      }
+    },
+    {
+      "action": "setLineItemTotalPrice",
+      "externalTotalPrice": {
+        "price": {
+          "currencyCode": "EUR",
+          "centAmount": 9999
+        },
+        "totalPrice": {
+          "currencyCode": "EUR",
+          "centAmount": 8999
+        }
+      },
+      "lineItemId": "8bfd8710-dbb3-4e87-8f5e-5198e84a0c29"
+    }
+  ],
+  "responseType": "UpdateRequest"
+}

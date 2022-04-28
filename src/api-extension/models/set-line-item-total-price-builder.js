@@ -51,6 +51,10 @@ class SetLineItemTotalPriceBuilder {
    * @returns {Object}
    */
   build() {
+    if (!this.action.externalTotalPrice.totalPrice && !this.action.externalTotalPrice.price) {
+      delete this.action.externalTotalPrice;
+    }
+
     return this.action;
   }
 }

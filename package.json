@@ -38,6 +38,7 @@
     "@commercetools/sdk-middleware-queue": "^2.1.4",
     "@middy/core": "^2.0.1",
     "ajv": "^7.1.1",
+    "decimal.js": "^10.3.1",
     "node-fetch": "^2.6.1",
     "slugify": "^1.4.7",
     "talon_one": "^4.3.0"

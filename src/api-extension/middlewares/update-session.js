@@ -14,7 +14,7 @@ const updateSessionMiddleware = ({ apiClient, logger }) => {
         customerSessionV2: { id, payload },
       } = context;
 
-      logger.debug([id, payload]);
+      logger.debug([id, payload], true);
 
       if (!(payload instanceof NewCustomerSessionV2) || !id) {
         logger.info('Skipping session updates...');

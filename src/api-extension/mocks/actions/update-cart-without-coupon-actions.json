@@ -1,0 +1,23 @@
+{
+  "actions": [
+    {
+      "action": "setCustomType",
+      "fields": {
+        "talon_one_cart_coupon_code_action": "remove",
+        "talon_one_cart_coupon_code_action_value": "test-1"
+      },
+      "type": {
+        "key": "talon_one_cart_metadata"
+      }
+    },
+    {
+      "action": "removeCustomLineItem",
+      "customLineItemId": "faf5de08-c165-4a39-ad31-58bced11df04"
+    },
+    {
+      "action": "setLineItemTotalPrice",
+      "lineItemId": "8bfd8710-dbb3-4e87-8f5e-5198e84a0c29"
+    }
+  ],
+  "responseType": "UpdateRequest"
+}
