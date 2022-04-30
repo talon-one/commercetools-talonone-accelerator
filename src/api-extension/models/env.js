@@ -8,11 +8,28 @@ const { ApiClientMockService } = require('../services/api-client-mock');
 const { MapperSettings } = require('./mapper-settings');
 const { EventValidationMode } = require('./event-validation-mode');
 const { CloudProvider } = require('./cloud-provider');
+const Decimal = require('decimal.js');
 
 const TALON_ONE_API_KEY_V1_PREFIX = 'TALON_ONE_API_KEY_V1_';
 const TALON_ONE_API_BASE_PATH_PREFIX = 'TALON_ONE_API_BASE_PATH_';
 
 class Env {
+  /**
+   * @return {4|5|6}
+   */
+  static getRoundingMode() {
+    const rounding = process.env.ROUNDING_MODE;
+
+    switch (rounding) {
+      case 'ROUND_HALF_UP':
+      case 'ROUND_HALF_DOWN':
+        return Decimal[rounding];
+
+      default:
+        return Decimal.ROUND_HALF_EVEN;
+    }
+  }
+
   /**
    * @return {string}
    */

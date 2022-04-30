@@ -15,11 +15,19 @@ const {
   eurReferralsResponse,
   usdReferralsResponse,
   createCartUpdateCustomerReferralActions,
+  updateCartWithCouponEvent,
+  updateCustomerSessionWithCouponResponse,
+  updateCartWithCouponActions,
+  updateCustomerSessionWithoutCouponResponse,
+  updateCartWithoutCouponEvent,
+  updateCartWithoutCouponActions,
 } = require('./mocks');
 const { CloudProvider } = require('./models/cloud-provider');
 const { GoogleTestWrapper } = require('./models/google-test-wrapper');
 
 const jestPlugin = require('serverless-jest-plugin');
+const { Money } = require('./models');
+const { MoneyType } = require('./models/money-type');
 
 function setupEnv(env = {}) {
   process.env.UNIT_TEST = '1';
@@ -465,6 +473,110 @@ for (const env of matrix) {
         .then(() => {
           expect(process.env.__REQUEST.context.customerSessionV2).toEqual(out);
         });
+    });
+
+    it('update cart event with coupon code', () => {
+      return setupEnv({
+        CUSTOMER_SESSION_MOCK: updateCustomerSessionWithCouponResponse,
+        ...env,
+      })
+        .run(updateCartWithCouponEvent)
+        .then((response) => {
+          expect(response).toEqual(updateCartWithCouponActions);
+        });
+    });
+
+    it('update cart event without coupon code', () => {
+      return setupEnv({
+        CUSTOMER_SESSION_MOCK: updateCustomerSessionWithoutCouponResponse,
+        ...env,
+      })
+        .run(updateCartWithoutCouponEvent)
+        .then((response) => {
+          expect(response).toEqual(updateCartWithoutCouponActions);
+        });
+    });
+
+    it('rounds correctly', () => {
+      process.env.ROUNDING_MODE = 'ROUND_HALF_EVEN';
+
+      expect(
+        new Money(MoneyType.CENT_PRECISION, 'EUR', 9999)
+          .subtract(
+            new Money(MoneyType.DECIMAL_PRECISION, 'EUR', 16.9983),
+            MoneyType.DECIMAL_PRECISION
+          )
+          .getCentAmount()
+      ).toEqual(8299);
+
+      expect(
+        new Money(MoneyType.CENT_PRECISION, 'EUR', 1000)
+          .subtract(
+            new Money(MoneyType.DECIMAL_PRECISION, 'EUR', 0.009),
+            MoneyType.DECIMAL_PRECISION
+          )
+          .getCentAmount()
+      ).toEqual(999);
+
+      expect(
+        new Money(MoneyType.CENT_PRECISION, 'EUR', 1000)
+          .subtract(
+            new Money(MoneyType.DECIMAL_PRECISION, 'EUR', 0.005),
+            MoneyType.DECIMAL_PRECISION
+          )
+          .getCentAmount()
+      ).toEqual(1000);
+
+      expect(
+        new Money(MoneyType.CENT_PRECISION, 'EUR', 1000)
+          .subtract(
+            new Money(MoneyType.DECIMAL_PRECISION, 'EUR', 0.015),
+            MoneyType.DECIMAL_PRECISION
+          )
+          .getCentAmount()
+      ).toEqual(998);
+
+      process.env.ROUNDING_MODE = 'ROUND_HALF_UP';
+
+      expect(
+        new Money(MoneyType.CENT_PRECISION, 'EUR', 1000)
+          .subtract(
+            new Money(MoneyType.DECIMAL_PRECISION, 'EUR', 0.005),
+            MoneyType.DECIMAL_PRECISION
+          )
+          .getCentAmount()
+      ).toEqual(1000);
+
+      expect(
+        new Money(MoneyType.CENT_PRECISION, 'EUR', 1000)
+          .subtract(
+            new Money(MoneyType.DECIMAL_PRECISION, 'EUR', 0.015),
+            MoneyType.DECIMAL_PRECISION
+          )
+          .getCentAmount()
+      ).toEqual(999);
+
+      process.env.ROUNDING_MODE = 'ROUND_HALF_DOWN';
+
+      expect(
+        new Money(MoneyType.CENT_PRECISION, 'EUR', 1000)
+          .subtract(
+            new Money(MoneyType.DECIMAL_PRECISION, 'EUR', 0.005),
+            MoneyType.DECIMAL_PRECISION
+          )
+          .getCentAmount()
+      ).toEqual(999);
+
+      expect(
+        new Money(MoneyType.CENT_PRECISION, 'EUR', 1000)
+          .subtract(
+            new Money(MoneyType.DECIMAL_PRECISION, 'EUR', 0.015),
+            MoneyType.DECIMAL_PRECISION
+          )
+          .getCentAmount()
+      ).toEqual(998);
+
+      expect(new Money(MoneyType.DECIMAL_PRECISION, 'EUR', 16.83).getCentAmount()).toEqual(1683);
     });
   });
 }

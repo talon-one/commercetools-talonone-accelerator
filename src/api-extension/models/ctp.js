@@ -27,6 +27,7 @@
  * @property {CtpLineItemVariantAttribute[]} variant.attributes
  * @property {Object} custom
  * @property {Object} custom.fields
+ * @property {string} priceMode
  */
 
 /**

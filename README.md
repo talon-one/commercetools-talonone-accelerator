@@ -233,6 +233,11 @@ In the above example, the `CTP_POST_BODY` variable contains the following fields
    - `MIGRATION_BATCH_SIZE`: The size of the data bulk (number of customers) fetched from commercetools and sent to
      Talon.One. Defaults to `20`.
 
+   - `ROUNDING_MODE`: The type of rounding to perform for all session amount operations. Possible values:
+     - `ROUND_HALF_EVEN`: Round the amount to the nearest even number.
+     - `ROUND_HALF_UP`: Round the amount up to the next integer.
+     - `ROUND_HALF_DOWN`: Round the amount down to the previous integer.
+
 1. (Optional) Set the following variables:
 
    - `TALON_ONE_FALLBACK_CURRENCY`: One of the currency codes used above or an empty string.

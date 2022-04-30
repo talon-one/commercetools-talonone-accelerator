@@ -1,0 +1,61 @@
+{
+  "effects": [
+    {
+      "campaignId": 193,
+      "rulesetId": 791,
+      "ruleIndex": 0,
+      "ruleName": "",
+      "effectType": "acceptCoupon",
+      "props": {
+        "value": "TEST-1"
+      },
+      "triggeredByCoupon": 3749
+    },
+    {
+      "campaignId": 193,
+      "rulesetId": 791,
+      "ruleIndex": 0,
+      "ruleName": "",
+      "effectType": "setDiscountPerItem",
+      "props": {
+        "name": "10% off per item#0",
+        "value": 9.999,
+        "position": 0,
+        "subPosition": 0
+      },
+      "triggeredByCoupon": 3749
+    }
+  ],
+  "createdCoupons": [],
+  "createdReferrals": [],
+  "customerSession": {
+    "integrationId": "0ea03793-f8c3-400c-82f4-66345c8c141a",
+    "created": "2022-02-02T10:10:10.100Z",
+    "applicationId": 89,
+    "profileId": "",
+    "state": "open",
+    "cartItems": [
+      {
+        "name": "Sneakers ”Interactive” Hogan beige",
+        "sku": "b37fe29d-0742-4045-aae9-9962af9864ed",
+        "quantity": 1,
+        "price": 99.99,
+        "position": 0
+      }
+    ],
+    "attributes": {},
+    "firstSession": true,
+    "total": 99.99,
+    "cartItemTotal": 99.99,
+    "additionalCostTotal": 0,
+    "couponCodes": [
+      "TEST-1"
+    ],
+    "referralCode": ""
+  },
+  "loyalty": {
+    "programs": {}
+  },
+  "ruleFailureReasons": [],
+  "fromApi": "EUR"
+}
