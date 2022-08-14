@@ -70,7 +70,7 @@
       "name": {
         "en": "10% off"
       },
-      "slug": "10percent-off",
+      "slug": "10percent-off-0",
       "taxCategory": {
         "id": "3b52cdd8-c767-4c98-923f-a269e01a6ff2",
         "typeId": "tax-category"
@@ -95,7 +95,7 @@
       "name": {
         "en": "5% off"
       },
-      "slug": "5percent-off",
+      "slug": "5percent-off-1",
       "taxCategory": {
         "id": "3b52cdd8-c767-4c98-923f-a269e01a6ff2",
         "typeId": "tax-category"
@@ -166,7 +166,7 @@
       "name": {
         "en": "10% off"
       },
-      "slug": "10percent-off-Cool-Summer!",
+      "slug": "10percent-off-Cool-Summer!-2",
       "taxCategory": {
         "id": "3b52cdd8-c767-4c98-923f-a269e01a6ff2",
         "typeId": "tax-category"

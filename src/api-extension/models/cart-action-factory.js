@@ -93,6 +93,8 @@ class CartActionFactory {
 
     this._customType = new SetCustomTypeBuilder(CartActionFactory.getInitialFields(cart));
     this._customType.cartType();
+
+    this._slugIndex = 0;
   }
 
   /**
@@ -217,6 +219,8 @@ class CartActionFactory {
     if (triggeredByCoupon) {
       slugName = slugName.concat('-', triggeredByCoupon);
     }
+
+    slugName += `-${this._slugIndex++}`;
 
     builder
       .name(this._lang, effect.props.name)
