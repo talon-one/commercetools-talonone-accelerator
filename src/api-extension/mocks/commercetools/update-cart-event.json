@@ -2194,7 +2194,7 @@
             "centAmount": -13950,
             "fractionDigits": 2
           },
-          "slug": "10percent-off",
+          "slug": "10percent-off-0",
           "quantity": 1,
           "discountedPricePerQuantity": [],
           "taxCategory": {
@@ -2259,7 +2259,7 @@
             "centAmount": -6975,
             "fractionDigits": 2
           },
-          "slug": "5percent-off",
+          "slug": "5percent-off-1",
           "quantity": 1,
           "discountedPricePerQuantity": [],
           "taxCategory": {
