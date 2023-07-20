@@ -2,7 +2,7 @@
 
 [![✅ Tests](https://github.com/talon-one/commercetools-talonone-accelerator/actions/workflows/test.yml/badge.svg?branch=master)](https://github.com/talon-one/commercetools-talonone-accelerator/actions/workflows/test.yml) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.0-4baaaa.svg)](CODE_OF_CONDUCT.md)
 
-The Talon.One's [commercetools](https://commercetools.com) accelerator allows you to integrate the Talon.One Promotion Engine into your commercetools Commerce Platform.
+The Talon.One's [commercetools](https://commercetools.com) accelerator allows you to integrate the Talon.One Promotion Engine with your commercetools Commerce Platform.
 
 **Important:** This commercetools accelerator is experimental and is best suited for use in proof-of-concept or simulation projects, not in production environments.
 
