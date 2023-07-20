@@ -2,27 +2,30 @@
 
 [![✅ Tests](https://github.com/talon-one/commercetools-talonone-accelerator/actions/workflows/test.yml/badge.svg?branch=master)](https://github.com/talon-one/commercetools-talonone-accelerator/actions/workflows/test.yml) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.0-4baaaa.svg)](CODE_OF_CONDUCT.md)
 
-The Talon.One's [commercetools](https://commercetools.com) accelerator allows you to integrate the Talon.One Promotion Engine into your commercetools Commerce Platform.
+The Talon.One's [commercetools](https://commercetools.com) accelerator allows you to integrate the Talon.One Promotion Engine with your commercetools Commerce Platform.
 
-- [Requirements](#requirements)
-- [Capabilities](#capabilities)
-- [Getting started](#getting-started)
-  - [Installing the tools](#installing-the-tools)
-  - [Creating the `.env` file](#creating-the-env-file)
-  - [Choosing the platform](#choosing-the-platform)
-    - [Using AWS](#using-aws)
-    - [Using GCP](#using-gcp)
-      - [Example](#example)
-  - [Editing the shared variables](#editing-the-shared-variables)
-  - [Creating types in commercetools](#creating-types-in-commercetools)
-  - [Creating the API extension in commercetools](#creating-the-api-extension-in-commercetools)
-    - [Deleting an extension](#deleting-an-extension)
-  - [Deploying an application](#deploying-an-application)
-  - [Mapping attributes between commercetools and Talon.One](#mapping-attributes-between-commercetools-and-talonone)
-- [Testing your integration](#testing-your-integration)
-- [Related topics](#related-topics)
-- [Contributing](#contributing)
-- [Code of Conduct](#code-of-conduct)
+**Important:** This commercetools accelerator is experimental and is best suited for use in proof-of-concept or simulation projects, not in production environments.
+
+- [commercetools accelerator](#commercetools-accelerator)
+  - [Requirements](#requirements)
+  - [Capabilities](#capabilities)
+  - [Getting started](#getting-started)
+    - [Installing the tools](#installing-the-tools)
+    - [Creating the `.env` file](#creating-the-env-file)
+    - [Choosing the platform](#choosing-the-platform)
+      - [Using AWS](#using-aws)
+      - [Using GCP](#using-gcp)
+        - [Example](#example)
+    - [Editing the shared variables](#editing-the-shared-variables)
+    - [Creating types in commercetools](#creating-types-in-commercetools)
+    - [Creating the API extension in commercetools](#creating-the-api-extension-in-commercetools)
+      - [Deleting an extension](#deleting-an-extension)
+    - [Deploying an application](#deploying-an-application)
+    - [Mapping attributes between commercetools and Talon.One](#mapping-attributes-between-commercetools-and-talonone)
+  - [Testing your integration](#testing-your-integration)
+  - [Related topics](#related-topics)
+  - [Contributing](#contributing)
+  - [Code of Conduct](#code-of-conduct)
 
 ## Requirements
 
